@@ -25,57 +25,17 @@
 #import "videoViewController.h"
 
 @interface videoViewController ()
-    @property NSMutableArray *videosMetaData;
-    @property BOOL metaDataLoaded;
-   // @property NSInteger *videoCategoryIndex;
-    @property NSDictionary *config;
+    
 
 
 @end
 
 @implementation videoViewController
-    @synthesize videosMetaData = _videosMetaData;
-    @synthesize metaDataLoaded = _metaDataLoaded;
-   // @synthesize videoCategoryIndex = _videoCategoryIndex;
-    @synthesize config = _config;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-        //_metaDataLoaded = NO;
-       // _videosMetaData = [NSMutableArray new];
-        //_videoCategories = [NSMutableArray new];
-       
-        /*
-        NSMutableArray *musicVideos = [NSMutableArray new];
-        for (int i = 0; i < 3; i++) {
-            [musicVideos addObject:[NSString stringWithFormat:@"V5MWyVAUbI0"]];
-        }
-        [_videoCategories addObject:musicVideos];
-        
-        NSMutableArray *ComedySkits = [NSMutableArray new];
-        for (int i = 0; i < 5; i++) {
-            [ComedySkits addObject:[NSString stringWithFormat:@"V5MWyVAUbI0"]];
-        }
-        [_videoCategories addObject:ComedySkits];
-        
-        NSMutableArray *vLogs = [NSMutableArray new];
-        for (int i = 0; i < 10; i++) {
-            [vLogs addObject:[NSString stringWithFormat:@"V5MWyVAUbI0"]];
-        }
-        [_videoCategories addObject:vLogs];
-         
-        
-        NSString *configFilePath = [[NSBundle mainBundle] pathForResource:@"youtubeConfig" ofType:@"plist"];
-    _config = [NSDictionary dictionaryWithContentsOfFile:configFilePath];
-    _videoCategories = [_config objectForKey:@"videosCategories"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"configFinishedLoading" object:nil];
-        */
-        
-        
-    //j,_videoCategories = [_config objectForKey:@"videosCategories"];
     }
     return self;
 }
@@ -83,15 +43,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _videosMetaData = [NSMutableArray new];
     _videoCategories = [NSMutableArray new];
-    _metaDataLoaded = NO;
     
-    ConfigManager *conn = [ConfigManager sharedManager];
+   
     _videoCategories = [[[ConfigManager sharedManager] shortFilmsConfig] objectForKey:@"videosCategories"];
-                                                      
-    NSInteger i = _segmentedControl.selectedSegmentIndex;
-    NSArray *videoCategory = [_videoCategories objectAtIndex:i];
     
     RKObjectManager *youtubeAPImanager = [self youtubeAPIManager];
     RKObjectMapping *youtubeMapping = [self youtubeMapping];
@@ -102,16 +57,7 @@
                                                                                       statusCodes:nil];
     [youtubeAPImanager addResponseDescriptor:responeDecriptior];
     
-    [self downloadVideosMetaData:videoCategory];
-
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"videoMetaDataFinishedLoading"
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      _metaDataLoaded = YES;
-                                                      [self.tableView reloadData];
-                                                  }];
     
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -176,47 +122,8 @@
     return videoMapping;
 }
 
--(void)downloadVideosMetaData:(NSArray *)videos
-{
-    //NSArray *videos = [_config objectForKey:@"videos"];
-    
-    NSMutableString *videoParam = [NSMutableString new];
-    for (NSString *videoid in videos) {
-        [videoParam appendString:[NSString stringWithFormat:@"%@,", videoid]];
-    }
-    
-    NSString *apiKey = [NSString stringWithUTF8String:kAPIKEY];
-    NSDictionary *queryParams;
-    queryParams = [NSDictionary dictionaryWithObjectsAndKeys:videoParam, @"id", @"snippet,player", @"part", apiKey, @"key", nil];
-    
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager getObjectsAtPath:@"v3/videos" parameters:queryParams
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSLog(@"objects[%d]", [[mappingResult array] count]);
-                                [_videosMetaData addObject:[mappingResult array]];
-                                
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"videoMetaDataFinishedLoading" object:nil];
-                                
-                                
-                                //video *v = (video *)_videos[0];
-                                //NSLog(@"video id:%@ thumbnail-url:%@", v.ID, [[v.snippet.thumbnails[0] objectForKey:@"high"] objectForKey:@"url"]);
-                                //NSLog(@"video player url:%@", v.player.embedHtml);
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                NSLog(@"Error: %@", [error localizedDescription]);
-                            }];
-    
-}
-
-
-
-
 -(void)changeCategory
 {
-    if ([_videosMetaData count] == 3) {
-        [self.tableView reloadData];
-        return;
-    }
     [self.tableView reloadData];
 }
 
@@ -276,9 +183,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    NSInteger videoCategory = _segmentedControl.selectedSegmentIndex;
+    NSInteger sectionIndex = _segmentedControl.selectedSegmentIndex;
     
-   return [[_videoCategories objectAtIndex:videoCategory] count];
+   return [[_videoCategories objectAtIndex:sectionIndex] count];
     
     
 }
@@ -292,8 +199,8 @@
     }
     cell.imageView.image = [UIImage imageNamed:@"photo3.jpg"];
     
-    NSInteger videoCategoryIndex = _segmentedControl.selectedSegmentIndex;
-    NSString *videoID = [[_videoCategories objectAtIndex:videoCategoryIndex] objectAtIndex:indexPath.row];
+    NSInteger sectionIndex = _segmentedControl.selectedSegmentIndex;
+    NSString *videoID = [[_videoCategories objectAtIndex:sectionIndex] objectAtIndex:indexPath.row];
     
     NSString *apiKey = [NSString stringWithUTF8String:kAPIKEY];
     NSDictionary *queryParams;
@@ -302,11 +209,10 @@
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
     [objectManager getObjectsAtPath:@"v3/videos" parameters:queryParams
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSLog(@"objects[%d]", [[mappingResult array] count]);
+        
                                 video *v = (video *)[mappingResult array][0];
                                 
                                 [cell.userButton setText:v.snippet.title];
-                               
                                 cell.imageView.imageURL = [NSURL URLWithString:[[v.snippet.thumbnails[0] objectForKey:@"medium"] objectForKey:@"url"]];
 
                             }
