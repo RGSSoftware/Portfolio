@@ -334,6 +334,11 @@
     return 35.0f;
 }
 
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

@@ -17,6 +17,7 @@
 #import "galleryViewController.h"
 //#import "RGViewController.h"
 #import "SideMenuViewController.h"
+#import "ContactViewController.h"
 #import "MFSideMenu.h"
 
 @implementation RGSAppDelegate
@@ -73,7 +74,10 @@
     [splashScreen.view addSubview:mainLogo];
     //splashScreen.backgroundColor = [UIColor whiteColor];
     [MBProgressHUD showHUDAddedTo:splashScreen.view animated:YES];
-    [self.window setRootViewController:splashScreen];
+    
+    
+   // [self.window setRootViewController:splashScreen];
+    [self.window setRootViewController:[ContactViewController new]];
     [self.window makeKeyAndVisible];
     
      [[NSNotificationCenter defaultCenter] addObserverForName:@"shortFilmConfigFinishedLoading"
@@ -82,7 +86,7 @@
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashScreen.view animated:YES];
                                                       
-                                                      [self setupNavigationControllerApp];
+                                                      //[self setupNavigationControllerApp];
                                                   }];
     
     

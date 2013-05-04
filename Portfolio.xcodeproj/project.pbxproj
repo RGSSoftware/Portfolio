@@ -69,7 +69,9 @@
 		22702DD4172A3508009EDE31 /* stack_of_photos-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD3172A3508009EDE31 /* stack_of_photos-64.png */; };
 		22702DD9172A37B7009EDE31 /* sidebarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD8172A37B7009EDE31 /* sidebarCell.xib */; };
 		22702DE3172A3DA4009EDE31 /* sidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22702DE2172A3DA4009EDE31 /* sidebarCell.m */; };
-		228B9C3316F09227002E2884 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3216F09227002E2884 /* View.xib */; };
+		22704E5F17335897009B5708 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22704E5D17335897009B5708 /* ContactViewController.m */; };
+		22704E6017335897009B5708 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22704E5E17335897009B5708 /* ContactViewController.xib */; };
+		22704E621734E903009B5708 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22704E611734E903009B5708 /* MessageUI.framework */; };
 		228B9C3516F0934E002E2884 /* StartPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3416F0934E002E2884 /* StartPage.xib */; };
 		228B9C3716F09B3B002E2884 /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3616F09B3B002E2884 /* About.xib */; };
 		228B9C3916F0A035002E2884 /* email.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3816F0A035002E2884 /* email.xib */; };
@@ -216,7 +218,10 @@
 		22702DD8172A37B7009EDE31 /* sidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sidebarCell.xib; sourceTree = "<group>"; };
 		22702DE1172A3DA4009EDE31 /* sidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sidebarCell.h; path = ../sidebarCell.h; sourceTree = "<group>"; };
 		22702DE2172A3DA4009EDE31 /* sidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sidebarCell.m; path = ../sidebarCell.m; sourceTree = "<group>"; };
-		228B9C3216F09227002E2884 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		22704E5C17335897009B5708 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		22704E5D17335897009B5708 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		22704E5E17335897009B5708 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		22704E611734E903009B5708 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		228B9C3416F0934E002E2884 /* StartPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartPage.xib; sourceTree = "<group>"; };
 		228B9C3616F09B3B002E2884 /* About.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
 		228B9C3816F0A035002E2884 /* email.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = email.xib; sourceTree = "<group>"; };
@@ -255,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22704E621734E903009B5708 /* MessageUI.framework in Frameworks */,
 				222FCF4F170433AB006A93C7 /* libRestKit.a in Frameworks */,
 				222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */,
 				222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */,
@@ -283,6 +289,10 @@
 		2201571C16E034CF00918611 = {
 			isa = PBXGroup;
 			children = (
+				22704E611734E903009B5708 /* MessageUI.framework */,
+				22704E5C17335897009B5708 /* ContactViewController.h */,
+				22704E5D17335897009B5708 /* ContactViewController.m */,
+				22704E5E17335897009B5708 /* ContactViewController.xib */,
 				222FCF3E17043331006A93C7 /* RestKit.xcodeproj */,
 				222FCF101703CA1B006A93C7 /* youtubeConfig.plist */,
 				222FCF5417054FFB006A93C7 /* youtubeConfig.json */,
@@ -354,7 +364,6 @@
 				2201575D16E036C200918611 /* SideMenuViewController.m */,
 				2201576816E03D1A00918611 /* HorizontalLineView.h */,
 				2201576916E03D1B00918611 /* HorizontalLineView.m */,
-				228B9C3216F09227002E2884 /* View.xib */,
 				228B9C3A16F0A78F002E2884 /* services.xib */,
 				228B9C3816F0A035002E2884 /* email.xib */,
 				228B9C3416F0934E002E2884 /* StartPage.xib */,
@@ -558,7 +567,6 @@
 				2201576316E0379A00918611 /* youtubeViewController.xib in Resources */,
 				2201576F16E0926E00918611 /* galleryViewController.xib in Resources */,
 				2201577316E0A29A00918611 /* betceemay.jpg in Resources */,
-				228B9C3316F09227002E2884 /* View.xib in Resources */,
 				228B9C3516F0934E002E2884 /* StartPage.xib in Resources */,
 				228B9C3716F09B3B002E2884 /* About.xib in Resources */,
 				228B9C3916F0A035002E2884 /* email.xib in Resources */,
@@ -596,6 +604,7 @@
 				2222E552172D94D300347D06 /* stack_of_photos-128.png in Resources */,
 				2222E556172D96A400347D06 /* stack_of_photos-512copy.png in Resources */,
 				2222E5601730C92700347D06 /* JVO-logo.png in Resources */,
+				22704E6017335897009B5708 /* ContactViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +635,7 @@
 				22702DE3172A3DA4009EDE31 /* sidebarCell.m in Sources */,
 				2222E5591730A4DC00347D06 /* ConfigManager.m in Sources */,
 				2222E55C1730B08200347D06 /* MBProgressHUD.m in Sources */,
+				22704E5F17335897009B5708 /* ContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
