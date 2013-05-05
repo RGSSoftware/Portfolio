@@ -10,6 +10,7 @@
 
 @interface ContactViewController ()
 
+    @property(nonatomic, strong)NSDictionary *config;
 @end
 
 @implementation ContactViewController
@@ -19,6 +20,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:
+                          @"contactConfig" ofType:@"plist"];
+        _config = [[NSDictionary alloc] initWithContentsOfFile:path];
+        
     }
     return self;
 }
@@ -56,7 +62,7 @@
 
 - (IBAction)facebook:(id)sender {
     
-    NSURL *url = [NSURL URLWithString:@"https://www.facebook.com/jujubaby7"];
+    NSURL *url = [NSURL URLWithString:[[_config objectForKey:@"contactInfo"] objectForKey:@"facebook"]];
     
     if (![[UIApplication sharedApplication] openURL:url])
     {
