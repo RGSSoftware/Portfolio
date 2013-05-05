@@ -240,6 +240,15 @@
     return 35.0f;
 }
 
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
