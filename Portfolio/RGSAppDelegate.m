@@ -18,6 +18,7 @@
 //#import "RGViewController.h"
 #import "SideMenuViewController.h"
 #import "ContactViewController.h"
+#import "aboutMeViewController.h"
 #import "MFSideMenu.h"
 
 @implementation RGSAppDelegate
@@ -59,7 +60,7 @@
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
     
-    [ConfigManager sharedManager];
+    //[ConfigManager sharedManager];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
@@ -74,8 +75,8 @@
     [MBProgressHUD showHUDAddedTo:splashScreen.view animated:YES];
     
     
-    [self.window setRootViewController:splashScreen];
-    //[self.window setRootViewController:[ContactViewController new]];
+    //[self.window setRootViewController:splashScreen];
+    [self.window setRootViewController:[aboutMeViewController new]];
     [self.window makeKeyAndVisible];
     
      [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigsFinishedDownLoading"
@@ -85,7 +86,7 @@
                                                       [MBProgressHUD hideAllHUDsForView:splashScreen.view animated:YES];
                                                       
                                                       
-                                                      [self setupNavigationControllerApp];
+                                                      //[self setupNavigationControllerApp];
                                                   }];
     
     

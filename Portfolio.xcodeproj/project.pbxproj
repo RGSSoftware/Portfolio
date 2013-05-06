@@ -75,8 +75,9 @@
 		22704E661736D605009B5708 /* contactConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22704E651736D605009B5708 /* contactConfig.plist */; };
 		22704E6D1737BBF4009B5708 /* aboutMeConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */; };
 		22704E731738310F009B5708 /* aboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22704E721738310E009B5708 /* aboutMeViewController.m */; };
+		22704E7517383EEF009B5708 /* Business Cards Front.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22704E7417383EEF009B5708 /* Business Cards Front.jpg */; };
 		228B9C3516F0934E002E2884 /* StartPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3416F0934E002E2884 /* StartPage.xib */; };
-		228B9C3716F09B3B002E2884 /*  aboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3616F09B3B002E2884 /*  aboutMeViewController.xib */; };
+		228B9C3716F09B3B002E2884 /* aboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */; };
 		228B9C3916F0A035002E2884 /* email.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3816F0A035002E2884 /* email.xib */; };
 		228B9C3B16F0A78F002E2884 /* services.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3A16F0A78F002E2884 /* services.xib */; };
 		228B9C4216FA4B4F002E2884 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4116FA4B4F002E2884 /* AudioToolbox.framework */; };
@@ -229,8 +230,9 @@
 		22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aboutMeConfig.plist; sourceTree = "<group>"; };
 		22704E711738310E009B5708 /* aboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutMeViewController.h; sourceTree = "<group>"; };
 		22704E721738310E009B5708 /* aboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutMeViewController.m; sourceTree = "<group>"; };
+		22704E7417383EEF009B5708 /* Business Cards Front.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Business Cards Front.jpg"; sourceTree = "<group>"; };
 		228B9C3416F0934E002E2884 /* StartPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartPage.xib; sourceTree = "<group>"; };
-		228B9C3616F09B3B002E2884 /*  aboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = " aboutMeViewController.xib"; sourceTree = "<group>"; };
+		228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutMeViewController.xib; sourceTree = "<group>"; };
 		228B9C3816F0A035002E2884 /* email.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = email.xib; sourceTree = "<group>"; };
 		228B9C3A16F0A78F002E2884 /* services.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = services.xib; sourceTree = "<group>"; };
 		228B9C4116FA4B4F002E2884 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -376,9 +378,9 @@
 				228B9C3A16F0A78F002E2884 /* services.xib */,
 				228B9C3816F0A035002E2884 /* email.xib */,
 				228B9C3416F0934E002E2884 /* StartPage.xib */,
-				228B9C3616F09B3B002E2884 /*  aboutMeViewController.xib */,
 				22704E711738310E009B5708 /* aboutMeViewController.h */,
 				22704E721738310E009B5708 /* aboutMeViewController.m */,
+				228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */,
 				22702DE1172A3DA4009EDE31 /* sidebarCell.h */,
 				22702DE2172A3DA4009EDE31 /* sidebarCell.m */,
 				22702DD8172A37B7009EDE31 /* sidebarCell.xib */,
@@ -426,6 +428,7 @@
 		2201575216E0354900918611 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				22704E7417383EEF009B5708 /* Business Cards Front.jpg */,
 				2222E55F1730C92600347D06 /* JVO-logo.png */,
 				2222E527172A716B00347D06 /* dark_fish_skin@2X.png */,
 				2222E528172A716B00347D06 /* dark_fish_skin.png */,
@@ -579,7 +582,7 @@
 				2201576F16E0926E00918611 /* galleryViewController.xib in Resources */,
 				2201577316E0A29A00918611 /* betceemay.jpg in Resources */,
 				228B9C3516F0934E002E2884 /* StartPage.xib in Resources */,
-				228B9C3716F09B3B002E2884 /*  aboutMeViewController.xib in Resources */,
+				228B9C3716F09B3B002E2884 /* aboutMeViewController.xib in Resources */,
 				228B9C3916F0A035002E2884 /* email.xib in Resources */,
 				228B9C3B16F0A78F002E2884 /* services.xib in Resources */,
 				222FCF0B16FE438A006A93C7 /* PhotoDetailViewController.xib in Resources */,
@@ -618,6 +621,7 @@
 				22704E6017335897009B5708 /* ContactViewController.xib in Resources */,
 				22704E661736D605009B5708 /* contactConfig.plist in Resources */,
 				22704E6D1737BBF4009B5708 /* aboutMeConfig.plist in Resources */,
+				22704E7517383EEF009B5708 /* Business Cards Front.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
