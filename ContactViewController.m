@@ -7,6 +7,7 @@
 //
 
 #import "ContactViewController.h"
+#import "ConfigManager.h"
 
 @interface ContactViewController ()
 
@@ -46,15 +47,16 @@
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:Nil];
     
 }
 - (IBAction)email:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
     MFMailComposeViewController *emailController = [MFMailComposeViewController new];
     emailController.mailComposeDelegate = self;
+    [emailController setToRecipients:[NSArray arrayWithObject:[[[[ConfigManager sharedManager] contactConfig] objectForKey:@"contactInfo"] objectForKey:@"emailAddress"]]];
     [emailController setSubject:@"Helpppppp!!!!"];
-        [self presentModalViewController:emailController animated:YES];
+        [self presentViewController:emailController animated:YES completion:Nil];
     } else {
         NSLog(@"Device is unable to send email in its current state.");
     }
@@ -62,7 +64,7 @@
 
 - (IBAction)facebook:(id)sender {
     
-    NSURL *url = [NSURL URLWithString:[[_config objectForKey:@"contactInfo"] objectForKey:@"facebook"]];
+    NSURL *url = [NSURL URLWithString:[[[[ConfigManager sharedManager] contactConfig] objectForKey:@"contactInfo"] objectForKey:@"facebook"]];
     
     if (![[UIApplication sharedApplication] openURL:url])
     {

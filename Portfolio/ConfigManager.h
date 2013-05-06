@@ -11,7 +11,8 @@
 @interface ConfigManager : NSObject
 
 @property(nonatomic, strong)NSDictionary *shortFilmsConfig;
+@property(nonatomic, strong)NSDictionary *contactConfig;
 
-+ (id)sharedManager;
++ (ConfigManager *)sharedManager;
 
 @end

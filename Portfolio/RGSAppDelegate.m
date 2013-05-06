@@ -61,11 +61,9 @@
     
     [ConfigManager sharedManager];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     
-    //"shortFilmConfigFinishedLoading"
     
-   
+       
 
     UIViewController *splashScreen = [UIViewController new];
     splashScreen.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wide_rectangles.png"]];
@@ -76,17 +74,18 @@
     [MBProgressHUD showHUDAddedTo:splashScreen.view animated:YES];
     
     
-   // [self.window setRootViewController:splashScreen];
-    [self.window setRootViewController:[ContactViewController new]];
+    [self.window setRootViewController:splashScreen];
+    //[self.window setRootViewController:[ContactViewController new]];
     [self.window makeKeyAndVisible];
     
-     [[NSNotificationCenter defaultCenter] addObserverForName:@"shortFilmConfigFinishedLoading"
+     [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigsFinishedDownLoading"
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashScreen.view animated:YES];
                                                       
-                                                      //[self setupNavigationControllerApp];
+                                                      
+                                                      [self setupNavigationControllerApp];
                                                   }];
     
     
