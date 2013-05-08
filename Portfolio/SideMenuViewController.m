@@ -12,7 +12,8 @@
 #import "galleryViewController.h"
 //#import "tableViewController.h"
 #import "videoViewController.h"
-
+#import "ContactViewController.h"
+#import "aboutMeViewController.h"
 //#import "sidebarCell.h"
 
 @implementation SideMenuViewController
@@ -34,7 +35,8 @@
     _viewControllers = [NSMutableArray array];
     [_viewControllers addObject:[galleryViewController new]];
     [_viewControllers addObject:[videoViewController new]];
-    //[_viewControllers addObject:[tableViewController new]];
+    [_viewControllers addObject:[ContactViewController new]];
+    [_viewControllers addObject:[aboutMeViewController new]];
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"debut_dark.png"]];
