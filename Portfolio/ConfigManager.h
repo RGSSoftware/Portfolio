@@ -12,6 +12,7 @@
 
 @property(nonatomic, strong)NSDictionary *shortFilmsConfig;
 @property(nonatomic, strong)NSDictionary *contactConfig;
+@property(nonatomic, strong)NSDictionary *aboutMeConfig;
 
 + (ConfigManager *)sharedManager;
 

@@ -20,6 +20,7 @@
            
             _shortFilmsConfig = [self downloadedShortFilmsConfig];
             _contactConfig = [self downloadedContactConfig];
+            _aboutMeConfig = [self downloadedAboutMeConfig];
            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ConfigsFinishedDownLoading" object:nil];
@@ -75,5 +76,23 @@
     
     return contactConfig;
 
+};
+
+-(id)downloadedAboutMeConfig
+{
+    NSDictionary *aboutMeConfig = [NSDictionary new];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Config"];
+    [query whereKey:@"controller" equalTo:@"aboutMe"];
+    
+    NSArray *objects = [query findObjects];
+    PFFile *file = [[objects objectAtIndex:0] objectForKey:@"file"];
+    NSData *data = [file getData];
+    
+    NSLog(@"Succesfully retrieved AboutMe config.");
+    aboutMeConfig = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
+    
+    return aboutMeConfig;
+    
 };
 @end

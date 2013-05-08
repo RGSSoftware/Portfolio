@@ -7,6 +7,8 @@
 //
 
 #import "aboutMeViewController.h"
+#import "ConfigManager.h"
+#import <Parse/Parse.h>
 
 @interface aboutMeViewController ()
 
@@ -18,7 +20,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+       
+        
     }
     return self;
 }
@@ -27,6 +31,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // Custom initialization
+    
+    [self downloadedBioPhoto];
+    [_bioText setText:[[[ConfigManager sharedManager] aboutMeConfig] objectForKey:@"bio"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +43,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)downloadedBioPhoto
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"bioPicture"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if(!error){
+            NSLog(@"%@", @"Successfully retrieved bio photo.");
+            PFFile *file = [[objects objectAtIndex:0] objectForKey:@"pic"];
+            _bioImage.file = file;
+            [_bioImage loadInBackground];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+     
+}
 @end
