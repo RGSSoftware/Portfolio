@@ -59,7 +59,7 @@
             [testPhotos addObject:testPh];
         }
          */    
-    [self downloadPhotos];
+    
         
     }
     return self;
@@ -70,6 +70,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self downloadPhotos];
     
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
     _collectionView.backgroundColor = [UIColor whiteColor];

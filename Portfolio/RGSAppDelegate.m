@@ -25,8 +25,8 @@
 
 @synthesize window = _window;
 
-- (videoViewController *)demoController {
-    return [videoViewController new];
+- (galleryViewController *)demoController {
+    return [galleryViewController new];
 }
 
 - (UINavigationController *)navigationController {

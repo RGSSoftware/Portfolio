@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
 @interface photoCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *userButton;
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) AsyncImageView *imageView;
 @property (nonatomic, strong) UIButton *photoButton;
 
 
