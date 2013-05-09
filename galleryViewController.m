@@ -9,6 +9,7 @@
 #import "galleryViewController.h"
 #import "PhotoDetailViewController.h"
 #import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 
 @interface galleryViewController ()
 @property(nonatomic)NSInteger imageLeftWidth;
@@ -34,7 +35,7 @@
         
         _row = 1;
         
-        _photos = [NSMutableArray array];
+        
         
       /*
         NSMutableArray *sigutrePhotos = [NSMutableArray array];
@@ -61,6 +62,7 @@
          */    
     
         
+        
     }
     return self;
   
@@ -70,10 +72,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self downloadPhotos];
+    
     
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
     _collectionView.backgroundColor = [UIColor whiteColor];
+    
+    if (!_photos) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSMutableArray *downloadPhotos = [self downloadPhotos];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                _photos = [NSMutableArray arrayWithArray:downloadPhotos];
+                [self.collectionView reloadData];
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            });
+        });
+    }
     
    
     
@@ -83,32 +102,32 @@
     
 }
 
--(void)downloadPhotos
+-(NSMutableArray *)downloadPhotos
 {
+    NSMutableArray *photos = [NSMutableArray new];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"photos"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if(!error){
-            NSLog(@"Successfully retrieved %d photos.", objects.count);
-            NSMutableArray *sigutrePhotos = [NSMutableArray array];
-            [_photos addObject:sigutrePhotos];
+    NSArray *objects = [query findObjects];
+    
+    NSLog(@"Successfully retrieved %d photos.", objects.count);
+    NSMutableArray *sigutrePhotos = [NSMutableArray array];
+    [photos addObject:sigutrePhotos];
             
-            NSMutableArray *rawPhotos = [NSMutableArray array];
-            [_photos addObject:rawPhotos];
+    NSMutableArray *rawPhotos = [NSMutableArray array];
+    [photos addObject:rawPhotos];
             
-            for (PFObject *eachobject in objects) {
-                BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
-                
-                if (isPhotoRaw) {
-                    [rawPhotos addObject:eachobject];
-                }else {
-                    [sigutrePhotos addObject:eachobject];
-                }
-            }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+    for (PFObject *eachobject in objects) {
+        BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
+
+        if (isPhotoRaw) {
+            [rawPhotos addObject:eachobject];
+        }else {
+            [sigutrePhotos addObject:eachobject];
         }
-    }];
+    }
+    return photos;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -119,19 +138,30 @@
 #pragma mark - UICollectionView Datasource
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
+    if (!_photos) {
+        return 0;
+    } else {
     NSArray *sectionArray = [_photos objectAtIndex:section];
     return [sectionArray count];
+    }
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    if (!_photos) {
+        return 0;
+    } else {
     return [_photos count];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
-    
+
+    if (!_photos) {
+        return cell;
+    } else {
     PFObject *photo = _photos[indexPath.section][indexPath.row];
     PFFile *photoThumbnail = [photo objectForKey:@"tumbnail"];
     
@@ -146,6 +176,7 @@
     [cell.contentView addSubview:imageView];
     
     return cell;
+    }
 }
 
 #pragma mark - UICollectionView Delegate
