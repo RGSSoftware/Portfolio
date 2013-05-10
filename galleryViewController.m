@@ -37,29 +37,7 @@
         
         
         
-      /*
-        NSMutableArray *sigutrePhotos = [NSMutableArray array];
-        for (NSInteger i = 0; i < 9; i++) {
-            UIImage *sigPh = [UIImage imageNamed:@"baby.jpg"];
-            [sigutrePhotos addObject:sigPh];
-        }
-        [_photos addObject:sigutrePhotos];
-    
-        NSMutableArray *rawPhotos = [NSMutableArray array];
-        for (NSInteger i = 0; i < 15; i++) {
-            UIImage *rawPh = [UIImage imageNamed:@"betceemay.jpg"];
-            [rawPhotos addObject:rawPh];
-        }
-        
-        NSArray *filenames = [NSArray arrayWithObjects:@"photo15.jpg",@"photo345.jpg", @"photo640.jpg", @"photo153.jpg", @"photo230.jpg", @"photo2640.jpg", nil];
-        NSMutableArray *testPhotos = [NSMutableArray array];
-        [_photos addObject:testPhotos];
-        
-        for (int i = 0; i < [filenames count]; i++) {
-            UIImage *testPh = [UIImage imageNamed:filenames[i]];
-            [testPhotos addObject:testPh];
-        }
-         */    
+          
     
         
         
@@ -75,7 +53,7 @@
     
     
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-    _collectionView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1];
     
     if (!_photos) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
