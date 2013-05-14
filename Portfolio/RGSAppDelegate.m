@@ -60,7 +60,7 @@
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
     
-  //  [ConfigManager sharedManager];
+   [ConfigManager sharedManager];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
@@ -75,8 +75,8 @@
     [MBProgressHUD showHUDAddedTo:splashScreen.view animated:YES];
     
     
-   // [self.window setRootViewController:splashScreen];
-    [self.window setRootViewController:[galleryViewController new]];
+    [self.window setRootViewController:splashScreen];
+    //[self.window setRootViewController:[galleryViewController new]];
     [self.window makeKeyAndVisible];
     
      [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigsFinishedDownLoading"
@@ -85,8 +85,8 @@
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashScreen.view animated:YES];
                                                       
-                                                      
-                                                      [self setupNavigationControllerApp];
+                                                      [self.window setRootViewController:[galleryViewController new]];
+                                                      //[self setupNavigationControllerApp];
                                                   }];
     
     

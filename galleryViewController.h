@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MFSideMenuController.h"
+#import "PintCollectionViewLayout.h"
+#import "PNCollectionCellBackgroundView.h"
 
 #define rowTotalWidth 310
 #define imageHeightMax 125
 
 
-@interface galleryViewController : MFSideMenuController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-{
-    NSMutableArray *_photos;
-}
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@interface galleryViewController : UIViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
+
 
 @end

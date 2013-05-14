@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import <dispatch/dispatch.h>
 
+#import "ImageSize.h"
+
 @implementation ConfigManager
 
 -(id)init
@@ -17,10 +19,16 @@
     if ((self = [super init])) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-           
+           /*
             _shortFilmsConfig = [self downloadedShortFilmsConfig];
             _contactConfig = [self downloadedContactConfig];
             _aboutMeConfig = [self downloadedAboutMeConfig];
+            */
+            _galleryConfig = [NSMutableDictionary new];
+            [self getphotosSizes];
+            NSLog(@"sigutrePhotosSize count:%d", [[_galleryConfig objectForKey:@"sigutrePhotosSizes"] count]);
+            NSLog(@"photos count:%@", [_galleryConfig objectForKey:@"photosCount"]);
+            
            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ConfigsFinishedDownLoading" object:nil];
@@ -95,4 +103,46 @@
     return aboutMeConfig;
     
 };
+
+-(void)getphotosSizes
+{
+    //NSMutableArray *imageSizes = [NSMutableArray array];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"photos"];
+    NSArray *objects = [query findObjects];
+
+    
+    [_galleryConfig setObject:[NSNumber numberWithInteger:objects.count] forKey:@"photosCount"];
+    
+    NSLog(@"Successfully retrieved %d photos.", objects.count);
+    NSMutableArray *sigutrePhotos = [NSMutableArray array];
+    [_galleryConfig setObject:sigutrePhotos forKey:@"sigutrePhotosSizes"];
+    
+    NSMutableArray *rawPhotosSizes = [NSMutableArray array];
+    [_galleryConfig setObject:sigutrePhotos forKey:@"rawPhotosSizes"];
+    
+    for (PFObject *eachobject in objects) {
+        BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
+        
+        if (isPhotoRaw) {
+            NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
+            UIImage *image = [UIImage imageWithData:objectData];
+            
+            ImageSize *imageSize = [ImageSize new];
+            imageSize.height = image.size.height;
+            imageSize.width = image.size.width;
+            [rawPhotosSizes addObject:imageSize];
+        }else {
+            NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
+            UIImage *image = [UIImage imageWithData:objectData];
+            
+            ImageSize *imageSize = [ImageSize new];
+            imageSize.height = image.size.height;
+            imageSize.width = image.size.width;
+            [sigutrePhotos addObject:imageSize];
+            
+        }
+    }
+    
+}
 @end
