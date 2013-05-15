@@ -28,7 +28,6 @@
 		2201576416E0379A00918611 /* youtubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576216E0379A00918611 /* youtubeViewController.m */; };
 		2201576A16E03D1B00918611 /* HorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576916E03D1B00918611 /* HorizontalLineView.m */; };
 		2201576E16E0926E00918611 /* galleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576C16E0926E00918611 /* galleryViewController.m */; };
-		2201576F16E0926E00918611 /* galleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2201576D16E0926E00918611 /* galleryViewController.xib */; };
 		2201577316E0A29A00918611 /* betceemay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2201577116E0A29A00918611 /* betceemay.jpg */; };
 		2222E529172A716B00347D06 /* dark_fish_skin@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E527172A716B00347D06 /* dark_fish_skin@2X.png */; };
 		2222E52A172A716B00347D06 /* dark_fish_skin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E528172A716B00347D06 /* dark_fish_skin.png */; };
@@ -177,7 +176,6 @@
 		2201576916E03D1B00918611 /* HorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalLineView.m; sourceTree = "<group>"; };
 		2201576B16E0926D00918611 /* galleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = galleryViewController.h; path = ../galleryViewController.h; sourceTree = "<group>"; };
 		2201576C16E0926E00918611 /* galleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = galleryViewController.m; path = ../galleryViewController.m; sourceTree = "<group>"; };
-		2201576D16E0926E00918611 /* galleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = galleryViewController.xib; path = ../galleryViewController.xib; sourceTree = "<group>"; };
 		2201577116E0A29A00918611 /* betceemay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = betceemay.jpg; path = ../MFSideMenu/betceemay.jpg; sourceTree = "<group>"; };
 		2222E527172A716B00347D06 /* dark_fish_skin@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark_fish_skin@2X.png"; sourceTree = "<group>"; };
 		2222E528172A716B00347D06 /* dark_fish_skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark_fish_skin.png; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				2201576C16E0926E00918611 /* galleryViewController.m */,
 				2237B6571741F9A600BBB09F /* ImageSize.h */,
 				2237B6581741F9A600BBB09F /* ImageSize.m */,
-				2201576D16E0926E00918611 /* galleryViewController.xib */,
 				2235CA92173F89E3008C7282 /* PNCollectionCellBackgroundView.h */,
 				2235CA93173F89E3008C7282 /* PNCollectionCellBackgroundView.m */,
 				2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */,
@@ -594,7 +591,6 @@
 				2201575B16E0354A00918611 /* menu-icon.png in Resources */,
 				2201575C16E0354A00918611 /* menu-icon@2x.png in Resources */,
 				2201576316E0379A00918611 /* youtubeViewController.xib in Resources */,
-				2201576F16E0926E00918611 /* galleryViewController.xib in Resources */,
 				2201577316E0A29A00918611 /* betceemay.jpg in Resources */,
 				228B9C3516F0934E002E2884 /* StartPage.xib in Resources */,
 				228B9C3716F09B3B002E2884 /* aboutMeViewController.xib in Resources */,

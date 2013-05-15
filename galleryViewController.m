@@ -10,12 +10,14 @@
 #import "PhotoDetailViewController.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "SDSegmentedControl.h"
 #import "ImageSize.h"
 
 #import "ConfigManager.h"
 
 @interface galleryViewController ()
-@property (strong,nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong,nonatomic) UICollectionView *collectionView;
+@property (strong,nonatomic) UISegmentedControl *categorySegment;
 @property (strong,nonatomic) NSMutableArray *photoSizes;
 @property (strong,nonatomic) NSMutableArray *photoObjects;
 @end
@@ -43,10 +45,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _categorySegment = [[SDSegmentedControl alloc] initWithItems:@[@"sigutre", @"raw"]];
+    _categorySegment.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25.f);
+    [_categorySegment addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_categorySegment];
+    NSLog(@"%d", _categorySegment.selectedSegmentIndex);
     
-    
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-    self.view.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1];
+    [self initCollectionView];
     
     if (!_photoObjects) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -67,6 +72,27 @@
     }
     
     
+   // [self setupMenuBarButtonItems];
+    _photoSizes = [NSMutableArray array];
+    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"sigutrePhotosSizes"]];
+    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"rawPhotosSizes"]];
+
+}
+-(void)changeCategory
+{
+    NSLog(@"tounched %d", _categorySegment.selectedSegmentIndex);
+    _collectionView = nil;
+    [self initCollectionView];
+    [self.collectionView reloadData];
+}
+
+-(void)initCollectionView
+{
+    _collectionView = [[UICollectionView  alloc] initWithFrame:CGRectMake(0, 25.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 25.f) collectionViewLayout:[PintCollectionViewLayout new]] ;
+    [self.view addSubview:_collectionView];
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
+    self.view.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1];
+    
     self.collectionView.collectionViewLayout = [PintCollectionViewLayout new];
     // set up delegates
     self.collectionView.delegate = self;
@@ -76,12 +102,6 @@
     PintCollectionViewLayout* customLayout = (PintCollectionViewLayout*)self.collectionView.collectionViewLayout;
     customLayout.interitemSpacing = 4.0;
     customLayout.lineSpacing = 4.0;
-    
-   // [self setupMenuBarButtonItems];
-    _photoSizes = [NSMutableArray array];
-    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"rawPhotosSizes"]];
-    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"sigutrePhotosSizes"]];
-
 }
 
 -(NSMutableArray *)downloadPhotos
@@ -163,6 +183,8 @@
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
 {
+    
+   
     ImageSize *imagesize = (ImageSize *)[[_photoSizes objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     CGSize rctSizeOriginal = CGSizeMake(imagesize.width, imagesize.height);
     double scale = (kCollectioncCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
@@ -178,6 +200,7 @@
 
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    
     return [[_photoSizes objectAtIndex:section] count];
 }
 
@@ -188,14 +211,16 @@
 
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
     
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
+     
     // remove subviews from previous usage of this cell
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     if (!_photoObjects) {
         return cell;
     } else {
+        
         PFObject *photo = _photoObjects[indexPath.section][indexPath.row];
         PFFile *photoThumbnail = [photo objectForKey:@"tumbnail"];
         
