@@ -24,9 +24,6 @@
 		2201575B16E0354A00918611 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575616E0354900918611 /* menu-icon.png */; };
 		2201575C16E0354A00918611 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575716E0354900918611 /* menu-icon@2x.png */; };
 		2201575F16E036C200918611 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201575D16E036C200918611 /* SideMenuViewController.m */; };
-		2201576316E0379A00918611 /* youtubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2201576016E0379A00918611 /* youtubeViewController.xib */; };
-		2201576416E0379A00918611 /* youtubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576216E0379A00918611 /* youtubeViewController.m */; };
-		2201576A16E03D1B00918611 /* HorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576916E03D1B00918611 /* HorizontalLineView.m */; };
 		2201576E16E0926E00918611 /* galleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201576C16E0926E00918611 /* galleryViewController.m */; };
 		2201577316E0A29A00918611 /* betceemay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2201577116E0A29A00918611 /* betceemay.jpg */; };
 		2222E529172A716B00347D06 /* dark_fish_skin@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E527172A716B00347D06 /* dark_fish_skin@2X.png */; };
@@ -62,10 +59,9 @@
 		222FCF181704249E006A93C7 /* snippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF171704249C006A93C7 /* snippet.m */; };
 		222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222FCF2B17042C34006A93C7 /* CoreData.framework */; };
 		222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 222FCF2D17042DD9006A93C7 /* libxml2.dylib */; };
-		222FCF4F170433AB006A93C7 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 222FCF4617043332006A93C7 /* libRestKit.a */; };
 		222FCF53170509FA006A93C7 /* player.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF52170509F9006A93C7 /* player.m */; };
 		222FCF5517054FFD006A93C7 /* youtubeConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 222FCF5417054FFB006A93C7 /* youtubeConfig.json */; };
-		2235CA9C173F89E3008C7282 /* PNCollectionCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA93173F89E3008C7282 /* PNCollectionCellBackgroundView.m */; };
+		2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2231D86F174F19E2001CE97B /* libRestKit.a */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		2237B6591741F9A600BBB09F /* ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237B6581741F9A600BBB09F /* ImageSize.m */; };
 		22702DD4172A3508009EDE31 /* stack_of_photos-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD3172A3508009EDE31 /* stack_of_photos-64.png */; };
@@ -78,10 +74,7 @@
 		22704E6D1737BBF4009B5708 /* aboutMeConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */; };
 		22704E731738310F009B5708 /* aboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22704E721738310E009B5708 /* aboutMeViewController.m */; };
 		22704E7517383EEF009B5708 /* Business Cards Front.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22704E7417383EEF009B5708 /* Business Cards Front.jpg */; };
-		228B9C3516F0934E002E2884 /* StartPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3416F0934E002E2884 /* StartPage.xib */; };
 		228B9C3716F09B3B002E2884 /* aboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */; };
-		228B9C3916F0A035002E2884 /* email.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3816F0A035002E2884 /* email.xib */; };
-		228B9C3B16F0A78F002E2884 /* services.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C3A16F0A78F002E2884 /* services.xib */; };
 		228B9C4216FA4B4F002E2884 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4116FA4B4F002E2884 /* AudioToolbox.framework */; };
 		228B9C4416FA4B6B002E2884 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4316FA4B6B002E2884 /* CFNetwork.framework */; };
 		228B9C4A16FA4BB6002E2884 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4516FA4BB5002E2884 /* CoreLocation.framework */; };
@@ -107,37 +100,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		222FCF4517043332006A93C7 /* PBXContainerItemProxy */ = {
+		2231D86E174F19E2001CE97B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+			containerPortal = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D1614564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		222FCF4717043332006A93C7 /* PBXContainerItemProxy */ = {
+		2231D870174F19E2001CE97B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+			containerPortal = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D2614564E820060A5C5;
 			remoteInfo = RestKitTests;
 		};
-		222FCF4917043332006A93C7 /* PBXContainerItemProxy */ = {
+		2231D872174F19E2001CE97B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+			containerPortal = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E62145651060060A5C5;
 			remoteInfo = RestKitFramework;
 		};
-		222FCF4B17043332006A93C7 /* PBXContainerItemProxy */ = {
+		2231D874174F19E2001CE97B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+			containerPortal = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E78145651060060A5C5;
 			remoteInfo = RestKitFrameworkTests;
 		};
-		222FCF4D17043376006A93C7 /* PBXContainerItemProxy */ = {
+		2231D876174F19ED001CE97B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+			containerPortal = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
@@ -169,11 +162,6 @@
 		2201575716E0354900918611 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
 		2201575D16E036C200918611 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		2201575E16E036C200918611 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
-		2201576016E0379A00918611 /* youtubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = youtubeViewController.xib; sourceTree = "<group>"; };
-		2201576116E0379A00918611 /* youtubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = youtubeViewController.h; sourceTree = "<group>"; };
-		2201576216E0379A00918611 /* youtubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = youtubeViewController.m; sourceTree = "<group>"; };
-		2201576816E03D1A00918611 /* HorizontalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalLineView.h; sourceTree = "<group>"; };
-		2201576916E03D1B00918611 /* HorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalLineView.m; sourceTree = "<group>"; };
 		2201576B16E0926D00918611 /* galleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = galleryViewController.h; path = ../galleryViewController.h; sourceTree = "<group>"; };
 		2201576C16E0926E00918611 /* galleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = galleryViewController.m; path = ../galleryViewController.m; sourceTree = "<group>"; };
 		2201577116E0A29A00918611 /* betceemay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = betceemay.jpg; path = ../MFSideMenu/betceemay.jpg; sourceTree = "<group>"; };
@@ -208,19 +196,17 @@
 		222FCF0716FE4389006A93C7 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
 		222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
-		222FCF101703CA1B006A93C7 /* youtubeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = youtubeConfig.plist; sourceTree = "<group>"; };
+		222FCF101703CA1B006A93C7 /* youtubeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = youtubeConfig.plist; path = ../youtubeConfig.plist; sourceTree = "<group>"; };
 		222FCF1317042396006A93C7 /* video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video.h; sourceTree = "<group>"; };
 		222FCF1417042398006A93C7 /* video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = video.m; sourceTree = "<group>"; };
 		222FCF161704249B006A93C7 /* snippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snippet.h; sourceTree = "<group>"; };
 		222FCF171704249C006A93C7 /* snippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snippet.m; sourceTree = "<group>"; };
 		222FCF2B17042C34006A93C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		222FCF2D17042DD9006A93C7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		222FCF3E17043331006A93C7 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../CoffeeShop/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		222FCF51170509F6006A93C7 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
 		222FCF52170509F9006A93C7 /* player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = player.m; sourceTree = "<group>"; };
-		222FCF5417054FFB006A93C7 /* youtubeConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = youtubeConfig.json; sourceTree = "<group>"; };
-		2235CA92173F89E3008C7282 /* PNCollectionCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNCollectionCellBackgroundView.h; sourceTree = "<group>"; };
-		2235CA93173F89E3008C7282 /* PNCollectionCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNCollectionCellBackgroundView.m; sourceTree = "<group>"; };
+		222FCF5417054FFB006A93C7 /* youtubeConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = youtubeConfig.json; path = ../youtubeConfig.json; sourceTree = "<group>"; };
+		2231D867174F19E1001CE97B /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
 		2237B6571741F9A600BBB09F /* ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSize.h; sourceTree = "<group>"; };
@@ -229,19 +215,16 @@
 		22702DD8172A37B7009EDE31 /* sidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sidebarCell.xib; sourceTree = "<group>"; };
 		22702DE1172A3DA4009EDE31 /* sidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sidebarCell.h; path = ../sidebarCell.h; sourceTree = "<group>"; };
 		22702DE2172A3DA4009EDE31 /* sidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sidebarCell.m; path = ../sidebarCell.m; sourceTree = "<group>"; };
-		22704E5C17335897009B5708 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
-		22704E5D17335897009B5708 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		22704E5E17335897009B5708 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		22704E5C17335897009B5708 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactViewController.h; path = ../ContactViewController.h; sourceTree = "<group>"; };
+		22704E5D17335897009B5708 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactViewController.m; path = ../ContactViewController.m; sourceTree = "<group>"; };
+		22704E5E17335897009B5708 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactViewController.xib; path = ../ContactViewController.xib; sourceTree = "<group>"; };
 		22704E611734E903009B5708 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		22704E651736D605009B5708 /* contactConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = contactConfig.plist; sourceTree = "<group>"; };
-		22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aboutMeConfig.plist; sourceTree = "<group>"; };
+		22704E651736D605009B5708 /* contactConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = contactConfig.plist; path = ../contactConfig.plist; sourceTree = "<group>"; };
+		22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = aboutMeConfig.plist; path = ../aboutMeConfig.plist; sourceTree = "<group>"; };
 		22704E711738310E009B5708 /* aboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutMeViewController.h; sourceTree = "<group>"; };
 		22704E721738310E009B5708 /* aboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutMeViewController.m; sourceTree = "<group>"; };
 		22704E7417383EEF009B5708 /* Business Cards Front.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Business Cards Front.jpg"; sourceTree = "<group>"; };
-		228B9C3416F0934E002E2884 /* StartPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartPage.xib; sourceTree = "<group>"; };
 		228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutMeViewController.xib; sourceTree = "<group>"; };
-		228B9C3816F0A035002E2884 /* email.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = email.xib; sourceTree = "<group>"; };
-		228B9C3A16F0A78F002E2884 /* services.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = services.xib; sourceTree = "<group>"; };
 		228B9C4116FA4B4F002E2884 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		228B9C4316FA4B6B002E2884 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		228B9C4516FA4BB5002E2884 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -276,8 +259,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */,
 				22704E621734E903009B5708 /* MessageUI.framework in Frameworks */,
-				222FCF4F170433AB006A93C7 /* libRestKit.a in Frameworks */,
 				222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */,
 				222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */,
 				228B9C4416FA4B6B002E2884 /* CFNetwork.framework in Frameworks */,
@@ -305,15 +288,6 @@
 		2201571C16E034CF00918611 = {
 			isa = PBXGroup;
 			children = (
-				22704E611734E903009B5708 /* MessageUI.framework */,
-				22704E5C17335897009B5708 /* ContactViewController.h */,
-				22704E5D17335897009B5708 /* ContactViewController.m */,
-				22704E5E17335897009B5708 /* ContactViewController.xib */,
-				222FCF3E17043331006A93C7 /* RestKit.xcodeproj */,
-				222FCF101703CA1B006A93C7 /* youtubeConfig.plist */,
-				222FCF5417054FFB006A93C7 /* youtubeConfig.json */,
-				22704E651736D605009B5708 /* contactConfig.plist */,
-				22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */,
 				2201572E16E034CF00918611 /* Portfolio */,
 				2201572716E034CF00918611 /* Frameworks */,
 				2201572616E034CF00918611 /* Products */,
@@ -331,6 +305,7 @@
 		2201572716E034CF00918611 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22704E611734E903009B5708 /* MessageUI.framework */,
 				222FCF2D17042DD9006A93C7 /* libxml2.dylib */,
 				222FCF2B17042C34006A93C7 /* CoreData.framework */,
 				228B9C5516FA522C002E2884 /* Accounts.framework */,
@@ -370,35 +345,28 @@
 				222FCF52170509F9006A93C7 /* player.m */,
 				22D676C317260CEF00E3858D /* photoCell.h */,
 				22D676C417260CEF00E3858D /* photoCell.m */,
+				2237B6571741F9A600BBB09F /* ImageSize.h */,
+				2237B6581741F9A600BBB09F /* ImageSize.m */,
 				22D676C617262B3F00E3858D /* videoViewController.h */,
 				22D676C717262B3F00E3858D /* videoViewController.m */,
 				2201576B16E0926D00918611 /* galleryViewController.h */,
 				2201576C16E0926E00918611 /* galleryViewController.m */,
-				2237B6571741F9A600BBB09F /* ImageSize.h */,
-				2237B6581741F9A600BBB09F /* ImageSize.m */,
-				2235CA92173F89E3008C7282 /* PNCollectionCellBackgroundView.h */,
-				2235CA93173F89E3008C7282 /* PNCollectionCellBackgroundView.m */,
 				2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */,
 				2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */,
 				222FCF0716FE4389006A93C7 /* PhotoDetailViewController.h */,
 				222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */,
 				222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */,
-				2201575E16E036C200918611 /* SideMenuViewController.h */,
-				2201575D16E036C200918611 /* SideMenuViewController.m */,
-				2201576816E03D1A00918611 /* HorizontalLineView.h */,
-				2201576916E03D1B00918611 /* HorizontalLineView.m */,
-				228B9C3A16F0A78F002E2884 /* services.xib */,
-				228B9C3816F0A035002E2884 /* email.xib */,
-				228B9C3416F0934E002E2884 /* StartPage.xib */,
 				22704E711738310E009B5708 /* aboutMeViewController.h */,
 				22704E721738310E009B5708 /* aboutMeViewController.m */,
 				228B9C3616F09B3B002E2884 /* aboutMeViewController.xib */,
+				22704E5C17335897009B5708 /* ContactViewController.h */,
+				22704E5D17335897009B5708 /* ContactViewController.m */,
+				22704E5E17335897009B5708 /* ContactViewController.xib */,
+				2201575E16E036C200918611 /* SideMenuViewController.h */,
+				2201575D16E036C200918611 /* SideMenuViewController.m */,
 				22702DE1172A3DA4009EDE31 /* sidebarCell.h */,
 				22702DE2172A3DA4009EDE31 /* sidebarCell.m */,
 				22702DD8172A37B7009EDE31 /* sidebarCell.xib */,
-				2201576116E0379A00918611 /* youtubeViewController.h */,
-				2201576016E0379A00918611 /* youtubeViewController.xib */,
-				2201576216E0379A00918611 /* youtubeViewController.m */,
 				2201572F16E034CF00918611 /* Supporting Files */,
 			);
 			path = Portfolio;
@@ -407,6 +375,11 @@
 		2201572F16E034CF00918611 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2231D867174F19E1001CE97B /* RestKit.xcodeproj */,
+				222FCF101703CA1B006A93C7 /* youtubeConfig.plist */,
+				222FCF5417054FFB006A93C7 /* youtubeConfig.json */,
+				22704E651736D605009B5708 /* contactConfig.plist */,
+				22704E6C1737BBF3009B5708 /* aboutMeConfig.plist */,
 				22D676BD17260C7400E3858D /* SDSegmentedControl.h */,
 				22D676BE17260C7400E3858D /* SDSegmentedControl.m */,
 				22D676D11727C5A900E3858D /* AsyncImageView.h */,
@@ -480,13 +453,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		222FCF3F17043331006A93C7 /* Products */ = {
+		2231D868174F19E1001CE97B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				222FCF4617043332006A93C7 /* libRestKit.a */,
-				222FCF4817043332006A93C7 /* RestKitTests.octest */,
-				222FCF4A17043332006A93C7 /* RestKit.framework */,
-				222FCF4C17043332006A93C7 /* RestKitFrameworkTests.octest */,
+				2231D86F174F19E2001CE97B /* libRestKit.a */,
+				2231D871174F19E2001CE97B /* RestKitTests.octest */,
+				2231D873174F19E2001CE97B /* RestKit.framework */,
+				2231D875174F19E2001CE97B /* RestKitFrameworkTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -505,7 +478,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				222FCF4E17043376006A93C7 /* PBXTargetDependency */,
+				2231D877174F19ED001CE97B /* PBXTargetDependency */,
 			);
 			name = Portfolio;
 			productName = Portfolio;
@@ -534,8 +507,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 222FCF3F17043331006A93C7 /* Products */;
-					ProjectRef = 222FCF3E17043331006A93C7 /* RestKit.xcodeproj */;
+					ProductGroup = 2231D868174F19E1001CE97B /* Products */;
+					ProjectRef = 2231D867174F19E1001CE97B /* RestKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -546,32 +519,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		222FCF4617043332006A93C7 /* libRestKit.a */ = {
+		2231D86F174F19E2001CE97B /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKit.a;
-			remoteRef = 222FCF4517043332006A93C7 /* PBXContainerItemProxy */;
+			remoteRef = 2231D86E174F19E2001CE97B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		222FCF4817043332006A93C7 /* RestKitTests.octest */ = {
+		2231D871174F19E2001CE97B /* RestKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitTests.octest;
-			remoteRef = 222FCF4717043332006A93C7 /* PBXContainerItemProxy */;
+			remoteRef = 2231D870174F19E2001CE97B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		222FCF4A17043332006A93C7 /* RestKit.framework */ = {
+		2231D873174F19E2001CE97B /* RestKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RestKit.framework;
-			remoteRef = 222FCF4917043332006A93C7 /* PBXContainerItemProxy */;
+			remoteRef = 2231D872174F19E2001CE97B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		222FCF4C17043332006A93C7 /* RestKitFrameworkTests.octest */ = {
+		2231D875174F19E2001CE97B /* RestKitFrameworkTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitFrameworkTests.octest;
-			remoteRef = 222FCF4B17043332006A93C7 /* PBXContainerItemProxy */;
+			remoteRef = 2231D874174F19E2001CE97B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -590,12 +563,8 @@
 				2201575A16E0354A00918611 /* Default-568h@2x.png in Resources */,
 				2201575B16E0354A00918611 /* menu-icon.png in Resources */,
 				2201575C16E0354A00918611 /* menu-icon@2x.png in Resources */,
-				2201576316E0379A00918611 /* youtubeViewController.xib in Resources */,
 				2201577316E0A29A00918611 /* betceemay.jpg in Resources */,
-				228B9C3516F0934E002E2884 /* StartPage.xib in Resources */,
 				228B9C3716F09B3B002E2884 /* aboutMeViewController.xib in Resources */,
-				228B9C3916F0A035002E2884 /* email.xib in Resources */,
-				228B9C3B16F0A78F002E2884 /* services.xib in Resources */,
 				222FCF0B16FE438A006A93C7 /* PhotoDetailViewController.xib in Resources */,
 				222FCF111703CA1C006A93C7 /* youtubeConfig.plist in Resources */,
 				222FCF5517054FFD006A93C7 /* youtubeConfig.json in Resources */,
@@ -648,8 +617,6 @@
 				2201575016E0352500918611 /* MFSideMenu.m in Sources */,
 				2201575116E0352500918611 /* UINavigationController+MFSideMenu.m in Sources */,
 				2201575F16E036C200918611 /* SideMenuViewController.m in Sources */,
-				2201576416E0379A00918611 /* youtubeViewController.m in Sources */,
-				2201576A16E03D1B00918611 /* HorizontalLineView.m in Sources */,
 				2201576E16E0926E00918611 /* galleryViewController.m in Sources */,
 				22FD023716E5BE7B00DC4014 /* MFSideMenuController.m in Sources */,
 				222FCF0A16FE438A006A93C7 /* PhotoDetailViewController.m in Sources */,
@@ -665,7 +632,6 @@
 				2222E55C1730B08200347D06 /* MBProgressHUD.m in Sources */,
 				22704E5F17335897009B5708 /* ContactViewController.m in Sources */,
 				22704E731738310F009B5708 /* aboutMeViewController.m in Sources */,
-				2235CA9C173F89E3008C7282 /* PNCollectionCellBackgroundView.m in Sources */,
 				2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */,
 				2237B6591741F9A600BBB09F /* ImageSize.m in Sources */,
 			);
@@ -674,10 +640,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		222FCF4E17043376006A93C7 /* PBXTargetDependency */ = {
+		2231D877174F19ED001CE97B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
-			targetProxy = 222FCF4D17043376006A93C7 /* PBXContainerItemProxy */;
+			targetProxy = 2231D876174F19ED001CE97B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MFSideMenuController.h"
 #import "PintCollectionViewLayout.h"
-#import "PNCollectionCellBackgroundView.h"
+
 
 #define rowTotalWidth 310
 #define imageHeightMax 125

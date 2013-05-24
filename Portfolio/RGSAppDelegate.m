@@ -13,7 +13,7 @@
 #import "ConfigManager.h"
 
 #import "videoViewController.h"
-#import "youtubeViewController.h"
+
 #import "galleryViewController.h"
 //#import "RGViewController.h"
 #import "SideMenuViewController.h"
