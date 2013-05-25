@@ -5,6 +5,7 @@
 //  Created by PC on 4/30/13.
 //  Copyright (c) 2013 PC. All rights reserved.
 //
+#import "DEBUGHeader.h"
 
 #import "ConfigManager.h"
 #import <Parse/Parse.h>
@@ -17,7 +18,39 @@
 -(id)init
 {
     if ((self = [super init])) {
+#ifdef MYDEBUG
+        NSLog(@"DEBUG MODE");
         
+        _galleryConfig = [NSMutableDictionary new];
+        
+        NSMutableArray *sigutrePhotos = [NSMutableArray array];
+        [_galleryConfig setObject:sigutrePhotos forKey:@"sigutrePhotosSizes"];
+        
+        NSMutableArray *rawPhotosSizes = [NSMutableArray array];
+        [_galleryConfig setObject:sigutrePhotos forKey:@"rawPhotosSizes"];
+        for (int i = 0; i < 9; i++) {
+            UIImage *image = [UIImage imageNamed:@"photo3.jpg"];
+            
+            ImageSize *imageSize = [ImageSize new];
+            imageSize.height = image.size.height;
+            imageSize.width = image.size.width;
+            [rawPhotosSizes addObject:imageSize];
+            sigutrePhotos[i] = imageSize;
+        }
+        
+        [_galleryConfig setObject:[NSNumber numberWithInteger:(rawPhotosSizes.count + sigutrePhotos.count)] forKey:@"photosCount"];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            sleep(.5);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ConfigsFinishedDownLoading" object:nil];
+            });
+        });
+
+
+        
+
+#else
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            /*
             _shortFilmsConfig = [self downloadedShortFilmsConfig];
@@ -35,6 +68,7 @@
             });
         });
         
+#endif /* MYDEBUG */
        
     }
     return self;

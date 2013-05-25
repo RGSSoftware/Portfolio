@@ -5,6 +5,7 @@
 //  Created by PC on 3/1/13.
 //  Copyright (c) 2013 PC. All rights reserved.
 //
+#import "DEBUGHeader.h"
 
 #import "galleryViewController.h"
 #import "PhotoDetailViewController.h"
@@ -30,6 +31,8 @@
 #define kCollectioncCloumnWidth 158.0
 #define kCollectionNumCloumn 2
 
+
+
 @implementation galleryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,6 +56,9 @@
     
     [self initCollectionView];
     
+#ifdef MYDEBUG
+    /* JUST SKIPPING DOWNLOADING OF IMAGES */
+#else
     if (!_photoObjects) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -70,7 +76,7 @@
             });
         });
     }
-    
+#endif /* MYDEBUG */
     
    // [self setupMenuBarButtonItems];
     _photoSizes = [NSMutableArray array];
@@ -217,7 +223,21 @@
     // remove subviews from previous usage of this cell
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    if (!_photoObjects) {
+#ifdef MYDEBUG
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo3.jpg"]];
+    CGSize rctSizeOriginal = imageView.image.size;
+    double scale = (cell.bounds.size.width  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
+    CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
+    imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,rctSizeFinal.width,rctSizeFinal.height);
+    
+    
+    [cell.contentView addSubview:imageView];
+    
+    return cell;
+    
+#else
+     if (!_photoObjects) {
         return cell;
     } else {
         
@@ -239,6 +259,9 @@
     }
     
     return cell;
+#endif /* MYDEUG */
+    
+   
 }
 
 @end

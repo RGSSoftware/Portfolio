@@ -204,6 +204,7 @@
 		2231D87A1750ADCF001CE97B /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		2231D8AE17513D70001CE97B /* DEBUGHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUGHeader.h; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
 		2237B6571741F9A600BBB09F /* ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSize.h; sourceTree = "<group>"; };
@@ -328,6 +329,7 @@
 			children = (
 				2201575216E0354900918611 /* Images */,
 				2201573716E034CF00918611 /* RGSAppDelegate.h */,
+				2231D8AE17513D70001CE97B /* DEBUGHeader.h */,
 				2201573816E034CF00918611 /* RGSAppDelegate.m */,
 				2222E5571730A4DC00347D06 /* ConfigManager.h */,
 				2222E5581730A4DC00347D06 /* ConfigManager.m */,

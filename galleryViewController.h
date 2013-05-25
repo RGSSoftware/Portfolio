@@ -11,8 +11,7 @@
 #import "PintCollectionViewLayout.h"
 
 
-#define rowTotalWidth 310
-#define imageHeightMax 125
+
 
 
 @interface galleryViewController : UIViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
