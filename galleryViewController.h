@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MFSideMenuController.h"
+
 #import "PintCollectionViewLayout.h"
 
 

@@ -13,79 +13,49 @@
 #import "ConfigManager.h"
 
 #import "videoViewController.h"
-
-#import "galleryViewController.h"
-//#import "RGViewController.h"
-#import "SideMenuViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
+
+#import "galleryViewController.h"
+#import "SideMenuViewController.h"
+
 #import "MFSideMenu.h"
 
 @implementation RGSAppDelegate
 
-@synthesize window = _window;
-
-- (galleryViewController *)demoController {
-    return [galleryViewController new];
-}
-
-- (UINavigationController *)navigationController {
-    return [[UINavigationController alloc]
-            initWithRootViewController:[self demoController]];
-}
-
-- (MFSideMenu *)sideMenu {
-    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
-    
-    UINavigationController *navigationController = [self navigationController];
-    
-    
-    MFSideMenu *sideMenu = [MFSideMenu menuWithNavigationController:navigationController
-                                             leftSideMenuController:leftSideMenuController
-                                            rightSideMenuController:nil];
-    
-    leftSideMenuController.sideMenu = sideMenu;
-    
-    
-    return sideMenu;
-}
-
-- (void) setupNavigationControllerApp {
-    self.window.rootViewController = [self sideMenu].navigationController;
-    [self.window makeKeyAndVisible];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
     
    [ConfigManager sharedManager];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIViewController *splashSreenController = [self splashScreenController];
+    [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
+    self.window.rootViewController = splashSreenController;
     
     
        
-
-    UIViewController *splashScreen = [UIViewController new];
-    splashScreen.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wide_rectangles.png"]];
-    UIImageView *mainLogo = [[UIImageView alloc] initWithFrame:CGRectMake(15.f, 50.f, self.window.bounds.size.width-20, 120.f)];
-    mainLogo.image = [UIImage imageNamed:@"JVO-logo.png"];
-    [splashScreen.view addSubview:mainLogo];
-    //splashScreen.backgroundColor = [UIColor whiteColor];
-    [MBProgressHUD showHUDAddedTo:splashScreen.view animated:YES];
-    
-    
-    [self.window setRootViewController:splashScreen];
-    //[self.window setRootViewController:[galleryViewController new]];
     [self.window makeKeyAndVisible];
     
      [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigsFinishedDownLoading"
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
-                                                      [MBProgressHUD hideAllHUDsForView:splashScreen.view animated:YES];
+                                                      [MBProgressHUD hideAllHUDsForView:splashSreenController.view animated:YES];
                                                       
-                                                      [self.window setRootViewController:[galleryViewController new]];
+    SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
+    SideMenuViewController *rightMenuViewController = [[SideMenuViewController alloc] init];
+    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                    containerWithCenterViewController:[self navigationController]
+                                                    leftMenuViewController:leftMenuViewController
+                                                    rightMenuViewController:nil];
+
+                                                       self.window.rootViewController = container;
+                                                      [self.window makeKeyAndVisible];
+                                                      //[self.window setRootViewController:[galleryViewController new]];
                                                       //[self setupNavigationControllerApp];
                                                   }];
     
@@ -93,6 +63,23 @@
     
     
     return YES;
+}
+
+- (UINavigationController *)navigationController
+{
+    return [[UINavigationController alloc]
+            initWithRootViewController:[galleryViewController new]];
+}
+
+-(UIViewController *)splashScreenController
+{
+     UIViewController *splashScreen = [UIViewController new];
+    splashScreen.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wide_rectangles.png"]];
+    UIImageView *mainLogo = [[UIImageView alloc] initWithFrame:CGRectMake(15.f, 50.f, self.window.bounds.size.width-20, 120.f)];
+    mainLogo.image = [UIImage imageNamed:@"JVO-logo.png"];
+    [splashScreen.view addSubview:mainLogo];
+    
+    return splashScreen;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

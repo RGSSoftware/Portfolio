@@ -18,7 +18,7 @@
 
 @implementation SideMenuViewController
 
-@synthesize sideMenu;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -82,7 +82,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *viewcontroller = [_viewControllers objectAtIndex:indexPath.row];
-
+/*
     if ([self.sideMenu.navigationController.topViewController isKindOfClass:[viewcontroller class]]) {
         [self.sideMenu.navigationController popToRootViewControllerAnimated:YES];
         [self.sideMenu setMenuState:MFSideMenuStateClosed];
@@ -92,6 +92,7 @@
     [self.sideMenu setMenuState:MFSideMenuStateClosed];
     }
    
+ */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

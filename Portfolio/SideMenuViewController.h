@@ -12,6 +12,6 @@
     NSMutableArray *_viewControllers;
 }
 
-@property (nonatomic, assign) MFSideMenu *sideMenu;
+
 
 @end
