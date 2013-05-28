@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface sidebarCell : UIView
+@interface sidebarCell : UITableViewCell
+
 
 
 @end

@@ -61,6 +61,7 @@
 		222FCF5517054FFD006A93C7 /* youtubeConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 222FCF5417054FFB006A93C7 /* youtubeConfig.json */; };
 		2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2231D86F174F19E2001CE97B /* libRestKit.a */; };
 		2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */; };
+		2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8B31754160D001CE97B /* MenuBarButtons.m */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		2237B6591741F9A600BBB09F /* ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237B6581741F9A600BBB09F /* ImageSize.m */; };
 		22702DD4172A3508009EDE31 /* stack_of_photos-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD3172A3508009EDE31 /* stack_of_photos-64.png */; };
@@ -205,6 +206,8 @@
 		2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
 		2231D8AE17513D70001CE97B /* DEBUGHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUGHeader.h; sourceTree = "<group>"; };
+		2231D8B21754160D001CE97B /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
+		2231D8B31754160D001CE97B /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
 		2237B6571741F9A600BBB09F /* ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSize.h; sourceTree = "<group>"; };
@@ -255,14 +258,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */,
+				228B9C4C16FA4BB6002E2884 /* MobileCoreServices.framework in Frameworks */,
 				2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */,
 				22704E621734E903009B5708 /* MessageUI.framework in Frameworks */,
 				222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */,
 				222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */,
 				228B9C4416FA4B6B002E2884 /* CFNetwork.framework in Frameworks */,
-				228B9C4C16FA4BB6002E2884 /* MobileCoreServices.framework in Frameworks */,
 				22FD041516E72E5800DC4014 /* Security.framework in Frameworks */,
-				22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */,
 				228B9C5616FA522C002E2884 /* Accounts.framework in Frameworks */,
 				228B9C5416FA5209002E2884 /* Social.framework in Frameworks */,
 				228B9C5216FA51CE002E2884 /* AdSupport.framework in Frameworks */,
@@ -328,8 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				2201575216E0354900918611 /* Images */,
-				2201573716E034CF00918611 /* RGSAppDelegate.h */,
 				2231D8AE17513D70001CE97B /* DEBUGHeader.h */,
+				2201573716E034CF00918611 /* RGSAppDelegate.h */,
 				2201573816E034CF00918611 /* RGSAppDelegate.m */,
 				2222E5571730A4DC00347D06 /* ConfigManager.h */,
 				2222E5581730A4DC00347D06 /* ConfigManager.m */,
@@ -454,6 +457,8 @@
 				2231D87A1750ADCF001CE97B /* MFSideMenu.h */,
 				2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */,
 				2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */,
+				2231D8B21754160D001CE97B /* MenuBarButtons.h */,
+				2231D8B31754160D001CE97B /* MenuBarButtons.m */,
 			);
 			name = MFSideMenu;
 			path = Images/MFSideMenu;
@@ -627,6 +632,7 @@
 				2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */,
 				2237B6591741F9A600BBB09F /* ImageSize.m in Sources */,
 				2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */,
+				2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,6 @@
 
 #import "PintCollectionViewLayout.h"
 
-
-
-
-
 @interface galleryViewController : UIViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
 
 

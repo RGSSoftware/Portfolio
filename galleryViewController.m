@@ -7,18 +7,24 @@
 //
 #import "DEBUGHeader.h"
 
+#import "ImageSize.h"
+
 #import "galleryViewController.h"
 #import "PhotoDetailViewController.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 #import "SDSegmentedControl.h"
-#import "ImageSize.h"
+#import "MenuBarButtons.h"
+#import "MFSideMenuContainerViewController.h"
+
 
 #import "ConfigManager.h"
 
 @interface galleryViewController ()
 @property (strong,nonatomic) UICollectionView *collectionView;
+@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
 @property (strong,nonatomic) UISegmentedControl *categorySegment;
+
 @property (strong,nonatomic) NSMutableArray *photoSizes;
 @property (strong,nonatomic) NSMutableArray *photoObjects;
 @end
@@ -82,6 +88,10 @@
     _photoSizes = [NSMutableArray array];
     [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"sigutrePhotosSizes"]];
     [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"rawPhotosSizes"]];
+    
+    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
+    _menuBarButtons.setLeftBarButton = TRUE;
+    [_menuBarButtons setupMenuBarButtonItems];
 
 }
 -(void)changeCategory
@@ -263,5 +273,23 @@
     
    
 }
+#pragma mark - MenuBarButtonProcol Callbacks
+
+- (void)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)leftSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
+
+- (void)rightSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
+
 
 @end

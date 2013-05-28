@@ -7,6 +7,7 @@
 #import "MFSideMenu.h"
 
 #import "SideMenuViewController.h"
+#import "sidebarCell.h"
 
 //#import "youtubeViewController.h"
 #import "galleryViewController.h"
@@ -64,13 +65,13 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    sidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[sidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 70, 45)];
-    icon.image = [UIImage imageNamed:@"stack_of_photos-512copy.png"];
+
+    cell.i = [UIImage imageNamed:@"stack_of_photos-512copy.png"];
         
     [cell.contentView addSubview:icon];
    
