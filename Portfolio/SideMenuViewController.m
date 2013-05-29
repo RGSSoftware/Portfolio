@@ -49,10 +49,6 @@
     [_viewControllers addObject:[ContactViewController new]];
     [_viewControllers addObject:[videoViewController new]];
     
-    /*
-    _iconButtons = [@[@"AboutMe.png", @"pencilwrite.png", @"pencilblue.png", @"pencilwrite.png"] mutableCopy];
-    _desciptions = @[@"dlndl", @"fiodkn", @"dfjaldjf", @"fjofijo"];
-    */
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1];
     
@@ -62,8 +58,6 @@
     
    
     if (!_iconButtons) {
-        //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSArray *downloadIcons = [self downloadIcons];
             
@@ -73,12 +67,9 @@
                 
                 [self.tableView reloadData];
                 
-               // [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             });
         });
     }
-    
-    NSLog(@"inside view didLoad sidebar");
     
 }
 
@@ -152,7 +143,6 @@
         [navigationController popToRootViewControllerAnimated:YES];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
-         NSArray *controllers = [NSArray arrayWithObject:viewcontroller];
         navigationController.viewControllers = @[viewcontroller];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }

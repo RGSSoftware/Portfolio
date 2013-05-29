@@ -9,6 +9,6 @@
 #ifndef Portfolio_DEBUGHeader_h
 #define Portfolio_DEBUGHeader_h
 
-//#define MYDEBUG
+#define MYDEBUG
 
 #endif
