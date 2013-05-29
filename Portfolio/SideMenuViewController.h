@@ -9,7 +9,7 @@
 
 @interface SideMenuViewController : UITableViewController<UISearchBarDelegate>
 {
-    NSMutableArray *_viewControllers;
+
 }
 
 

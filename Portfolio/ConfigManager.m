@@ -49,11 +49,11 @@
 
 #else
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-           /*
+           
             _shortFilmsConfig = [self downloadedShortFilmsConfig];
             _contactConfig = [self downloadedContactConfig];
             _aboutMeConfig = [self downloadedAboutMeConfig];
-            */
+            
             _galleryConfig = [NSMutableDictionary new];
             [self getphotosSizes];
             NSLog(@"sigutrePhotosSize count:%d", [[_galleryConfig objectForKey:@"sigutrePhotosSizes"] count]);

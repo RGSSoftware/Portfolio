@@ -62,6 +62,10 @@
 		2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2231D86F174F19E2001CE97B /* libRestKit.a */; };
 		2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */; };
 		2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8B31754160D001CE97B /* MenuBarButtons.m */; };
+		2231D8BD17549F71001CE97B /* pencilwrite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8BA17549F6B001CE97B /* pencilwrite.png */; };
+		2231D8BE17549F71001CE97B /* pencilblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8BB17549F6D001CE97B /* pencilblue.png */; };
+		2231D8BF17549F71001CE97B /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8BC17549F6F001CE97B /* pencil.png */; };
+		2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8C41754B8CD001CE97B /* AboutMe.png */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		2237B6591741F9A600BBB09F /* ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237B6581741F9A600BBB09F /* ImageSize.m */; };
 		22702DD4172A3508009EDE31 /* stack_of_photos-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD3172A3508009EDE31 /* stack_of_photos-64.png */; };
@@ -208,6 +212,10 @@
 		2231D8AE17513D70001CE97B /* DEBUGHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUGHeader.h; sourceTree = "<group>"; };
 		2231D8B21754160D001CE97B /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
 		2231D8B31754160D001CE97B /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
+		2231D8BA17549F6B001CE97B /* pencilwrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencilwrite.png; sourceTree = "<group>"; };
+		2231D8BB17549F6D001CE97B /* pencilblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencilblue.png; sourceTree = "<group>"; };
+		2231D8BC17549F6F001CE97B /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		2231D8C41754B8CD001CE97B /* AboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutMe.png; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
 		2237B6571741F9A600BBB09F /* ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSize.h; sourceTree = "<group>"; };
@@ -402,6 +410,10 @@
 			children = (
 				22704E7417383EEF009B5708 /* Business Cards Front.jpg */,
 				2222E55F1730C92600347D06 /* JVO-logo.png */,
+				2231D8BA17549F6B001CE97B /* pencilwrite.png */,
+				2231D8BB17549F6D001CE97B /* pencilblue.png */,
+				2231D8BC17549F6F001CE97B /* pencil.png */,
+				2231D8C41754B8CD001CE97B /* AboutMe.png */,
 				2222E527172A716B00347D06 /* dark_fish_skin@2X.png */,
 				2222E528172A716B00347D06 /* dark_fish_skin.png */,
 				2222E547172A79E900347D06 /* debut_dark@2X.png */,
@@ -602,6 +614,10 @@
 				22704E661736D605009B5708 /* contactConfig.plist in Resources */,
 				22704E6D1737BBF4009B5708 /* aboutMeConfig.plist in Resources */,
 				22704E7517383EEF009B5708 /* Business Cards Front.jpg in Resources */,
+				2231D8BD17549F71001CE97B /* pencilwrite.png in Resources */,
+				2231D8BE17549F71001CE97B /* pencilblue.png in Resources */,
+				2231D8BF17549F71001CE97B /* pencil.png in Resources */,
+				2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

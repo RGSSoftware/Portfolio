@@ -4,22 +4,29 @@
 //
 //  Created by Michael Frederick on 3/19/12.
 
-#import "MFSideMenu.h"
+
 
 #import "SideMenuViewController.h"
 #import "sidebarCell.h"
 
-//#import "youtubeViewController.h"
+#import <Parse/Parse.h>
+
 #import "galleryViewController.h"
-//#import "tableViewController.h"
 #import "videoViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
-//#import "sidebarCell.h"
 
+#import "MFSideMenu.h"
+#import "MenuBarButtons.h"
+#import "MFSideMenuContainerViewController.h"
+
+@interface SideMenuViewController()
+@property NSMutableArray *viewControllers;
+@property NSMutableArray *iconButtons;
+@property NSArray *desciptions;
+
+@end
 @implementation SideMenuViewController
-
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,21 +41,74 @@
     [super viewDidLoad];
     
     _viewControllers = [NSMutableArray array];
-    [_viewControllers addObject:[galleryViewController new]];
-    [_viewControllers addObject:[videoViewController new]];
-    [_viewControllers addObject:[ContactViewController new]];
-    [_viewControllers addObject:[aboutMeViewController new]];
     
+    
+    [_viewControllers addObject:[videoViewController new]];
+    [_viewControllers addObject:[galleryViewController new]];
+    [_viewControllers addObject:[aboutMeViewController new]];
+    [_viewControllers addObject:[ContactViewController new]];
+    [_viewControllers addObject:[videoViewController new]];
+    
+    /*
+    _iconButtons = [@[@"AboutMe.png", @"pencilwrite.png", @"pencilblue.png", @"pencilwrite.png"] mutableCopy];
+    _desciptions = @[@"dlndl", @"fiodkn", @"dfjaldjf", @"fjofijo"];
+    */
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
-    texturedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"debut_dark.png"]];
+    texturedBackgroundView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1];
     
     self.tableView.backgroundView = texturedBackgroundView;
     //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
+   
+    if (!_iconButtons) {
+        //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSArray *downloadIcons = [self downloadIcons];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                _iconButtons = [NSMutableArray arrayWithArray:downloadIcons];
+                
+                [self.tableView reloadData];
+                
+               // [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            });
+        });
+    }
+    
+    NSLog(@"inside view didLoad sidebar");
     
 }
 
+-(NSArray *)downloadIcons
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"SideBarButtons"];
+    [query orderByAscending:@"order_number"];
+    NSArray *objects = [query findObjects];
+    
+    NSLog(@"Successfully retrieved %d icon objects.", objects.count);
+    
+    NSMutableArray *icons = [NSMutableArray new];
+    for (PFObject *eachobject in objects) {
+        NSMutableDictionary *buttons = [NSMutableDictionary new];
+        [icons addObject:buttons];
+        
+        PFFile *iconFile = [eachobject objectForKey:@"icon"];
+        NSData *iconData = [iconFile getData];
+        [buttons setObject:iconData forKey:@"iconData"];
+        
+        NSString *description = [eachobject objectForKey:@"description"];
+        [buttons setObject:description forKey:@"description"];
+        
+    }
+    
+    return icons;
+}
+- (MFSideMenuContainerViewController *)menuContainerViewController {
+    return (MFSideMenuContainerViewController *)self.parentViewController;
+}
 
 #pragma mark - UITableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,13 +129,15 @@
     if (cell == nil) {
         cell = [[sidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    if (!_iconButtons) {
+        return cell;
+    } else {
 
-
-    cell.i = [UIImage imageNamed:@"stack_of_photos-512copy.png"];
-        
-    [cell.contentView addSubview:icon];
-   
-    return cell;
+        cell.icon.image = [UIImage imageWithData:[_iconButtons[indexPath.row] objectForKey:@"iconData"]];
+        cell.description.text = [_iconButtons[indexPath.row] objectForKey:@"description"];
+    
+        return cell;
+    }
 }
 
 
@@ -83,22 +145,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *viewcontroller = [_viewControllers objectAtIndex:indexPath.row];
-/*
-    if ([self.sideMenu.navigationController.topViewController isKindOfClass:[viewcontroller class]]) {
-        [self.sideMenu.navigationController popToRootViewControllerAnimated:YES];
-        [self.sideMenu setMenuState:MFSideMenuStateClosed];
+
+    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+
+    if ([navigationController.topViewController isKindOfClass:[viewcontroller class]]) {
+        [navigationController popToRootViewControllerAnimated:YES];
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
          NSArray *controllers = [NSArray arrayWithObject:viewcontroller];
-    self.sideMenu.navigationController.viewControllers = controllers;
-    [self.sideMenu setMenuState:MFSideMenuStateClosed];
+        navigationController.viewControllers = @[viewcontroller];
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }
    
- */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 60;
+    return 80;
 }
 
 @end

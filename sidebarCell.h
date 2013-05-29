@@ -10,6 +10,11 @@
 
 @interface sidebarCell : UITableViewCell
 
+@property(nonatomic, strong)UIImageView *icon;
+@property(nonatomic, strong)UILabel *description;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
 
 
 @end

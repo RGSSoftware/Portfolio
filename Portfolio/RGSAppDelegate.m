@@ -46,13 +46,14 @@
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashSreenController.view animated:YES];
                                                       
-    SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
-    SideMenuViewController *rightMenuViewController = [[SideMenuViewController alloc] init];
-    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-                                                    containerWithCenterViewController:[self navigationController]
-                                                    leftMenuViewController:leftMenuViewController
-                                                    rightMenuViewController:nil];
-
+                                                      SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
+                                                      SideMenuViewController *rightMenuViewController = [[SideMenuViewController alloc] init];
+                                                      MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                                                                      containerWithCenterViewController:[self navigationController]
+                                                                                                      leftMenuViewController:leftMenuViewController
+                                                                                                      rightMenuViewController:nil];
+                                                      
+                                                      container.menuWidth = 80.0f;
                                                        self.window.rootViewController = container;
                                                       [self.window makeKeyAndVisible];
                                                       //[self.window setRootViewController:[galleryViewController new]];
