@@ -11,12 +11,13 @@
 #import "MBProgressHUD.h"
 
 #import "ConfigManager.h"
+#import "GalleryViewControllerManger.h"
 
 #import "videoViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
 
-#import "galleryViewController.h"
+#import "GalleryViewController.h"
 #import "SideMenuViewController.h"
 
 #import "MFSideMenu.h"
@@ -69,7 +70,7 @@
 - (UINavigationController *)navigationController
 {
     return [[UINavigationController alloc]
-            initWithRootViewController:[galleryViewController new]];
+            initWithRootViewController:[[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategorySignature]];
 }
 
 -(UIViewController *)splashScreenController

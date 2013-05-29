@@ -10,8 +10,9 @@
 #import "sidebarCell.h"
 
 #import <Parse/Parse.h>
+#import "GalleryViewControllerManger.h"
 
-#import "galleryViewController.h"
+#import "GalleryViewController.h"
 #import "videoViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
@@ -40,11 +41,12 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    GalleryViewControllerManger *galleryManager = [GalleryViewControllerManger sharedManager];
     _viewControllers = [NSMutableArray array];
     
     
     [_viewControllers addObject:[videoViewController new]];
-    [_viewControllers addObject:[galleryViewController new]];
+    [_viewControllers addObject:[galleryManager galleryViewController:GalleryCategorySignature]];
     [_viewControllers addObject:[aboutMeViewController new]];
     [_viewControllers addObject:[ContactViewController new]];
     [_viewControllers addObject:[videoViewController new]];

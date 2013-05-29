@@ -9,7 +9,7 @@
 
 #import "ImageSize.h"
 
-#import "galleryViewController.h"
+#import "GalleryViewController.h"
 #import "PhotoDetailViewController.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
@@ -20,13 +20,14 @@
 
 #import "ConfigManager.h"
 
-@interface galleryViewController ()
-@property (strong,nonatomic) UICollectionView *collectionView;
-@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
+@interface GalleryViewController ()
 @property (strong,nonatomic) UISegmentedControl *categorySegment;
 
-@property (strong,nonatomic) NSMutableArray *photoSizes;
+@property (strong,nonatomic) UICollectionView *collectionView;
+@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
+
 @property (strong,nonatomic) NSMutableArray *photoObjects;
+
 @end
 
 #define kCollectionCellBorderTop 0
@@ -39,7 +40,7 @@
 
 
 
-@implementation galleryViewController
+@implementation GalleryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,11 +85,6 @@
     }
 #endif /* MYDEBUG */
     
-   // [self setupMenuBarButtonItems];
-    _photoSizes = [NSMutableArray array];
-    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"sigutrePhotosSizes"]];
-    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"rawPhotosSizes"]];
-    
     _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
     _menuBarButtons.setLeftBarButton = TRUE;
     [_menuBarButtons setupMenuBarButtonItems];
@@ -100,6 +96,9 @@
     _collectionView = nil;
     [self initCollectionView];
     [self.collectionView reloadData];
+    
+    
+    
 }
 
 -(void)initCollectionView
