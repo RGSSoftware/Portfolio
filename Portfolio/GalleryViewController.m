@@ -17,6 +17,8 @@
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
 
+#import "SideMenuViewController.h"
+
 
 #import "ConfigManager.h"
 
@@ -59,10 +61,20 @@
     _categorySegment.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25.f);
     [_categorySegment addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_categorySegment];
-    NSLog(@"%d", _categorySegment.selectedSegmentIndex);
     
+    if (self.galleryCategory == 0) {
+        _categorySegment.selectedSegmentIndex = 0;
+        NSLog(@"inside viewdidload. signature selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
+    } else {
+        _categorySegment.selectedSegmentIndex = 1;
+         NSLog(@"inside viewdidload. raw selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
+    }
     [self initCollectionView];
     
+    UIButton *changeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    changeButton.frame = CGRectMake(30, 30, 100, 50);
+    [changeButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:changeButton];
 #ifdef MYDEBUG
     /* JUST SKIPPING DOWNLOADING OF IMAGES */
 #else
@@ -88,14 +100,54 @@
     _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
     _menuBarButtons.setLeftBarButton = TRUE;
     [_menuBarButtons setupMenuBarButtonItems];
+    
+    self.navigationItem.title = @"Galley";
+
+}
+-(void)next
+{
+    if (_categorySegment.selectedSegmentIndex == 0) {
+        _categorySegment.selectedSegmentIndex = 1;
+    } else if (_categorySegment.selectedSegmentIndex == 1){
+        _categorySegment.selectedSegmentIndex = 0;
+    }
+}
+
+-(void)changeCategorySegmentButton:(GalleryCategory)galleryCategory
+{
+    if (galleryCategory == GalleryCategorySignature) {
+        _categorySegment.selectedSegmentIndex = 0;
+        //NSLog(@"inside viewdidload. signature selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
+    } else {
+        _categorySegment.selectedSegmentIndex = 1;
+        //NSLog(@"inside viewdidload. raw selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
+    }
 
 }
 -(void)changeCategory
 {
     NSLog(@"tounched %d", _categorySegment.selectedSegmentIndex);
-    _collectionView = nil;
+        /*
+_collectionView = nil;
     [self initCollectionView];
     [self.collectionView reloadData];
+    */
+    if (_categorySegment.selectedSegmentIndex == 0) {
+        GalleryViewController *sategory = [[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategorySignature];
+        [sategory changeCategorySegmentButton:GalleryCategorySignature];
+        self.navigationController.viewControllers = @[sategory];
+        
+       
+        NSLog(@"signture");
+        
+        
+    }
+    else if (_categorySegment.selectedSegmentIndex == 1) {
+        GalleryViewController *sategory = [[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategoryRaw];
+        [sategory changeCategorySegmentButton:GalleryCategoryRaw];
+        self.navigationController.viewControllers = @[sategory];
+        NSLog(@"raw gategory");
+    }
     
     
     
@@ -121,12 +173,22 @@
 
 -(NSMutableArray *)downloadPhotos
 {
-    NSMutableArray *photos = [NSMutableArray new];
+   // NSMutableArray *photos = [NSMutableArray new];
     
     PFQuery *query = [PFQuery queryWithClassName:@"photos"];
+    
+    if (self.galleryCategory == GalleryCategorySignature) {
+        [query whereKey:@"raw" notEqualTo:[NSNumber numberWithBool:TRUE]];
+    } else {
+        [query whereKey:@"raw" equalTo:[NSNumber numberWithBool:TRUE]];
+        [query orderByAscending:@"tunmbnail"];
+    }
     NSArray *objects = [query findObjects];
     
     NSLog(@"Successfully retrieved %d photos objects.", objects.count);
+    
+    return [NSMutableArray arrayWithArray:objects];
+    /*
     NSMutableArray *sigutrePhotos = [NSMutableArray array];
     [photos addObject:sigutrePhotos];
             
@@ -143,6 +205,8 @@
         }
     }
     return photos;
+     
+     */
 }
 
 
@@ -156,7 +220,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    PFObject *photo = _photoObjects[indexPath.section][indexPath.row];
+    PFObject *photo = _photoObjects[indexPath.row];
     PFFile *photoThumbnail = [photo objectForKey:@"fullSize"];
     
     PFImageView *imageView = [PFImageView new];
@@ -200,7 +264,7 @@
 {
     
    
-    ImageSize *imagesize = (ImageSize *)[[_photoSizes objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    ImageSize *imagesize = (ImageSize *)[_photoSizes objectAtIndex:indexPath.row];
     CGSize rctSizeOriginal = CGSizeMake(imagesize.width, imagesize.height);
     double scale = (kCollectioncCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
     CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
@@ -216,7 +280,7 @@
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return [[_photoSizes objectAtIndex:section] count];
+    return [_photoSizes count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView
@@ -250,7 +314,7 @@
         return cell;
     } else {
         
-        PFObject *photo = _photoObjects[indexPath.section][indexPath.row];
+        PFObject *photo = _photoObjects[indexPath.row];
         PFFile *photoThumbnail = [photo objectForKey:@"tumbnail"];
         
         PFImageView *imageView = [PFImageView new];

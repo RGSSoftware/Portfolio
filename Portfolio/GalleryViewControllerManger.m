@@ -10,6 +10,10 @@
 #import "GalleryViewControllerManger.h"
 #import "ConfigManager.h"
 
+#import "RGSAppDelegate.h"
+
+#import "MFSideMenuContainerViewController.h"
+
 @implementation GalleryViewControllerManger
 
 -(id)init
@@ -32,7 +36,7 @@
         [_galleryViewControllers addObject:[self galleryViewController:GalleryCategorySignature pthsize:[_photoSizes objectAtIndex:0]]];
         [_galleryViewControllers addObject:[self galleryViewController:GalleryCategoryRaw pthsize:[_photoSizes objectAtIndex:1]]];
         
-        return [_galleryViewControllers objectAtIndex:0];
+        return [_galleryViewControllers objectAtIndex:gallerycategory];
     }
     
     return [_galleryViewControllers objectAtIndex:gallerycategory];
@@ -42,11 +46,14 @@
 -(GalleryViewController *)galleryViewController:(GalleryCategory)gallerycategory pthsize:(NSMutableArray *)photosizes
 {
     GalleryViewController *galleryController = [GalleryViewController new];
-    //galleryController.galleryCategory = gallerycategory;
-    galleryController.photoSizes = [NSMutableArray new];
+    galleryController.galleryCategory = gallerycategory;
     galleryController.photoSizes = photosizes;
     
     return galleryController;
+}
+
+-(void)changeCategory:(GalleryCategory)galleryctegory
+{
 }
 
 + (GalleryViewControllerManger *)sharedManager

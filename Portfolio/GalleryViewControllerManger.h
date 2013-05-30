@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GalleryViewController.h"
+//#import "GalleryViewController.h"
 #import "videoViewController.h"
+
 typedef enum {
     GalleryCategorySignature,
-    GalleryCategoryRaw
+    GalleryCategoryRaw,
 } GalleryCategory;
 
 @interface GalleryViewControllerManger : NSObject

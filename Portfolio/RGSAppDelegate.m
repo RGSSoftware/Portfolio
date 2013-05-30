@@ -63,14 +63,14 @@
     
     
     
-    
     return YES;
 }
 
 - (UINavigationController *)navigationController
 {
+    
     return [[UINavigationController alloc]
-            initWithRootViewController:[[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategorySignature]];
+            initWithRootViewController:[videoViewController new]];
 }
 
 -(UIViewController *)splashScreenController

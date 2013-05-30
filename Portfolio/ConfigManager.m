@@ -38,6 +38,8 @@
             sigutrePhotos[i] = imageSize;
         }
         
+        
+        
         [_galleryConfig setObject:[NSNumber numberWithInteger:(rawPhotosSizes.count + sigutrePhotos.count)] forKey:@"photosCount"];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -138,19 +140,54 @@
 -(void)getphotosSizes
 {
     //NSMutableArray *imageSizes = [NSMutableArray array];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"photos"];
-    NSArray *objects = [query findObjects];
-
-    
-    [_galleryConfig setObject:[NSNumber numberWithInteger:objects.count] forKey:@"photosCount"];
-    
-    NSLog(@"Successfully retrieved %d photos.", objects.count);
-    NSMutableArray *sigutrePhotos = [NSMutableArray array];
+     NSMutableArray *sigutrePhotos = [NSMutableArray array];
     [_galleryConfig setObject:sigutrePhotos forKey:@"sigutrePhotosSizes"];
     
     NSMutableArray *rawPhotosSizes = [NSMutableArray array];
-    [_galleryConfig setObject:sigutrePhotos forKey:@"rawPhotosSizes"];
+    [_galleryConfig setObject:rawPhotosSizes forKey:@"rawPhotosSizes"];
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"photos"];
+    
+    [query whereKey:@"raw" notEqualTo:[NSNumber numberWithBool:TRUE]];
+    NSArray *objects = [query findObjects];
+    
+    NSLog(@"Successfully retrieved %d signature photos.", objects.count);
+    
+    for (PFObject *eachobject in objects) {
+        NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
+        UIImage *image = [UIImage imageWithData:objectData];
+        
+        ImageSize *imageSize = [ImageSize new];
+        imageSize.height = image.size.height;
+        imageSize.width = image.size.width;
+        [sigutrePhotos addObject:imageSize];
+    }
+    
+   
+    PFQuery *queryRaw = [PFQuery queryWithClassName:@"photos"];
+    
+    [queryRaw whereKey:@"raw" equalTo:[NSNumber numberWithBool:TRUE]];
+    [queryRaw orderByAscending:@"tunmbnail"];
+    NSArray *objectsRaw = [queryRaw findObjects];
+    
+    NSLog(@"Successfully retrieved %d raw photos.", objectsRaw.count);
+    
+    for (PFObject *eachobject in objectsRaw) {
+        NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
+        UIImage *image = [UIImage imageWithData:objectData];
+        
+        ImageSize *imageSize = [ImageSize new];
+        imageSize.height = image.size.height;
+        imageSize.width = image.size.width;
+        [rawPhotosSizes addObject:imageSize];
+    }
+
+    
+    [_galleryConfig setObject:[NSNumber numberWithInteger:objectsRaw.count] forKey:@"photosCount"];
+    /*
+    NSLog(@"Successfully retrieved %d photos.", objects.count);
+   
     
     for (PFObject *eachobject in objects) {
         BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
@@ -174,6 +211,7 @@
             
         }
     }
+     */
     
 }
 @end

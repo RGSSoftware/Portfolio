@@ -12,14 +12,16 @@
 
 #import "PintCollectionViewLayout.h"
 
+//@class GalleryViewControllerManger;
 @interface GalleryViewController : UIViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
 
 
 
-//@property (nonatomic) GalleryCategory galleryCategory;
+@property (nonatomic, assign) GalleryCategory galleryCategory;
 
 @property (strong,nonatomic) NSMutableArray *photoSizes;
 
+-(void)changeCategorySegmentButton:(GalleryCategory)galleryCategory;
 
 
 @end

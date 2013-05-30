@@ -142,7 +142,7 @@
     UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
 
     if ([navigationController.topViewController isKindOfClass:[viewcontroller class]]) {
-        [navigationController popToRootViewControllerAnimated:YES];
+        //[navigationController popToRootViewControllerAnimated:YES];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
         navigationController.viewControllers = @[viewcontroller];
@@ -154,6 +154,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 80;
+}
+
+-(void)changeCa:(UIViewController *)gallerycontroller
+{
+    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    navigationController.viewControllers = @[gallerycontroller];
 }
 
 @end
