@@ -15,6 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) RGSViewController *viewController;
+
 
 @end

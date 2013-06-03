@@ -23,7 +23,7 @@
 #import "ConfigManager.h"
 
 @interface GalleryViewController ()
-@property (strong,nonatomic) UISegmentedControl *categorySegment;
+@property (strong,nonatomic) SDSegmentedControl *categorySegment;
 
 @property (strong,nonatomic) UICollectionView *collectionView;
 @property (strong,nonatomic) MenuBarButtons *menuBarButtons;
@@ -56,25 +56,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    _categorySegment = [[SDSegmentedControl alloc] initWithItems:@[@"sigutre", @"raw"]];
-    _categorySegment.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25.f);
-    [_categorySegment addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:_categorySegment];
     
-    if (self.galleryCategory == 0) {
-        _categorySegment.selectedSegmentIndex = 0;
-        NSLog(@"inside viewdidload. signature selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
-    } else {
-        _categorySegment.selectedSegmentIndex = 1;
-         NSLog(@"inside viewdidload. raw selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
-    }
+    
+    
     [self initCollectionView];
     
-    UIButton *changeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    changeButton.frame = CGRectMake(30, 30, 100, 50);
-    [changeButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:changeButton];
+    // Do any additional setup after loading the view from its nib.
+    _categorySegment = [[SDSegmentedControl alloc] initWithItems:@[@"Sigature", @"Raw"]];
+    _categorySegment.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35.f);
+    [_categorySegment addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
+    _categorySegment.arrowHeightFactor = 0;
+    _categorySegment.interItemSpace = 10;
+    [self.view addSubview:_categorySegment];
+    
+    if (_galleryCategory == GalleryCategoryRaw) {
+        [self changeCategorySegmentButton:GalleryCategoryRaw];
+    }
 #ifdef MYDEBUG
     /* JUST SKIPPING DOWNLOADING OF IMAGES */
 #else
@@ -117,10 +114,9 @@
 {
     if (galleryCategory == GalleryCategorySignature) {
         _categorySegment.selectedSegmentIndex = 0;
-        //NSLog(@"inside viewdidload. signature selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
-    } else {
+            } else {
         _categorySegment.selectedSegmentIndex = 1;
-        //NSLog(@"inside viewdidload. raw selecredsegmnet %d", _categorySegment.selectedSegmentIndex);
+        
     }
 
 }
@@ -155,10 +151,11 @@ _collectionView = nil;
 
 -(void)initCollectionView
 {
-    _collectionView = [[UICollectionView  alloc] initWithFrame:CGRectMake(0, 25.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 25.f) collectionViewLayout:[PintCollectionViewLayout new]] ;
+    _collectionView = [[UICollectionView  alloc] initWithFrame:CGRectMake(0, 35.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 80.f) collectionViewLayout:[PintCollectionViewLayout new]] ;
     [self.view addSubview:_collectionView];
+    _collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-    self.view.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:247.0f/255.0f blue:247.0f/255.0f alpha:1];
+    
     
     self.collectionView.collectionViewLayout = [PintCollectionViewLayout new];
     // set up delegates

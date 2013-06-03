@@ -13,6 +13,7 @@
 
 #import "ImageSize.h"
 
+NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigManagerDidCompleteConfigDownloadNotification";
 @implementation ConfigManager
 
 -(id)init
@@ -45,25 +46,25 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             sleep(.5);
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ConfigsFinishedDownLoading" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidCompleteConfigDownloadNotification object:nil];
             });
         });
 
 #else
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            
-            _shortFilmsConfig = [self downloadedShortFilmsConfig];
-            _contactConfig = [self downloadedContactConfig];
-            _aboutMeConfig = [self downloadedAboutMeConfig];
+            _shortFilmsConfig = [self getShortFilmsConfig];
+            _contactConfig = [self getContactConfig];
+            _aboutMeConfig = [self getAboutMeConfig];
+            
+            _sideMenuConfig = [NSMutableDictionary dictionaryWithObject:[self getSideMenuIcons] forKey:@"Icons"];
             
             _galleryConfig = [NSMutableDictionary new];
             [self getphotosSizes];
-            NSLog(@"sigutrePhotosSize count:%d", [[_galleryConfig objectForKey:@"sigutrePhotosSizes"] count]);
-            NSLog(@"photos count:%@", [_galleryConfig objectForKey:@"photosCount"]);
             
-           
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ConfigsFinishedDownLoading" object:nil];
+                [self customizeAppearance];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidCompleteConfigDownloadNotification object:nil];
             });
         });
         
@@ -76,14 +77,20 @@
 + (ConfigManager *)sharedManager
 {
     static ConfigManager *sharedManager = nil;
-    if (sharedManager == nil)
-    {
-        sharedManager = [[ConfigManager alloc] init];
-    }
+    
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedManager = [[self alloc] init];
+    });
     return sharedManager;
 }
+-(void)customizeAppearance{
+    //Set the background image for *all* UINavigationBars
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_background"] forBarMetrics:UIBarMetricsDefault];
+    
+}
 
--(id)downloadedShortFilmsConfig
+-(id)getShortFilmsConfig
 {
     NSDictionary *shortFilmsConfig = [NSDictionary new];
     
@@ -101,7 +108,7 @@
     
 };
 
--(id)downloadedContactConfig
+-(id)getContactConfig
 {
     NSDictionary *contactConfig = [NSDictionary new];
     
@@ -119,7 +126,7 @@
 
 };
 
--(id)downloadedAboutMeConfig
+-(id)getAboutMeConfig
 {
     NSDictionary *aboutMeConfig = [NSDictionary new];
     
@@ -185,33 +192,31 @@
 
     
     [_galleryConfig setObject:[NSNumber numberWithInteger:objectsRaw.count] forKey:@"photosCount"];
-    /*
-    NSLog(@"Successfully retrieved %d photos.", objects.count);
-   
+     
+}
+
+-(NSArray *)getSideMenuIcons
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"SideBarButtons"];
+    [query orderByAscending:@"order_number"];
+    NSArray *objects = [query findObjects];
     
+    NSLog(@"Successfully retrieved %d icon objects.", objects.count);
+    
+    NSMutableArray *icons = [NSMutableArray new];
     for (PFObject *eachobject in objects) {
-        BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
+        NSMutableDictionary *buttons = [NSMutableDictionary new];
+        [icons addObject:buttons];
         
-        if (isPhotoRaw) {
-            NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
-            UIImage *image = [UIImage imageWithData:objectData];
-            
-            ImageSize *imageSize = [ImageSize new];
-            imageSize.height = image.size.height;
-            imageSize.width = image.size.width;
-            [rawPhotosSizes addObject:imageSize];
-        }else {
-            NSData *objectData = [[eachobject objectForKey:@"tumbnail"] getData];
-            UIImage *image = [UIImage imageWithData:objectData];
-            
-            ImageSize *imageSize = [ImageSize new];
-            imageSize.height = image.size.height;
-            imageSize.width = image.size.width;
-            [sigutrePhotos addObject:imageSize];
-            
-        }
+        PFFile *iconFile = [eachobject objectForKey:@"icon"];
+        NSData *iconData = [iconFile getData];
+        [buttons setObject:iconData forKey:@"iconData"];
+        
+        NSString *description = [eachobject objectForKey:@"description"];
+        [buttons setObject:description forKey:@"description"];
+        
     }
-     */
     
+    return icons;
 }
 @end

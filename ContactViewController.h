@@ -10,9 +10,26 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+typedef enum {
+    ContactButtonYoutube,
+    ContactButtonTwitter,
+    ContactButtonFacebook,
+    ContactButtonEmail,
+}ContactButton;
+
 @interface ContactViewController : UIViewController <MFMailComposeViewControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UILabel *topLabel;
+@property (strong, nonatomic) IBOutlet UILabel *bottomLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *youtubeButton;
+@property (strong, nonatomic) IBOutlet UIButton *facebookButton;
+@property (strong, nonatomic) IBOutlet UIButton *twitterButton;
+@property (strong, nonatomic) IBOutlet UIButton *emailButton;
+
+- (IBAction)callSafari:(id)sender;
 
 - (IBAction)email:(id)sender;
 
-- (IBAction)facebook:(id)sender;
+
 @end

@@ -21,11 +21,15 @@
 #import "SideMenuViewController.h"
 
 #import "MFSideMenu.h"
+  
+
 
 @implementation RGSAppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
@@ -37,28 +41,23 @@
     [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
     self.window.rootViewController = splashSreenController;
     
-    
-       
     [self.window makeKeyAndVisible];
     
-     [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigsFinishedDownLoading"
+     [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigManagerDidCompleteConfigDownloadNotification"
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashSreenController.view animated:YES];
                                                       
                                                       SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
-                                                      SideMenuViewController *rightMenuViewController = [[SideMenuViewController alloc] init];
                                                       MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
                                                                                                       containerWithCenterViewController:[self navigationController]
                                                                                                       leftMenuViewController:leftMenuViewController
-                                                                                                      rightMenuViewController:nil];
+                                                                                                      rightMenuViewController:Nil];
                                                       
                                                       container.menuWidth = 80.0f;
                                                        self.window.rootViewController = container;
                                                       [self.window makeKeyAndVisible];
-                                                      //[self.window setRootViewController:[galleryViewController new]];
-                                                      //[self setupNavigationControllerApp];
                                                   }];
     
     
@@ -68,9 +67,10 @@
 
 - (UINavigationController *)navigationController
 {
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:[videoViewController new]];
     
-    return [[UINavigationController alloc]
-            initWithRootViewController:[videoViewController new]];
+    return navigationController;
 }
 
 -(UIViewController *)splashScreenController

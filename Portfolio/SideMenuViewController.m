@@ -10,16 +10,20 @@
 #import "sidebarCell.h"
 
 #import <Parse/Parse.h>
+#import "ConfigManager.h"
 #import "GalleryViewControllerManger.h"
 
 #import "GalleryViewController.h"
 #import "videoViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
+#import "InfoViewController.h"
 
 #import "MFSideMenu.h"
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
+
+#import "DEBUGHeader.h"
 
 @interface SideMenuViewController()
 @property NSMutableArray *viewControllers;
@@ -49,7 +53,7 @@
     [_viewControllers addObject:[galleryManager galleryViewController:GalleryCategorySignature]];
     [_viewControllers addObject:[aboutMeViewController new]];
     [_viewControllers addObject:[ContactViewController new]];
-    [_viewControllers addObject:[videoViewController new]];
+    [_viewControllers addObject:[InfoViewController new]];
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1];
@@ -58,21 +62,12 @@
     //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
-   
-    if (!_iconButtons) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSArray *downloadIcons = [self downloadIcons];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                _iconButtons = [NSMutableArray arrayWithArray:downloadIcons];
-                
-                [self.tableView reloadData];
-                
-            });
-        });
-    }
-    
+
+
+    _iconButtons = [[[ConfigManager sharedManager] sideMenuConfig ] objectForKey:@"Icons"];
+
+
+
 }
 
 -(NSArray *)downloadIcons
@@ -145,6 +140,19 @@
         //[navigationController popToRootViewControllerAnimated:YES];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
+        
+        if ([viewcontroller isKindOfClass:[GalleryViewController class]]) {
+                        GalleryViewController *galleryController = (GalleryViewController *)viewcontroller;
+            NSLog(@"returned gallerycontroller sed: %@", galleryController.navigationController.topViewController);
+
+            if (galleryController.galleryCategory == GalleryCategorySignature) {
+                [galleryController changeCategorySegmentButton:GalleryCategorySignature];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateLeftMenuOpen];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+     
+            }
+        }
         navigationController.viewControllers = @[viewcontroller];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }

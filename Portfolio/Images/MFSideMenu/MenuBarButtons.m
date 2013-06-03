@@ -44,25 +44,44 @@
 }
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
+    
+    
+    UIButton *barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [barButton setImage:[UIImage imageNamed:@"menuIcon.png"] forState:UIControlStateNormal];
+    [barButton addTarget:_parentController action:@selector(leftSideMenuButtonPressed:)
+        forControlEvents:UIControlEventTouchUpInside];
+    [barButton setFrame:CGRectMake(0, 0, 40, 30)];
+    
     return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-            target:_parentController
-            action:@selector(leftSideMenuButtonPressed:)];
+            initWithCustomView:barButton];
 }
 
 - (UIBarButtonItem *)rightMenuBarButtonItem {
+    
+    
+    UIButton *barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [barButton setImage:[UIImage imageNamed:@"menuIcon.png"] forState:UIControlStateNormal];
+    [barButton addTarget:_parentController action:@selector(rightSideMenuButtonPressed:)
+        forControlEvents:UIControlEventTouchUpInside];
+    [barButton setFrame:CGRectMake(0, 0, 40, 30)];
+    
     return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-            target:_parentController
-            action:@selector(rightSideMenuButtonPressed:)];
+            initWithCustomView:barButton];
 }
 
 - (UIBarButtonItem *)backBarButtonItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
-                                            style:UIBarButtonItemStyleBordered
-                                           target:_parentController
-                                           action:@selector(backButtonPressed:)];
+    
+    UIButton *barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [barButton setImage:[UIImage imageNamed:@"backArrow.png"] forState:UIControlStateNormal];
+    [barButton addTarget:_parentController action:@selector(backButtonPressed:)
+        forControlEvents:UIControlEventTouchUpInside];
+    [barButton setFrame:CGRectMake(0, 0, 40, 30)];
+    
+    return [[UIBarButtonItem alloc]
+            initWithCustomView:barButton];
+   
 }
-
-
 @end

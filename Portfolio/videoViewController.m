@@ -20,7 +20,7 @@
 
 #import "ConfigManager.h"
 
-#import "photoCell.h"
+#import "VideoCell.h"
 #import "videoViewController.h"
 
 @interface videoViewController ()
@@ -28,6 +28,8 @@
 
 
 @end
+   
+
 
 @implementation videoViewController
 
@@ -65,12 +67,14 @@
     self.tableView.backgroundView = texturedBackgroundView;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
-    [[self tableView] registerClass:[photoCell class] forCellReuseIdentifier:@"Cell"];
+    [[self tableView] registerClass:[VideoCell class] forCellReuseIdentifier:@"Cell"];
     
     
     
     NSArray *itemArray = [NSArray arrayWithObjects: @"Music Videos", @"Comedy Skits", @"Vlogs", nil];
     _segmentedControl = [[SDSegmentedControl alloc] initWithItems:itemArray];
+    _segmentedControl.arrowHeightFactor = 0;
+    _segmentedControl.interItemSpace = 5;
     [_segmentedControl addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
     
     self.navigationItem.title = @"Short Films";
@@ -159,9 +163,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    photoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[photoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.imageView.image = [UIImage imageNamed:@"photo3.jpg"];
     

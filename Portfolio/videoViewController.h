@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDSegmentedControl.h"
 
 
 #define kAPIKEY "AIzaSyD1zIG_HErAICBi355-nPLzaxdAY71egIQ"
@@ -15,5 +16,5 @@
 {
      NSMutableArray *_videoCategories;
 }
- @property(strong, nonatomic) UISegmentedControl *segmentedControl;
+@property(strong, nonatomic)SDSegmentedControl *segmentedControl;
 @end
