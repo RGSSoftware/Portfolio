@@ -42,6 +42,19 @@ NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMa
         
         
         [_galleryConfig setObject:[NSNumber numberWithInteger:(rawPhotosSizes.count + sigutrePhotos.count)] forKey:@"photosCount"];
+        ;
+        NSMutableArray *icons = [NSMutableArray new];
+        for (int i = 0; i < 5; i++) {
+            NSMutableDictionary *button = [NSMutableDictionary new];
+            [icons addObject:button];
+            
+            UIImage *iconImage = [UIImage imageNamed:@"AboutMe.png"];
+            [button setObject:iconImage forKey:@"iconImage"];
+            
+            NSString *description = @"test";
+            [button setObject:description forKey:@"description"];
+        }
+        _sideMenuConfig = [NSMutableDictionary dictionaryWithObject:icons forKey:@"Icons"];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             sleep(.5);
@@ -146,13 +159,11 @@ NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMa
 
 -(void)getphotosSizes
 {
-    //NSMutableArray *imageSizes = [NSMutableArray array];
-     NSMutableArray *sigutrePhotos = [NSMutableArray array];
+    NSMutableArray *sigutrePhotos = [NSMutableArray array];
     [_galleryConfig setObject:sigutrePhotos forKey:@"sigutrePhotosSizes"];
     
     NSMutableArray *rawPhotosSizes = [NSMutableArray array];
     [_galleryConfig setObject:rawPhotosSizes forKey:@"rawPhotosSizes"];
-    
     
     PFQuery *query = [PFQuery queryWithClassName:@"photos"];
     

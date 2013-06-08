@@ -10,9 +10,9 @@
 #import <Parse/Parse.h>
 #import <RestKit/RestKit.h>
 
-#import "video.h"
-#import "snippet.h"
-#import "player.h"
+#import "Video.h"
+#import "Snippet.h"
+#import "Player.h"
 
 #import "SDSegmentedControl.h"
 #import "AsyncImageView.h"
@@ -20,13 +20,11 @@
 
 #import "ConfigManager.h"
 
-#import "VideoCell.h"
+#import "RGSVideoCell.h"
 #import "videoViewController.h"
 
 @interface videoViewController ()
     
-
-
 @end
    
 
@@ -67,7 +65,7 @@
     self.tableView.backgroundView = texturedBackgroundView;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
-    [[self tableView] registerClass:[VideoCell class] forCellReuseIdentifier:@"Cell"];
+    [[self tableView] registerClass:[RGSVideoCell class] forCellReuseIdentifier:@"Cell"];
     
     
     
@@ -95,12 +93,12 @@
 
 -(RKObjectMapping *)youtubeMapping
 {
-    RKObjectMapping *videoMapping = [RKObjectMapping mappingForClass:[video class]];
+    RKObjectMapping *videoMapping = [RKObjectMapping mappingForClass:[Video class]];
     [videoMapping addAttributeMappingsFromDictionary:@{
      @"id" : @"ID"
      }];
     
-    RKObjectMapping *snippetMapping = [RKObjectMapping mappingForClass:[snippet class]];
+    RKObjectMapping *snippetMapping = [RKObjectMapping mappingForClass:[Snippet class]];
     [snippetMapping addAttributeMappingsFromDictionary:@{@"title": @"title", @"description": @"description"}];
     RKRelationshipMapping *snippetRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"snippet"
                                                                                          toKeyPath:@"snippet"
@@ -114,7 +112,7 @@
                                                                                          withMapping:thumbnailMapping];
     [snippetMapping addPropertyMapping:thumbnailRelation];
     
-    RKObjectMapping *playerMapping = [RKObjectMapping mappingForClass:[player class]];
+    RKObjectMapping *playerMapping = [RKObjectMapping mappingForClass:[Player class]];
     //[playerMapping addAttributeMappingsFromArray:@[@"embedHtml"]];
     [playerMapping addAttributeMappingsFromDictionary:@{@"embedHtml": @"embedHtml"}];
     RKRelationshipMapping *playerRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"player"
@@ -163,11 +161,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.imageView.image = [UIImage imageNamed:@"photo3.jpg"];
+    cell.tumbnailView.image = [UIImage imageNamed:@"photo3.jpg"];
     
     NSInteger sectionIndex = _segmentedControl.selectedSegmentIndex;
     NSString *videoID = [[_videoCategories objectAtIndex:sectionIndex] objectAtIndex:indexPath.row];
@@ -180,10 +178,10 @@
     [objectManager getObjectsAtPath:@"v3/videos" parameters:queryParams
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         
-                                video *v = (video *)[mappingResult array][0];
+                                Video *v = (Video *)[mappingResult array][0];
                                 
-                                [cell.userButton setText:v.snippet.title];
-                                cell.imageView.imageURL = [NSURL URLWithString:[[v.snippet.thumbnails[0] objectForKey:@"medium"] objectForKey:@"url"]];
+                                [cell.videoTitle setText:v.snippet.title];
+                                cell.tumbnailView.imageURL = [NSURL URLWithString:[[v.snippet.thumbnails[0] objectForKey:@"medium"] objectForKey:@"url"]];
 
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -197,7 +195,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 270.0f;
+    return [[RGSVideoCell new] videoCellHeight] + 10;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

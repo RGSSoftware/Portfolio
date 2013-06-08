@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface snippet : NSObject
+@interface Snippet : NSObject
 
 @property(nonatomic, strong)NSString *title;
 @property(nonatomic, strong)NSString *description;

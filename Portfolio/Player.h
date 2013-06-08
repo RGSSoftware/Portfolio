@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface player : NSObject
+@interface Player : NSObject
 
 @property(nonatomic,strong) NSString *embedHtml;
 @end

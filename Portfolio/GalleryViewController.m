@@ -114,12 +114,11 @@
 {
     if (galleryCategory == GalleryCategorySignature) {
         _categorySegment.selectedSegmentIndex = 0;
-            } else {
+    } else {
         _categorySegment.selectedSegmentIndex = 1;
-        
     }
-
 }
+
 -(void)changeCategory
 {
     NSLog(@"tounched %d", _categorySegment.selectedSegmentIndex);
@@ -133,20 +132,16 @@ _collectionView = nil;
         [sategory changeCategorySegmentButton:GalleryCategorySignature];
         self.navigationController.viewControllers = @[sategory];
         
-       
         NSLog(@"signture");
-        
         
     }
     else if (_categorySegment.selectedSegmentIndex == 1) {
         GalleryViewController *sategory = [[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategoryRaw];
         [sategory changeCategorySegmentButton:GalleryCategoryRaw];
         self.navigationController.viewControllers = @[sategory];
+        
         NSLog(@"raw gategory");
     }
-    
-    
-    
 }
 
 -(void)initCollectionView
@@ -155,7 +150,6 @@ _collectionView = nil;
     [self.view addSubview:_collectionView];
     _collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-    
     
     self.collectionView.collectionViewLayout = [PintCollectionViewLayout new];
     // set up delegates
@@ -331,7 +325,6 @@ _collectionView = nil;
     return cell;
 #endif /* MYDEUG */
     
-   
 }
 #pragma mark - MenuBarButtonProcol Callbacks
 

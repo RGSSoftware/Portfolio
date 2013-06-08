@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "snippet.h"
+#import "Snippet.h"
 
-@implementation snippet
+@implementation Snippet
 
 @synthesize title,
             description,

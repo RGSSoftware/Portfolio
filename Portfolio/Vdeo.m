@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "video.h"
+#import "Video.h"
 
-@implementation video
+@implementation Video
 
 @synthesize ID,
             snippet,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "player.h"
+#import "Player.h"
 
-@implementation player
+@implementation Player
 
 @synthesize embedHtml;
 

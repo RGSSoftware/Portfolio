@@ -28,6 +28,16 @@
     return self;
 }
 
++ (GalleryViewControllerManger *)sharedManager
+{
+    static GalleryViewControllerManger *sharedManager = nil;
+    if (sharedManager == nil)
+    {
+        sharedManager = [[GalleryViewControllerManger alloc] init];
+    }
+    return sharedManager;
+}
+
 -(GalleryViewController *)galleryViewController:(GalleryCategory)gallerycategory
 {
     if (!_galleryViewControllers) {
@@ -56,14 +66,6 @@
 {
 }
 
-+ (GalleryViewControllerManger *)sharedManager
-{
-    static GalleryViewControllerManger *sharedManager = nil;
-    if (sharedManager == nil)
-    {
-        sharedManager = [[GalleryViewControllerManger alloc] init];
-    }
-    return sharedManager;
-}
+
 
 @end

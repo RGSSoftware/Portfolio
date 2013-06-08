@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "snippet.h"
-#import "player.h"
+#import "Snippet.h"
+#import "Player.h"
 
-@interface video : NSObject
+@interface Video : NSObject
 
 @property(nonatomic,strong) NSString *ID;
-@property(nonatomic, strong) snippet *snippet;
-@property(nonatomic, strong) player *player;
+@property(nonatomic, strong) Snippet *snippet;
+@property(nonatomic, strong) Player *player;
 
 @end

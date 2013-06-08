@@ -18,6 +18,7 @@
 		2201575916E0354900918611 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575416E0354900918611 /* back-arrow@2x.png */; };
 		2201575A16E0354A00918611 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575516E0354900918611 /* Default-568h@2x.png */; };
 		2201575F16E036C200918611 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201575D16E036C200918611 /* SideMenuViewController.m */; };
+		2222AAD31762AC7D0008884B /* RGSVideoViewControllerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */; };
 		2222E535172A746A00347D06 /* square_bg@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E533172A746A00347D06 /* square_bg@2X.png */; };
 		2222E536172A746A00347D06 /* square_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E534172A746A00347D06 /* square_bg.png */; };
 		2222E539172A759D00347D06 /* billie_holiday@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E537172A759C00347D06 /* billie_holiday@2X.png */; };
@@ -34,11 +35,11 @@
 		222FCF0A16FE438A006A93C7 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */; };
 		222FCF0B16FE438A006A93C7 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */; };
 		222FCF111703CA1C006A93C7 /* youtubeConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 222FCF101703CA1B006A93C7 /* youtubeConfig.plist */; };
-		222FCF151704239A006A93C7 /* video.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF1417042398006A93C7 /* video.m */; };
-		222FCF181704249E006A93C7 /* snippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF171704249C006A93C7 /* snippet.m */; };
+		222FCF151704239A006A93C7 /* Vdeo.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF1417042398006A93C7 /* Vdeo.m */; };
+		222FCF181704249E006A93C7 /* Snippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF171704249C006A93C7 /* Snippet.m */; };
 		222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222FCF2B17042C34006A93C7 /* CoreData.framework */; };
 		222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 222FCF2D17042DD9006A93C7 /* libxml2.dylib */; };
-		222FCF53170509FA006A93C7 /* player.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF52170509F9006A93C7 /* player.m */; };
+		222FCF53170509FA006A93C7 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FCF52170509F9006A93C7 /* Player.m */; };
 		222FCF5517054FFD006A93C7 /* youtubeConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 222FCF5417054FFB006A93C7 /* youtubeConfig.json */; };
 		2230FBEF1758AD0900C0F938 /* email_001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2230FBEB1758AD0900C0F938 /* email_001.jpg */; };
 		2230FBF01758AD0900C0F938 /* facebook_001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2230FBEC1758AD0900C0F938 /* facebook_001.jpg */; };
@@ -85,7 +86,7 @@
 		22C34C17175AAB16002A5E36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C34C15175AAB16002A5E36 /* Default-568h@2x.png */; };
 		22C34C18175AAB16002A5E36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C34C16175AAB16002A5E36 /* Default@2x.png */; };
 		22D676BF17260C7400E3858D /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676BE17260C7400E3858D /* SDSegmentedControl.m */; };
-		22D676C517260CEF00E3858D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676C417260CEF00E3858D /* VideoCell.m */; };
+		22D676C517260CEF00E3858D /* RGSVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676C417260CEF00E3858D /* RGSVideoCell.m */; };
 		22D676C817262B3F00E3858D /* videoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676C717262B3F00E3858D /* videoViewController.m */; };
 		22D676CB17262F3200E3858D /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22D676C917262F3200E3858D /* photo3.jpg */; };
 		22D676CC17262F3200E3858D /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D676CA17262F3200E3858D /* playButton.png */; };
@@ -149,6 +150,8 @@
 		2201575516E0354900918611 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2201575D16E036C200918611 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		2201575E16E036C200918611 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		2222AAD11762AC7C0008884B /* RGSVideoViewControllerManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideoViewControllerManger.h; sourceTree = "<group>"; };
+		2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideoViewControllerManger.m; sourceTree = "<group>"; };
 		2222E533172A746A00347D06 /* square_bg@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square_bg@2X.png"; sourceTree = "<group>"; };
 		2222E534172A746A00347D06 /* square_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_bg.png; sourceTree = "<group>"; };
 		2222E537172A759C00347D06 /* billie_holiday@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billie_holiday@2X.png"; sourceTree = "<group>"; };
@@ -168,14 +171,14 @@
 		222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
 		222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
 		222FCF101703CA1B006A93C7 /* youtubeConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = youtubeConfig.plist; path = ../youtubeConfig.plist; sourceTree = "<group>"; };
-		222FCF1317042396006A93C7 /* video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video.h; sourceTree = "<group>"; };
-		222FCF1417042398006A93C7 /* video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = video.m; sourceTree = "<group>"; };
-		222FCF161704249B006A93C7 /* snippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snippet.h; sourceTree = "<group>"; };
-		222FCF171704249C006A93C7 /* snippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snippet.m; sourceTree = "<group>"; };
+		222FCF1317042396006A93C7 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		222FCF1417042398006A93C7 /* Vdeo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vdeo.m; sourceTree = "<group>"; };
+		222FCF161704249B006A93C7 /* Snippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snippet.h; sourceTree = "<group>"; };
+		222FCF171704249C006A93C7 /* Snippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snippet.m; sourceTree = "<group>"; };
 		222FCF2B17042C34006A93C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		222FCF2D17042DD9006A93C7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		222FCF51170509F6006A93C7 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
-		222FCF52170509F9006A93C7 /* player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = player.m; sourceTree = "<group>"; };
+		222FCF51170509F6006A93C7 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		222FCF52170509F9006A93C7 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		222FCF5417054FFB006A93C7 /* youtubeConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = youtubeConfig.json; path = ../youtubeConfig.json; sourceTree = "<group>"; };
 		2230FBEB1758AD0900C0F938 /* email_001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = email_001.jpg; sourceTree = "<group>"; };
 		2230FBEC1758AD0900C0F938 /* facebook_001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebook_001.jpg; sourceTree = "<group>"; };
@@ -236,8 +239,8 @@
 		22C34C16175AAB16002A5E36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		22D676BD17260C7400E3858D /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
 		22D676BE17260C7400E3858D /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
-		22D676C317260CEF00E3858D /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
-		22D676C417260CEF00E3858D /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		22D676C317260CEF00E3858D /* RGSVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideoCell.h; sourceTree = "<group>"; };
+		22D676C417260CEF00E3858D /* RGSVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideoCell.m; sourceTree = "<group>"; };
 		22D676C617262B3F00E3858D /* videoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoViewController.h; sourceTree = "<group>"; };
 		22D676C717262B3F00E3858D /* videoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoViewController.m; sourceTree = "<group>"; };
 		22D676C917262F3200E3858D /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo3.jpg; path = ../photo3.jpg; sourceTree = "<group>"; };
@@ -331,18 +334,20 @@
 				2201573816E034CF00918611 /* RGSAppDelegate.m */,
 				2222E5571730A4DC00347D06 /* ConfigManager.h */,
 				2222E5581730A4DC00347D06 /* ConfigManager.m */,
-				222FCF1317042396006A93C7 /* video.h */,
-				222FCF1417042398006A93C7 /* video.m */,
-				222FCF161704249B006A93C7 /* snippet.h */,
-				222FCF171704249C006A93C7 /* snippet.m */,
-				222FCF51170509F6006A93C7 /* player.h */,
-				222FCF52170509F9006A93C7 /* player.m */,
+				222FCF1317042396006A93C7 /* Video.h */,
+				222FCF1417042398006A93C7 /* Vdeo.m */,
+				222FCF161704249B006A93C7 /* Snippet.h */,
+				222FCF171704249C006A93C7 /* Snippet.m */,
+				222FCF51170509F6006A93C7 /* Player.h */,
+				222FCF52170509F9006A93C7 /* Player.m */,
 				2237B6571741F9A600BBB09F /* ImageSize.h */,
 				2237B6581741F9A600BBB09F /* ImageSize.m */,
-				22D676C317260CEF00E3858D /* VideoCell.h */,
-				22D676C417260CEF00E3858D /* VideoCell.m */,
+				22D676C317260CEF00E3858D /* RGSVideoCell.h */,
+				22D676C417260CEF00E3858D /* RGSVideoCell.m */,
 				22D676C617262B3F00E3858D /* videoViewController.h */,
 				22D676C717262B3F00E3858D /* videoViewController.m */,
+				2222AAD11762AC7C0008884B /* RGSVideoViewControllerManger.h */,
+				2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */,
 				2231D8C91755B075001CE97B /* GalleryViewController.h */,
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
 				2231D8C6175592E3001CE97B /* GalleryViewControllerManger.h */,
@@ -603,11 +608,11 @@
 				2201573916E034CF00918611 /* RGSAppDelegate.m in Sources */,
 				2201575F16E036C200918611 /* SideMenuViewController.m in Sources */,
 				222FCF0A16FE438A006A93C7 /* PhotoDetailViewController.m in Sources */,
-				222FCF151704239A006A93C7 /* video.m in Sources */,
-				222FCF181704249E006A93C7 /* snippet.m in Sources */,
-				222FCF53170509FA006A93C7 /* player.m in Sources */,
+				222FCF151704239A006A93C7 /* Vdeo.m in Sources */,
+				222FCF181704249E006A93C7 /* Snippet.m in Sources */,
+				222FCF53170509FA006A93C7 /* Player.m in Sources */,
 				22D676BF17260C7400E3858D /* SDSegmentedControl.m in Sources */,
-				22D676C517260CEF00E3858D /* VideoCell.m in Sources */,
+				22D676C517260CEF00E3858D /* RGSVideoCell.m in Sources */,
 				22D676C817262B3F00E3858D /* videoViewController.m in Sources */,
 				22D676D31727C5A900E3858D /* AsyncImageView.m in Sources */,
 				22702DE3172A3DA4009EDE31 /* sidebarCell.m in Sources */,
@@ -623,6 +628,7 @@
 				2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */,
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				22A9039F175C356200362022 /* STViewController.m in Sources */,
+				2222AAD31762AC7D0008884B /* RGSVideoViewControllerManger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

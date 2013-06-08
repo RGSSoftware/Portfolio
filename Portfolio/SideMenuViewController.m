@@ -121,10 +121,20 @@
         return cell;
     } else {
 
+#ifdef MYDEBUG
+        
+        cell.icon.image = [_iconButtons[indexPath.row] objectForKey:@"iconImage"];
+        cell.description.text = [_iconButtons[indexPath.row] objectForKey:@"description"];
+        
+        return cell;
+        
+#else
         cell.icon.image = [UIImage imageWithData:[_iconButtons[indexPath.row] objectForKey:@"iconData"]];
         cell.description.text = [_iconButtons[indexPath.row] objectForKey:@"description"];
     
         return cell;
+        
+#endif /* MYDEBUG */
     }
 }
 
