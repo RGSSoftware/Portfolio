@@ -11,7 +11,6 @@
 @implementation Snippet
 
 @synthesize title,
-            description,
-            thumbnails;
+            description;
 
 @end

@@ -7,14 +7,14 @@
 //
 
 #import "RGSVideoViewControllerManger.h"
+#import "RGSVideo2ViewController.h"
 #import "videoViewController.h"
 
+#import <Parse/Parse.h>
 @interface RGSVideoViewControllerManger ()
 
 @property(nonatomic, strong)NSMutableArray *videoViewControllers;
 @property(nonatomic, strong)NSMutableArray *videoCategories;
-
-@property(nonatomic, strong)UIViewController *currentVisibleViewController;
 
 @end
 
@@ -29,34 +29,57 @@
     return self;
 }
 
+-(id)getDownloadedCategories
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"youTubeChannels"];
+    NSArray *objects = [query findObjects];
+    
+    NSMutableArray *categories = [NSMutableArray array];
+    for (PFObject *object in objects) {
+        NSMutableDictionary *category = [NSMutableDictionary new];
+        [categories addObject:category];
+        
+        [category setObject:[object objectForKey:@"title"] forKey:@"title"];
+        [category setObject:[object objectForKey:@"ID"] forKey:@"ID"];
+        
+        NSLog(@"channel title:%@", [object objectForKey:@"title"]);
+    }
+    
+    return categories;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    _videoCategories = [self getDownloadedCategories];
+    
     if (!_videoViewControllers) {
         _videoViewControllers = [NSMutableArray new];
         
         for (int i = 0; i < [_videoCategories count]; i++) {
-            [_videoViewControllers addObject:[self videoViewControllerWithVideoIDs:[_videoCategories objectAtIndex:i]]];
+            [_videoViewControllers addObject:[self videoViewControllerWithCategory:[_videoCategories objectAtIndex:i]]];
         }
-        self.navigationController.viewControllers = [_videoViewControllers objectAtIndex:1];
+        self.navigationController.viewControllers = @[[_videoViewControllers objectAtIndex:0]];
     }
     
     
     
 }
-- (videoViewController *)videoViewControllerWithVideoIDs:(NSArray *)videoIDs
+- (RGSVideo2ViewController *)videoViewControllerWithCategory:(NSDictionary *)category
 {
     
-    
-   // return [videoViewController new];
+    RGSVideo2ViewController *videoController = [RGSVideo2ViewController new];
+    videoController.channelID = [category objectForKey:@"ID"];
+   return videoController;
 }
 
 - (void)videoViewController:(videoViewController *)videoViewController shouldChangeToCategory:(int)category
 {
     
-    self.navigationController.viewControllers = [_videoViewControllers objectAtIndex:category];
+    self.navigationController.viewControllers = @[[_videoViewControllers objectAtIndex:category]];
 }
 
 - (void)didReceiveMemoryWarning

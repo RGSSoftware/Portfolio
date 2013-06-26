@@ -91,6 +91,8 @@
 		22D676CB17262F3200E3858D /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22D676C917262F3200E3858D /* photo3.jpg */; };
 		22D676CC17262F3200E3858D /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D676CA17262F3200E3858D /* playButton.png */; };
 		22D676D31727C5A900E3858D /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676D21727C5A900E3858D /* AsyncImageView.m */; };
+		22FA6D0817683087002895F9 /* RGSVideo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */; };
+		22FA6D0E17684496002895F9 /* RGSVideoID.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FA6D0D17684496002895F9 /* RGSVideoID.m */; };
 		22FD041516E72E5800DC4014 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041416E72E5700DC4014 /* Security.framework */; };
 		22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041616E72E6000DC4014 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -247,6 +249,10 @@
 		22D676CA17262F3200E3858D /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = ../playButton.png; sourceTree = "<group>"; };
 		22D676D11727C5A900E3858D /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		22D676D21727C5A900E3858D /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		22FA6D0617683086002895F9 /* RGSVideo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideo2ViewController.h; sourceTree = "<group>"; };
+		22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideo2ViewController.m; sourceTree = "<group>"; };
+		22FA6D0C17684495002895F9 /* RGSVideoID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideoID.h; sourceTree = "<group>"; };
+		22FA6D0D17684496002895F9 /* RGSVideoID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideoID.m; sourceTree = "<group>"; };
 		22FD041416E72E5700DC4014 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22FD041616E72E6000DC4014 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -336,6 +342,8 @@
 				2222E5581730A4DC00347D06 /* ConfigManager.m */,
 				222FCF1317042396006A93C7 /* Video.h */,
 				222FCF1417042398006A93C7 /* Vdeo.m */,
+				22FA6D0C17684495002895F9 /* RGSVideoID.h */,
+				22FA6D0D17684496002895F9 /* RGSVideoID.m */,
 				222FCF161704249B006A93C7 /* Snippet.h */,
 				222FCF171704249C006A93C7 /* Snippet.m */,
 				222FCF51170509F6006A93C7 /* Player.h */,
@@ -346,6 +354,8 @@
 				22D676C417260CEF00E3858D /* RGSVideoCell.m */,
 				22D676C617262B3F00E3858D /* videoViewController.h */,
 				22D676C717262B3F00E3858D /* videoViewController.m */,
+				22FA6D0617683086002895F9 /* RGSVideo2ViewController.h */,
+				22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */,
 				2222AAD11762AC7C0008884B /* RGSVideoViewControllerManger.h */,
 				2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */,
 				2231D8C91755B075001CE97B /* GalleryViewController.h */,
@@ -629,6 +639,8 @@
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				22A9039F175C356200362022 /* STViewController.m in Sources */,
 				2222AAD31762AC7D0008884B /* RGSVideoViewControllerManger.m in Sources */,
+				22FA6D0817683087002895F9 /* RGSVideo2ViewController.m in Sources */,
+				22FA6D0E17684496002895F9 /* RGSVideoID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

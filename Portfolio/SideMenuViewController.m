@@ -15,6 +15,7 @@
 
 #import "GalleryViewController.h"
 #import "videoViewController.h"
+#import "RGSVideoViewControllerManger.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
 #import "InfoViewController.h"
@@ -49,7 +50,7 @@
     _viewControllers = [NSMutableArray array];
     
     
-    [_viewControllers addObject:[videoViewController new]];
+    [_viewControllers addObject:[RGSVideoViewControllerManger new]];
     [_viewControllers addObject:[galleryManager galleryViewController:GalleryCategorySignature]];
     [_viewControllers addObject:[aboutMeViewController new]];
     [_viewControllers addObject:[ContactViewController new]];

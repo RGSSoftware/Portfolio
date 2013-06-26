@@ -12,6 +12,6 @@
 
 @synthesize ID,
             snippet,
-            player;
-
+            player,
+            thumbnails;
 @end

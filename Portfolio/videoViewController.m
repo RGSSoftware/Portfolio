@@ -10,9 +10,9 @@
 #import <Parse/Parse.h>
 #import <RestKit/RestKit.h>
 
+
 #import "Video.h"
-#import "Snippet.h"
-#import "Player.h"
+
 
 #import "SDSegmentedControl.h"
 #import "AsyncImageView.h"
@@ -47,6 +47,7 @@
    
     _videoCategories = [[[ConfigManager sharedManager] shortFilmsConfig] objectForKey:@"videosCategories"];
     
+    
     RKObjectManager *youtubeAPImanager = [self youtubeAPIManager];
     RKObjectMapping *youtubeMapping = [self youtubeMapping];
     
@@ -55,7 +56,6 @@
                                                                                           keyPath:@"items"
                                                                                       statusCodes:nil];
     [youtubeAPImanager addResponseDescriptor:responeDecriptior];
-    
     
     
     
@@ -107,10 +107,10 @@
     
     RKObjectMapping *thumbnailMapping = [RKObjectMapping requestMapping];
     [thumbnailMapping addAttributeMappingsFromArray:@[@"default", @"medium", @"high"]];
-    RKRelationshipMapping *thumbnailRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"thumbnails"
+    RKRelationshipMapping *thumbnailRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"snippet.thumbnails"
                                                                                            toKeyPath:@"thumbnails"
                                                                                          withMapping:thumbnailMapping];
-    [snippetMapping addPropertyMapping:thumbnailRelation];
+    [videoMapping addPropertyMapping:thumbnailRelation];
     
     RKObjectMapping *playerMapping = [RKObjectMapping mappingForClass:[Player class]];
     //[playerMapping addAttributeMappingsFromArray:@[@"embedHtml"]];
@@ -156,11 +156,15 @@
    return [[_videoCategories objectAtIndex:sectionIndex] count];
     
     
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    
+    
+    
     RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -174,14 +178,22 @@
     NSDictionary *queryParams;
     queryParams = [NSDictionary dictionaryWithObjectsAndKeys:videoID, @"id", @"snippet,player", @"part", apiKey, @"key", nil];
     
+    
+    
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    
+    NSLog(@"sharedManger resonseDecriptior%@", objectManager.responseDescriptors[0]);
     [objectManager getObjectsAtPath:@"v3/videos" parameters:queryParams
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         
                                 Video *v = (Video *)[mappingResult array][0];
                                 
+                                
+                                
                                 [cell.videoTitle setText:v.snippet.title];
-                                cell.tumbnailView.imageURL = [NSURL URLWithString:[[v.snippet.thumbnails[0] objectForKey:@"medium"] objectForKey:@"url"]];
+                               
+                                cell.tumbnailView.imageURL = [NSURL URLWithString:[[v.thumbnails objectForKey:@"high"] objectForKey:@"url"]];
+                               // cell.tumbnailView.imageURL = [NSURL URLWithString:[[[v.snippet.thumbnails objectForKey:@"high"] objectForKey:@"url"]];
 
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
