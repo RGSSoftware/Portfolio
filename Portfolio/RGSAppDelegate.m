@@ -13,6 +13,7 @@
 #import "ConfigManager.h"
 #import "GalleryViewControllerManger.h"
 
+#import "RGSVideoViewControllerManger.h"
 #import "videoViewController.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
@@ -68,7 +69,7 @@
 - (UINavigationController *)navigationController
 {
     UINavigationController *navigationController = [[UINavigationController alloc]
-                                                    initWithRootViewController:[videoViewController new]];
+                                                    initWithRootViewController:[RGSVideoViewControllerManger new]];
     
     return navigationController;
 }
@@ -109,6 +110,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(NSInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 -(void)dealloc

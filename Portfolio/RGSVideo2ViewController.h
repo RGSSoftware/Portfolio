@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RGSVideo2ViewController : UIViewController
+@interface RGSVideo2ViewController : UITableViewController
 
 @property(nonatomic, strong)NSString *channelID;
 @property(nonatomic, strong)NSString *channelTitle;
