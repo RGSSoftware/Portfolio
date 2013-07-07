@@ -11,7 +11,7 @@
 @implementation Video
 
 @synthesize ID,
-            snippet,
-            player,
+            title,
+            description,
             thumbnails;
 @end

@@ -12,8 +12,6 @@
 #import <RestKit/RestKit.h>
 
 #import "Video.h"
-#import "RGSVideoID.h"
-#import "Snippet.h"
 
 #import "AsyncImageView.h"
 
@@ -63,7 +61,7 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     NSString *youtubeDateFormate = [NSString stringWithFormat:@"%@T%@Z", dateString, timeString];
     // convert it to a string
         
-    NSLog(DATE);
+    //NSLog(DATE);
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
@@ -91,7 +89,7 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
         NSLog(@"video count: %d", [[result array] count]);
         for (Video *video in [result array]) {
-            NSLog(@"%@ -----ID:%@", video.snippet.title,video.ID.videoId);
+            NSLog(@"%@ -----ID:%@", video.title,video.ID);
         }
         NSLog(@"local test data: %@", [result array]);
         
@@ -137,28 +135,20 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
 -(RKObjectMapping *)youtubeMapping
 {
     RKObjectMapping *videoMapping = [RKObjectMapping mappingForClass:[Video class]];
-    //[videoMapping addAttributeMappingsFromDictionary:@{
-      //  @"id" : @"ID"
-     //}];
+    [videoMapping addAttributeMappingsFromDictionary:@{
+        @"id.videoId" : @"ID",
+        @"snippet.title": @"title",
+        @"snippet.descriptionl": @"description"
+     }];
    
     
-    RKObjectMapping *videoIdMapping = [RKObjectMapping mappingForClass:[RGSVideoID class]];
-    [videoIdMapping addAttributeMappingsFromArray:@[@"videoId"]];
-    [videoMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"id"
-                                                                                 toKeyPath:@"ID"
-                                                                               withMapping:videoIdMapping]];
-    
-     
-    
-    RKObjectMapping *snippetMapping = [RKObjectMapping mappingForClass:[Snippet class]];
-    [snippetMapping addAttributeMappingsFromDictionary:@{@"title": @"title", @"description": @"description"}];
-    RKRelationshipMapping *snippetRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"snippet"
-                                                                                         toKeyPath:@"snippet"
-                                                                                       withMapping:snippetMapping];
-    [videoMapping addPropertyMapping:snippetRelation];
-    
+       
     RKObjectMapping *thumbnailMapping = [RKObjectMapping requestMapping];
-    [thumbnailMapping addAttributeMappingsFromArray:@[@"default", @"medium", @"high"]];
+    [thumbnailMapping addAttributeMappingsFromDictionary:@{
+        @"default": @"low",
+        @"medium": @"medium",
+        @"high": @"high"
+     }];
     RKRelationshipMapping *thumbnailRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"snippet.thumbnails"
                                                                                            toKeyPath:@"thumbnails"
                                                                                          withMapping:thumbnailMapping];
@@ -195,7 +185,7 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     Video *video = [_videos objectAtIndex:indexPath.row];
     cell.tumbnailView.image = [UIImage imageNamed:@"photo3.jpg"];
     
-    [cell.videoTitle setText:video.snippet.title];
+    [cell.videoTitle setText:video.title];
                                 
     cell.tumbnailView.imageURL = [NSURL URLWithString:[[video.thumbnails objectForKey:@"high"] objectForKey:@"url"]];
                                 
