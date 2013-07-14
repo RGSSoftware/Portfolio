@@ -24,7 +24,7 @@ float const videoTumbnailY = videoTitleHeight + 10;
 float const videoTumbnailWidth = videoContentWidth - 10;
 float const videoTumbnailHeight = videoContentHeight - 35;
 
-NSString * const playButtonImage = @"playButton.png";
+NSString *const playButtonImage = @"playButton.png";
 float const playButtonWidth = 100.f;
 float const playButtonHeight = 100.f;
 float const playButtonX = (videoContentWidth / 2) - (playButtonWidth / 2);

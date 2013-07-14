@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "RGSVideo2ViewController.h"
+#import "RGSVideoViewController.h"
 
 #import <Parse/Parse.h>
 #import <RestKit/RestKit.h>
@@ -25,15 +25,24 @@ NSString *const APIManagerBaseURL = @"https://www.googleapis.com/youtube";
 
 NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
 
+NSInteger const rowHeightPadding = 10;
+NSString *const videoCellIdentifier = @"Cell";
+NSString *const videoCellTumbnailPlaceholder = @"photo3.jpg";
+
+typedef enum{
+    videoTypeNew,
+    videoTypeOld
+}videoType;
+
 //#define MYDEBUGNETWORK
 
 
-@interface RGSVideo2ViewController ()
+@interface RGSVideoViewController ()
 @property(nonatomic,strong)NSMutableArray *videos;
 
 @end
 
-@implementation RGSVideo2ViewController
+@implementation RGSVideoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,34 +57,27 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
 {
     [super viewDidLoad];
     
-    NSDate *date = [NSDate date];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    
-    [dateFormat setDateFormat:@"YYYY-MM-dd"];
-    NSString *dateString = [dateFormat stringFromDate:date];
-    
-    
-    [dateFormat setDateFormat:@"HH:mm:ss.s"];
-    NSString *timeString = [dateFormat stringFromDate:date];
-    
-    NSString *youtubeDateFormate = [NSString stringWithFormat:@"%@T%@Z", dateString, timeString];
-    // convert it to a string
-        
+
     //NSLog(DATE);
+    _videos = [NSMutableArray new];
+    for (int i = 0; i < 2; i++) {
+        [_videos addObject:[NSMutableArray array]];
+    }
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     
     self.tableView.backgroundView = texturedBackgroundView;
-    //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.rowHeight = [[RGSVideoCell new] videoCellHeight] + rowHeightPadding;
     
-    [[self tableView] registerClass:[RGSVideoCell class] forCellReuseIdentifier:@"Cell"];
+    [[self tableView] registerClass:[RGSVideoCell class] forCellReuseIdentifier:videoCellIdentifier];
 	
-    _videos = [NSMutableArray new];
+  
     
     RKObjectManager *youtubeAPImanager = [self youtubeAPIManager];
     RKObjectMapping *youtubeMapping = [self youtubeMapping];
+    
     
     RKResponseDescriptor *responseDescriptior = [RKResponseDescriptor responseDescriptorWithMapping:youtubeMapping
                                                                                       pathPattern:nil
@@ -89,7 +91,7 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
         NSLog(@"video count: %d", [[result array] count]);
         for (Video *video in [result array]) {
-            NSLog(@"%@ -----ID:%@", video.title,video.ID);
+            NSLog(@"%@ -----ID:%@", video.title, video.ID);
         }
         NSLog(@"local test data: %@", [result array]);
         
@@ -97,12 +99,50 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     [operation start];
     
 #else
-    [youtubeAPImanager addResponseDescriptor:responseDescriptior];
+    
+     NSDictionary *queryParams = [NSDictionary new];
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    
+    [dateFormat setDateFormat:@"YYYY-MM-dd"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    
+    
+    [dateFormat setDateFormat:@"HH:mm:ss.s"];
+    NSString *timeString = [dateFormat stringFromDate:date];
+    
+    NSString *youtubeDateFormate = [NSString stringWithFormat:@"%@T%@Z", dateString, timeString];
+    
+    if (youtubeDateFormate) {
+        queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part", _channelID, @"channelId", youtubeDateFormate, @"publishedAfter", kAPIKEY, @"key", nil];
+        [youtubeAPImanager addResponseDescriptor:responseDescriptior];
+        
+        [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:queryParams
+                                                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                                if ([[mappingResult array] count] == 0) {
+                                                                    return;
+                                                                }
+                                                                NSMutableArray *newVideos = [NSMutableArray arrayWithArray:[mappingResult array]];
+                                                                [[_videos objectAtIndex:videoTypeNew] addObject:newVideos];
+                                        
+                                                                [self.tableView reloadData];
+                                        
+                                                            }
+                                                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                                NSLog(@"Error: %@", [error localizedDescription]);
+                                                            }];
+
+        
+    }
+    
+    
     
  //   [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptior];
-    NSDictionary *queryParams = [NSDictionary new];
-    queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part",_channelID, @"channelId",  kAPIKEY, @"key", nil];
-       
+    
+    queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part",_channelID, @"channelId", kAPIKEY, @"key", nil];
+    
+    [youtubeAPImanager addResponseDescriptor:responseDescriptior];
     /*[objectManager getObjectsPath] <------ this was the problem */
     [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:queryParams
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -115,8 +155,8 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
                                 NSLog(@"Error: %@", [error localizedDescription]);
                             }];
     
-   
 #endif /* MYDEBUGNETWORK */
+    
 }
 
 -(RKObjectManager *)youtubeAPIManager
@@ -141,8 +181,6 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
         @"snippet.descriptionl": @"description"
      }];
    
-    
-       
     RKObjectMapping *thumbnailMapping = [RKObjectMapping requestMapping];
     [thumbnailMapping addAttributeMappingsFromDictionary:@{
         @"default": @"low",
@@ -154,7 +192,6 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
                                                                                          withMapping:thumbnailMapping];
     [videoMapping addPropertyMapping:thumbnailRelation];
     
-        
     return videoMapping;
 }
 
@@ -168,30 +205,21 @@ NSString *const localbaseURL = @"http://localhost:8888/google_youtybeData.json";
     return [_videos count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [[RGSVideoCell new] videoCellHeight] + 10;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
     
-    RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:videoCellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
     }
     
     Video *video = [_videos objectAtIndex:indexPath.row];
-    cell.tumbnailView.image = [UIImage imageNamed:@"photo3.jpg"];
+    cell.tumbnailView.image = [UIImage imageNamed:videoCellTumbnailPlaceholder];
     
     [cell.videoTitle setText:video.title];
                                 
     cell.tumbnailView.imageURL = [NSURL URLWithString:[[video.thumbnails objectForKey:@"high"] objectForKey:@"url"]];
                                 
-                                
-                           
-    
     return cell;
 }
 

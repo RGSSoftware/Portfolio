@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 //#import "GalleryViewController.h"
-#import "videoViewController.h"
+
 
 typedef enum {
     GalleryCategorySignature,
@@ -20,7 +20,7 @@ typedef enum {
 
 
 @property (strong, nonatomic)NSMutableArray *galleryViewControllers;
-@property (strong,nonatomic) NSMutableArray *photoSizes;
+@property (strong, nonatomic) NSMutableArray *photoSizes;
 
 - (id)galleryViewController:(GalleryCategory)gallerycategory;
 + (GalleryViewControllerManger *)sharedManager;

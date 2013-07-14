@@ -7,8 +7,7 @@
 //
 
 #import "RGSVideoViewControllerManger.h"
-#import "RGSVideo2ViewController.h"
-#import "videoViewController.h"
+#import "RGSVideoViewController.h"
 
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
@@ -16,10 +15,17 @@
 #import "SDSegmentedControl.h"
 
 #import <Parse/Parse.h>
+float const categoryControlX = 0;
+float const categoryControlY = 0;
+float const categoryControlHeight = 35.f;
+
+float const categoryVideosViewX = 0;
+float const categoryVideosViewY = categoryControlHeight;
+
 @interface RGSVideoViewControllerManger ()
 
-@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
-@property(strong, nonatomic)SDSegmentedControl *segmentedControl;
+@property(nonatomic, strong)MenuBarButtons *menuBarButtons;
+@property(nonatomic, strong)SDSegmentedControl *segmentedControl;
 
 @property(nonatomic, strong)NSMutableArray *videoViewControllers;
 @property(nonatomic, strong)NSArray *videoCategories;
@@ -81,7 +87,7 @@
                         [_videoViewControllers addObject:[self videoViewControllerWithCategory:[_videoCategories objectAtIndex:i]]];
                     }
                 _currentViewCategoryController = [_videoViewControllers objectAtIndex:0];
-                _currentViewCategoryController.view.frame = CGRectMake(0, 35.0f, self.view.frame.size.width, self.view.frame.size.height-45.0f);
+                _currentViewCategoryController.view.frame = CGRectMake(categoryVideosViewX, categoryVideosViewY, self.view.frame.size.width, self.view.frame.size.height-categoryVideosViewY);
                 [self addChildViewController:_currentViewCategoryController];
                 [self.view addSubview:_currentViewCategoryController.view];
                 [self.view sendSubviewToBack:_currentViewCategoryController.view];
@@ -98,38 +104,38 @@
     _segmentedControl.arrowHeightFactor = 0;
     _segmentedControl.interItemSpace = 5;
     [_segmentedControl addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
-    _segmentedControl.frame = CGRectMake(0, 0, self.view.frame.size.width, 35.0f);
+    _segmentedControl.frame = CGRectMake(categoryControlX, categoryControlY, self.view.frame.size.width, categoryControlHeight);
     [self.view addSubview:_segmentedControl];
     [self.view bringSubviewToFront:_segmentedControl];
 
 }
 
-- (RGSVideo2ViewController *)videoViewControllerWithCategory:(NSDictionary *)category
+- (RGSVideoViewController *)videoViewControllerWithCategory:(NSDictionary *)category
 {
     
-    RGSVideo2ViewController *videoController = [RGSVideo2ViewController new];
+    RGSVideoViewController *videoController = [RGSVideoViewController new];
     videoController.channelID = [category objectForKey:@"ID"];
    return videoController;
 }
-
+/*
 - (void)videoViewController:(videoViewController *)videoViewController shouldChangeToCategory:(int)category
 {
     
     self.navigationController.viewControllers = @[[_videoViewControllers objectAtIndex:category]];
 }
-
+*/
 -(void)changeCategory
 {
-        [_currentViewCategoryController willMoveToParentViewController:nil];
-        [_currentViewCategoryController.view removeFromSuperview];
-        [_currentViewCategoryController removeFromParentViewController];
-        
-        _currentViewCategoryController = [_videoViewControllers objectAtIndex:_segmentedControl.selectedSegmentIndex];
-        _currentViewCategoryController.view.frame = CGRectMake(0, 35.0f, self.view.frame.size.width, self.view.frame.size.height-45.0f);
-        [self addChildViewController:_currentViewCategoryController];
-        [self.view addSubview:_currentViewCategoryController.view];
-        [self.view sendSubviewToBack:_currentViewCategoryController.view];
-        [_currentViewCategoryController didMoveToParentViewController:self];
+    [_currentViewCategoryController willMoveToParentViewController:nil];
+    [_currentViewCategoryController.view removeFromSuperview];
+    [_currentViewCategoryController removeFromParentViewController];
+    
+    _currentViewCategoryController = [_videoViewControllers objectAtIndex:_segmentedControl.selectedSegmentIndex];
+    _currentViewCategoryController.view.frame = CGRectMake(categoryVideosViewX, categoryVideosViewY, self.view.frame.size.width, self.view.frame.size.height-categoryVideosViewY);
+    [self addChildViewController:_currentViewCategoryController];
+    [self.view addSubview:_currentViewCategoryController.view];
+    [self.view sendSubviewToBack:_currentViewCategoryController.view];
+    [_currentViewCategoryController didMoveToParentViewController:self];
     
 }
 - (void)didReceiveMemoryWarning

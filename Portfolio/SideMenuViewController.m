@@ -14,7 +14,6 @@
 #import "GalleryViewControllerManger.h"
 
 #import "GalleryViewController.h"
-#import "videoViewController.h"
 #import "RGSVideoViewControllerManger.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
@@ -145,9 +144,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *viewcontroller = [_viewControllers objectAtIndex:indexPath.row];
 
-    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    UINavigationController *centerNavigationController = self.menuContainerViewController.centerViewController;
 
-    if ([navigationController.topViewController isKindOfClass:[viewcontroller class]]) {
+    if ([centerNavigationController.topViewController isKindOfClass:[viewcontroller class]]) {
         //[navigationController popToRootViewControllerAnimated:YES];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
@@ -164,7 +163,7 @@
      
             }
         }
-        navigationController.viewControllers = @[viewcontroller];
+        centerNavigationController.viewControllers = @[viewcontroller];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }
    

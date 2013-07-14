@@ -72,6 +72,7 @@
 		2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2292F84D177D20C4009906B4 /* ContactViewController.m */; };
 		2292F850177D20C4009906B4 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2292F84E177D20C4009906B4 /* ContactViewController.xib */; };
 		2292F852177D22E5009906B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2292F851177D22E5009906B4 /* Parse.framework */; };
+		22A7F058178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */; };
 		22A90392175B54D800362022 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A90390175B54D600362022 /* InfoViewController.m */; };
 		22A90393175B54D800362022 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A90391175B54D700362022 /* InfoViewController.xib */; };
 		22A90398175B56EA00362022 /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A90397175B56EA00362022 /* red_background.png */; };
@@ -81,11 +82,10 @@
 		22C34C18175AAB16002A5E36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C34C16175AAB16002A5E36 /* Default@2x.png */; };
 		22D676BF17260C7400E3858D /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676BE17260C7400E3858D /* SDSegmentedControl.m */; };
 		22D676C517260CEF00E3858D /* RGSVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676C417260CEF00E3858D /* RGSVideoCell.m */; };
-		22D676C817262B3F00E3858D /* videoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676C717262B3F00E3858D /* videoViewController.m */; };
 		22D676CB17262F3200E3858D /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22D676C917262F3200E3858D /* photo3.jpg */; };
 		22D676CC17262F3200E3858D /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D676CA17262F3200E3858D /* playButton.png */; };
 		22D676D31727C5A900E3858D /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D676D21727C5A900E3858D /* AsyncImageView.m */; };
-		22FA6D0817683087002895F9 /* RGSVideo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */; };
+		22FA6D0817683087002895F9 /* RGSVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FA6D0717683087002895F9 /* RGSVideoViewController.m */; };
 		22FD041516E72E5800DC4014 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041416E72E5700DC4014 /* Security.framework */; };
 		22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041616E72E6000DC4014 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -216,6 +216,8 @@
 		2292F84D177D20C4009906B4 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		2292F84E177D20C4009906B4 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
 		2292F851177D22E5009906B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Portfolio/Parse.framework; sourceTree = "<group>"; };
+		22A7F056178B0D6A00FEF19B /* RGSGalleryViewControllerManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSGalleryViewControllerManger.h; sourceTree = "<group>"; };
+		22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSGalleryViewControllerManger.m; sourceTree = "<group>"; };
 		22A9038F175B54D600362022 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		22A90390175B54D600362022 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		22A90391175B54D700362022 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
@@ -228,14 +230,12 @@
 		22D676BE17260C7400E3858D /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		22D676C317260CEF00E3858D /* RGSVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideoCell.h; sourceTree = "<group>"; };
 		22D676C417260CEF00E3858D /* RGSVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideoCell.m; sourceTree = "<group>"; };
-		22D676C617262B3F00E3858D /* videoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoViewController.h; sourceTree = "<group>"; };
-		22D676C717262B3F00E3858D /* videoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoViewController.m; sourceTree = "<group>"; };
 		22D676C917262F3200E3858D /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo3.jpg; path = ../photo3.jpg; sourceTree = "<group>"; };
 		22D676CA17262F3200E3858D /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playButton.png; path = ../playButton.png; sourceTree = "<group>"; };
 		22D676D11727C5A900E3858D /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		22D676D21727C5A900E3858D /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		22FA6D0617683086002895F9 /* RGSVideo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideo2ViewController.h; sourceTree = "<group>"; };
-		22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideo2ViewController.m; sourceTree = "<group>"; };
+		22FA6D0617683086002895F9 /* RGSVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSVideoViewController.h; sourceTree = "<group>"; };
+		22FA6D0717683087002895F9 /* RGSVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSVideoViewController.m; sourceTree = "<group>"; };
 		22FD041416E72E5700DC4014 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22FD041616E72E6000DC4014 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -245,12 +245,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */,
 				22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */,
 				228B9C4C16FA4BB6002E2884 /* MobileCoreServices.framework in Frameworks */,
 				2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */,
 				22704E621734E903009B5708 /* MessageUI.framework in Frameworks */,
 				222FCF2E17042DDA006A93C7 /* libxml2.dylib in Frameworks */,
-				222FCF2C17042C35006A93C7 /* CoreData.framework in Frameworks */,
 				228B9C4416FA4B6B002E2884 /* CFNetwork.framework in Frameworks */,
 				22FD041516E72E5800DC4014 /* Security.framework in Frameworks */,
 				228B9C5616FA522C002E2884 /* Accounts.framework in Frameworks */,
@@ -329,15 +329,15 @@
 				2237B6581741F9A600BBB09F /* ImageSize.m */,
 				22D676C317260CEF00E3858D /* RGSVideoCell.h */,
 				22D676C417260CEF00E3858D /* RGSVideoCell.m */,
-				22D676C617262B3F00E3858D /* videoViewController.h */,
-				22D676C717262B3F00E3858D /* videoViewController.m */,
-				22FA6D0617683086002895F9 /* RGSVideo2ViewController.h */,
-				22FA6D0717683087002895F9 /* RGSVideo2ViewController.m */,
+				22FA6D0617683086002895F9 /* RGSVideoViewController.h */,
+				22FA6D0717683087002895F9 /* RGSVideoViewController.m */,
 				2222AAD11762AC7C0008884B /* RGSVideoViewControllerManger.h */,
 				2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */,
 				2231D8C91755B075001CE97B /* GalleryViewController.h */,
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
 				2231D8C6175592E3001CE97B /* GalleryViewControllerManger.h */,
+				22A7F056178B0D6A00FEF19B /* RGSGalleryViewControllerManger.h */,
+				22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */,
 				2231D8C7175592E9001CE97B /* GalleryViewControllerManger.m */,
 				2292F84C177D20C4009906B4 /* ContactViewController.h */,
 				2292F84D177D20C4009906B4 /* ContactViewController.m */,
@@ -590,7 +590,6 @@
 				222FCF151704239A006A93C7 /* Vdeo.m in Sources */,
 				22D676BF17260C7400E3858D /* SDSegmentedControl.m in Sources */,
 				22D676C517260CEF00E3858D /* RGSVideoCell.m in Sources */,
-				22D676C817262B3F00E3858D /* videoViewController.m in Sources */,
 				22D676D31727C5A900E3858D /* AsyncImageView.m in Sources */,
 				2222E5591730A4DC00347D06 /* ConfigManager.m in Sources */,
 				2222E55C1730B08200347D06 /* MBProgressHUD.m in Sources */,
@@ -603,10 +602,11 @@
 				2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */,
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				2222AAD31762AC7D0008884B /* RGSVideoViewControllerManger.m in Sources */,
-				22FA6D0817683087002895F9 /* RGSVideo2ViewController.m in Sources */,
+				22FA6D0817683087002895F9 /* RGSVideoViewController.m in Sources */,
 				2292F846177D1F8F009906B4 /* sidebarCell.m in Sources */,
 				2292F84A177D2071009906B4 /* STViewController.m in Sources */,
 				2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */,
+				22A7F058178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
