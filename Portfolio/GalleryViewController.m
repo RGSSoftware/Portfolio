@@ -49,8 +49,6 @@ const float kCollectionCloumnCount = 2;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        
     }
     return self;
 }
@@ -97,8 +95,6 @@ const float kCollectionCloumnCount = 2;
 
 -(NSMutableArray *)downloadPhotos
 {
-   // NSMutableArray *photos = [NSMutableArray new];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"photos"];
     
     if (self.galleryCategory == GalleryCategorySignature) {
@@ -112,29 +108,8 @@ const float kCollectionCloumnCount = 2;
     NSLog(@"Successfully retrieved %d photos objects.", objects.count);
     
     return [NSMutableArray arrayWithArray:objects];
-    /*
-    NSMutableArray *sigutrePhotos = [NSMutableArray array];
-    [photos addObject:sigutrePhotos];
-            
-    NSMutableArray *rawPhotos = [NSMutableArray array];
-    [photos addObject:rawPhotos];
-            
-    for (PFObject *eachobject in objects) {
-        BOOL isPhotoRaw = [[eachobject objectForKey:@"raw"] boolValue];
-
-        if (isPhotoRaw) {
-            [rawPhotos addObject:eachobject];
-        }else {
-            [sigutrePhotos addObject:eachobject];
-        }
-    }
-    return photos;
-     
-     */
+   
 }
-
-
-
 
 #pragma mark - UICollectionView Delegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

@@ -16,6 +16,7 @@
 #import "Video.h"
 
 #import "AsyncImageView.h"
+#import "XCDYouTubeVideoPlayerViewController.h"
 
 #import "RGSVideoCell.h"
 
@@ -267,8 +268,10 @@ typedef enum{
 {
     
     RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:videoCellIdentifier forIndexPath:indexPath];
+    cell.delegate = self;
     if (cell == nil) {
         cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
+        
     }
     
     Video *video = [[_videos objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -281,7 +284,16 @@ typedef enum{
     return cell;
 }
 
-
+-(void)videoCell:(RGSVideoCell *)videoCell didTapPlayButton:(UIButton *)button
+{
+    NSIndexPath *videoCellIndex = [self.tableView indexPathForCell:videoCell];
+    
+    Video *videoData = [[_videos objectAtIndex:videoCellIndex.section] objectAtIndex:videoCellIndex.row];
+    
+    XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:videoData.ID];
+    videoPlayerViewController.preferredVideoQualities = @[[NSNumber numberWithInteger:XCDYouTubeVideoQualityMedium360]];
+    [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
+}
 
 -(void)dealloc
 {

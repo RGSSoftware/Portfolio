@@ -71,7 +71,7 @@ float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2);
         self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.playButton.frame = CGRectMake( playButtonX, playButtonY, playButtonWidth, playButtonHeight);
         [self.playButton setBackgroundImage:[UIImage imageNamed:playButtonImage] forState:UIControlStateNormal];
-        [self.playButton addTarget:self.delegate action:@selector(didTapPlayButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.playButton addTarget:self action:@selector(didTapPlayButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [videoContent addSubview:self.playButton];
         
     }

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RGSVideoCell.h"
 
-@interface RGSVideoViewController : UITableViewController
+@interface RGSVideoViewController : UITableViewController <RGSVideoCellDelegate>
 
 @property(nonatomic, strong)NSString *channelID;
 @property(nonatomic, strong)NSString *channelTitle;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+-(void)videoCell:(RGSVideoCell *)videoCell didTapPlayButton:(UIButton *)sender;
 
 @end
