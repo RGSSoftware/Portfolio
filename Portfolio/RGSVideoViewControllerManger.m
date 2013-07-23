@@ -72,6 +72,8 @@ float const categoryVideosViewY = categoryControlHeight;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"Videos";
+    
     self.view.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
     

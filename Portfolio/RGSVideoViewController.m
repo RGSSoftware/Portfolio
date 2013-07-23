@@ -63,7 +63,7 @@ typedef enum{
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     //NSLog(DATE);
     _videos = [NSMutableArray new];
     for (int i = 0; i < 2; i++) {

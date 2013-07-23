@@ -8,11 +8,13 @@
 
 #import "ContactViewController.h"
 #import "ConfigManager.h"
-#import "MFSideMenu.h"
+#import "MenuBarButtons.h"
 
 @interface ContactViewController ()
 
-    @property(nonatomic, strong)NSDictionary *config;
+@property(nonatomic, strong)NSDictionary *config;
+
+@property(nonatomic, strong)MenuBarButtons *menuBarButtons;
 @end
 
 @implementation ContactViewController
@@ -32,13 +34,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.title = @"Contact";
+    
     _config = [[ConfigManager sharedManager] contactConfig];
     
     _youtubeButton.tag = ContactButtonYoutube;
     _facebookButton.tag = ContactButtonFacebook;
     _twitterButton.tag = ContactButtonTwitter;
     _emailButton.tag = ContactButtonEmail;
+    
+    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
+    _menuBarButtons.setLeftBarButton = TRUE;
+    [_menuBarButtons setupMenuBarButtonItems];
 
 }
 
@@ -93,7 +101,21 @@
     }
 }
 
+- (void)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+- (void)leftSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
+
+- (void)rightSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
 
 
 @end

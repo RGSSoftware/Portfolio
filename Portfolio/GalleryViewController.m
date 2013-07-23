@@ -125,7 +125,7 @@ const float kCollectionCloumnCount = 2;
             PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
             pdvc.selectedImage = image;
             
-          [self presentModalViewController:pdvc animated:YES];  
+          [self presentViewController:pdvc animated:YES completion:Nil];
         }
     }];
     [imageView setNeedsDisplay];

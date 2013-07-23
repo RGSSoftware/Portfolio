@@ -29,13 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.title = @"Thanks";
     
     _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
     _menuBarButtons.setLeftBarButton = TRUE;
     [_menuBarButtons setupMenuBarButtonItems];
     
-    self.navigationItem.title = @"Thanks";
+    
 
 }
 

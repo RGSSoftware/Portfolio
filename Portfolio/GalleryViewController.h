@@ -21,7 +21,7 @@
 
 @property (strong,nonatomic) NSArray *photoSizes;
 
--(void)changeCategorySegmentButton:(GalleryCategory)galleryCategory;
+
 
 
 @end

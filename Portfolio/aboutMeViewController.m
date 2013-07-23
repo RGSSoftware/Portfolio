@@ -10,7 +10,11 @@
 #import "ConfigManager.h"
 #import <Parse/Parse.h>
 
+#import "MenuBarButtons.h"
+
 @interface aboutMeViewController ()
+
+@property(nonatomic, strong)MenuBarButtons *menuBarButtons;
 
 @end
 
@@ -20,9 +24,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-       
-        
     }
     return self;
 }
@@ -30,11 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    // Custom initialization
+	
+    self.navigationItem.title = @"About Me";
     
     [self downloadedBioPhoto];
     [_bioText setText:[[[ConfigManager sharedManager] aboutMeConfig] objectForKey:@"bio"]];
+    
+    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
+    _menuBarButtons.setLeftBarButton = TRUE;
+    [_menuBarButtons setupMenuBarButtonItems];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,4 +63,21 @@
     }];
      
 }
+
+- (void)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)leftSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
+
+- (void)rightSideMenuButtonPressed:(id)sender {
+    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
+        [_menuBarButtons setupMenuBarButtonItems];
+    }];
+}
+
 @end
