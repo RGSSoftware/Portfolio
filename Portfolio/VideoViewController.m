@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "RGSVideoViewController.h"
+#import "VideoViewController.h"
 
 #import "RGSAppDelegate.h"
 
@@ -18,7 +18,7 @@
 #import "AsyncImageView.h"
 #import "XCDYouTubeVideoPlayerViewController.h"
 
-#import "RGSVideoCell.h"
+#import "VideoCell.h"
 
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
@@ -40,7 +40,7 @@ typedef enum{
 //#define MYDEBUGNETWORK
 
 
-@interface RGSVideoViewController ()
+@interface VideoViewController ()
 @property(nonatomic,strong)NSMutableArray *videos;
 
 @property(nonatomic,strong)NSDate *dateQuery;
@@ -49,7 +49,7 @@ typedef enum{
 
 @end
 
-@implementation RGSVideoViewController
+@implementation VideoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,9 +77,9 @@ typedef enum{
     
     self.tableView.backgroundView = texturedBackgroundView;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = [[RGSVideoCell new] videoCellHeight] + rowHeightPadding;
+    self.tableView.rowHeight = [[VideoCell new] videoCellHeight] + rowHeightPadding;
     
-    [[self tableView] registerClass:[RGSVideoCell class] forCellReuseIdentifier:videoCellIdentifier];
+    [[self tableView] registerClass:[VideoCell class] forCellReuseIdentifier:videoCellIdentifier];
     
     RKObjectManager *youtubeAPImanager = [self youtubeAPIManager];
     RKObjectMapping *youtubeMapping = [self youtubeMapping];
@@ -267,10 +267,10 @@ typedef enum{
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    RGSVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:videoCellIdentifier forIndexPath:indexPath];
+    VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:videoCellIdentifier forIndexPath:indexPath];
     cell.delegate = self;
     if (cell == nil) {
-        cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
+        cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
         
     }
     
@@ -284,7 +284,7 @@ typedef enum{
     return cell;
 }
 
--(void)videoCell:(RGSVideoCell *)videoCell didTapPlayButton:(UIButton *)button
+-(void)videoCell:(VideoCell *)videoCell didTapPlayButton:(UIButton *)button
 {
     NSIndexPath *videoCellIndex = [self.tableView indexPathForCell:videoCell];
     

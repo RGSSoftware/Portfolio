@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RGSVideoViewControllerManger : UIViewController
+@interface VideoViewControllerContainer : UIViewController
 
 @end

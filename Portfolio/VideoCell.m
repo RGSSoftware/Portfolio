@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "RGSVideoCell.h"
+#import "VideoCell.h"
 #import "AsyncImageView.h"
 
 float const videoContentX = 10.f;
@@ -31,11 +31,11 @@ float const playButtonX = (videoContentWidth / 2) - (playButtonWidth / 2);
 float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2);
 
 
-@interface RGSVideoCell ()
+@interface VideoCell ()
 @property UIButton *playButton;
 @end
 
-@implementation RGSVideoCell
+@implementation VideoCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

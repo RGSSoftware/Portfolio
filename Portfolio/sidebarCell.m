@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "sidebarCell.h"
+#import "SidebarCell.h"
 
-@implementation sidebarCell
+@implementation SidebarCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

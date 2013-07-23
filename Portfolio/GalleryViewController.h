@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RGSGalleryViewControllerManger.h"
+#import "GalleryViewControllerContainer.h"
 
 #import "PintCollectionViewLayout.h"
 

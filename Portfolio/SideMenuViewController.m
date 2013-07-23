@@ -7,16 +7,16 @@
 
 
 #import "SideMenuViewController.h"
-#import "sidebarCell.h"
+#import "SidebarCell.h"
 
 #import <Parse/Parse.h>
 #import "ConfigManager.h"
 
 
-#import "RGSGalleryViewControllerManger.h"
-#import "RGSVideoViewControllerManger.h"
+#import "GalleryViewControllerContainer.h"
+#import "VideoViewControllerContainer.h"
 #import "ContactViewController.h"
-#import "aboutMeViewController.h"
+#import "AboutMeViewController.h"
 #import "InfoViewController.h"
 
 #import "MFSideMenu.h"
@@ -48,9 +48,9 @@
     _viewControllers = [NSMutableArray array];
     
     
-    [_viewControllers addObject:[RGSVideoViewControllerManger new]];
-    [_viewControllers addObject:[RGSGalleryViewControllerManger new]];
-    [_viewControllers addObject:[aboutMeViewController new]];
+    [_viewControllers addObject:[VideoViewControllerContainer new]];
+    [_viewControllers addObject:[GalleryViewControllerContainer new]];
+    [_viewControllers addObject:[AboutMeViewController new]];
     [_viewControllers addObject:[ContactViewController new]];
     [_viewControllers addObject:[InfoViewController new]];
     
@@ -112,9 +112,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    sidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[sidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[SidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     if (!_iconButtons) {
         return cell;

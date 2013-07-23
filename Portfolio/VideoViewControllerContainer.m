@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "RGSVideoViewControllerManger.h"
-#import "RGSVideoViewController.h"
+#import "VideoViewControllerContainer.h"
+#import "VideoViewController.h"
 
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
@@ -22,7 +22,7 @@ float const categoryControlHeight = 35.f;
 float const categoryVideosViewX = 0;
 float const categoryVideosViewY = categoryControlHeight;
 
-@interface RGSVideoViewControllerManger ()
+@interface VideoViewControllerContainer ()
 
 @property(nonatomic, strong)MenuBarButtons *menuBarButtons;
 @property(nonatomic, strong)SDSegmentedControl *segmentedControl;
@@ -34,7 +34,7 @@ float const categoryVideosViewY = categoryControlHeight;
 
 @end
 
-@implementation RGSVideoViewControllerManger
+@implementation VideoViewControllerContainer
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,10 +114,10 @@ float const categoryVideosViewY = categoryControlHeight;
 
 }
 
-- (RGSVideoViewController *)videoViewControllerWithCategory:(NSDictionary *)category
+- (VideoViewController *)videoViewControllerWithCategory:(NSDictionary *)category
 {
     
-    RGSVideoViewController *videoController = [RGSVideoViewController new];
+    VideoViewController *videoController = [VideoViewController new];
     videoController.channelID = [category objectForKey:@"ID"];
    return videoController;
 }

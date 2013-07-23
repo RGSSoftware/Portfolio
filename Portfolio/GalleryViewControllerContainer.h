@@ -13,7 +13,7 @@ typedef enum {
     GalleryCategoryRaw,
 } GalleryCategory;
 
-@interface RGSGalleryViewControllerManger : UIViewController
+@interface GalleryViewControllerContainer : UIViewController
 
 
 @end

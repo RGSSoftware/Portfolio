@@ -13,9 +13,9 @@
 #import "ConfigManager.h"
 
 
-#import "RGSVideoViewControllerManger.h"
+#import "VideoViewControllerContainer.h"
 #import "ContactViewController.h"
-#import "aboutMeViewController.h"
+#import "AboutMeViewController.h"
 
 #import "GalleryViewController.h"
 #import "SideMenuViewController.h"
@@ -72,7 +72,7 @@
 
 - (UINavigationController *)navigationController
 {
-    RGSVideoViewControllerManger *viewController = [RGSVideoViewControllerManger new];
+    VideoViewControllerContainer *viewController = [VideoViewControllerContainer new];
     //viewController.managedObjectContext = self.managedObjectContext;
     
     UINavigationController *navigationController = [[UINavigationController alloc]

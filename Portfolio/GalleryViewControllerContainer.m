@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "RGSGalleryViewControllerManger.h"
+#import "GalleryViewControllerContainer.h"
 #import "GalleryViewController.h"
 
 #import "ConfigManager.h"
@@ -23,7 +23,7 @@ float const categoryControlheight = 35.f;
 float const categoryVideosViewx = 0;
 float const categoryVideosViewy = categoryControlheight;
 
-@interface RGSGalleryViewControllerManger ()
+@interface GalleryViewControllerContainer ()
 
 @property(nonatomic, strong)MenuBarButtons *menuBarButtons;
 @property(nonatomic, strong)SDSegmentedControl *segmentedControl;
@@ -35,7 +35,7 @@ float const categoryVideosViewy = categoryControlheight;
 
 @end
 
-@implementation RGSGalleryViewControllerManger
+@implementation GalleryViewControllerContainer
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

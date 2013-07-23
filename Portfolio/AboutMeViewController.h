@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface aboutMeViewController : UIViewController
+@interface AboutMeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet PFImageView *bioImage;
 @property (strong, nonatomic) IBOutlet UITextView *bioText;
 

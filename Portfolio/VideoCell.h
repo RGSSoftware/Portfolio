@@ -12,7 +12,7 @@
 @protocol RGSVideoCellDelegate;
 
 
-@interface RGSVideoCell : UITableViewCell
+@interface VideoCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *videoTitle;
 @property (nonatomic, strong) UIImageView *tumbnailView;
@@ -29,6 +29,6 @@
 
 @optional
 
--(void)videoCell:(RGSVideoCell *)videoCell didTapPlayButton:(UIButton *)button;
+-(void)videoCell:(VideoCell *)videoCell didTapPlayButton:(UIButton *)button;
 
 @end

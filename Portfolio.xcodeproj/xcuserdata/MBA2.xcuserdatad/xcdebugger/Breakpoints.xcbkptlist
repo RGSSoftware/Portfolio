@@ -176,19 +176,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Portfolio/GalleryViewController.m"
-         timestampString = "396248801.801853"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Portfolio/GalleryViewControllerManger.m"
          timestampString = "392343869.325374"
          startingColumnNumber = "9223372036854775807"
@@ -196,19 +183,6 @@
          startingLineNumber = "52"
          endingLineNumber = "52"
          landmarkName = "-galleryViewController:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Portfolio/SideMenuViewController.m"
-         timestampString = "394961433.878125"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -242,12 +216,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Portfolio/videoViewController.m"
-         timestampString = "392984250.238361"
+         timestampString = "396262031.314252"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "195"
+         endingLineNumber = "195"
+         landmarkName = "-youtubeQuerywithDate:setBefore:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -268,12 +242,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Portfolio/videoViewController.m"
-         timestampString = "392984265.357245"
+         timestampString = "396262031.314252"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "187"
+         endingLineNumber = "187"
+         landmarkName = "-youtubeQuerywithDate:setBefore:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -443,6 +417,32 @@
          startingLineNumber = "89"
          endingLineNumber = "89"
          landmarkName = "-didTapPlayButtonAction:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Portfolio/AboutMeViewController.m"
+         timestampString = "396262253.079739"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Portfolio/AboutMeViewController.m"
+         timestampString = "396262256.300354"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

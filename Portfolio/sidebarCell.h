@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface sidebarCell : UITableViewCell
+@interface SidebarCell : UITableViewCell
 
 @property(nonatomic, strong)UIImageView *icon;
 @property(nonatomic, strong)UILabel *description;

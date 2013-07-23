@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 PC. All rights reserved.
 //
 
-#import "aboutMeViewController.h"
+#import "AboutMeViewController.h"
 #import "ConfigManager.h"
 #import <Parse/Parse.h>
 
 #import "MenuBarButtons.h"
 
-@interface aboutMeViewController ()
+@interface AboutMeViewController ()
 
 @property(nonatomic, strong)MenuBarButtons *menuBarButtons;
 
 @end
 
-@implementation aboutMeViewController
+@implementation AboutMeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
