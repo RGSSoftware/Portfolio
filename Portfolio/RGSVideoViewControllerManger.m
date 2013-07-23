@@ -83,16 +83,18 @@ float const categoryVideosViewY = categoryControlHeight;
             if (!_videoViewControllers) {
                     _videoViewControllers = [NSMutableArray new];
         
-                    for (int i = 0; i < [_videoCategories count]; i++) {
-                        [_videoViewControllers addObject:[self videoViewControllerWithCategory:[_videoCategories objectAtIndex:i]]];
-                    }
-                _currentViewCategoryController = [_videoViewControllers objectAtIndex:0];
-                _currentViewCategoryController.view.frame = CGRectMake(categoryVideosViewX, categoryVideosViewY, self.view.frame.size.width, self.view.frame.size.height-categoryVideosViewY);
-                [self addChildViewController:_currentViewCategoryController];
-                [self.view addSubview:_currentViewCategoryController.view];
-                [self.view sendSubviewToBack:_currentViewCategoryController.view];
-                [_currentViewCategoryController didMoveToParentViewController:self];
+                for (int i = 0; i < [_videoCategories count]; i++) {
+                    [_videoViewControllers addObject:[self videoViewControllerWithCategory:[_videoCategories objectAtIndex:i]]];
+                }
             }
+            
+            _currentViewCategoryController = [_videoViewControllers objectAtIndex:0];
+            _currentViewCategoryController.view.frame = CGRectMake(categoryVideosViewX, categoryVideosViewY, self.view.frame.size.width, self.view.frame.size.height-categoryVideosViewY);
+            [self addChildViewController:_currentViewCategoryController];
+            [self.view addSubview:_currentViewCategoryController.view];
+            [self.view sendSubviewToBack:_currentViewCategoryController.view];
+            [_currentViewCategoryController didMoveToParentViewController:self];
+            
         });
     });
     
@@ -101,7 +103,7 @@ float const categoryVideosViewY = categoryControlHeight;
     [_menuBarButtons setupMenuBarButtonItems];
     
     _segmentedControl = [[SDSegmentedControl alloc] initWithItems:[NSArray arrayWithObjects: @"Music Videos", @"Comedy Skits", nil]];
-    _segmentedControl.arrowHeightFactor = 0;
+    _segmentedControl.arrowHeightFactor *= -1.0;
     _segmentedControl.interItemSpace = 5;
     [_segmentedControl addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
     _segmentedControl.frame = CGRectMake(categoryControlX, categoryControlY, self.view.frame.size.width, categoryControlHeight);
@@ -117,13 +119,7 @@ float const categoryVideosViewY = categoryControlHeight;
     videoController.channelID = [category objectForKey:@"ID"];
    return videoController;
 }
-/*
-- (void)videoViewController:(videoViewController *)videoViewController shouldChangeToCategory:(int)category
-{
-    
-    self.navigationController.viewControllers = @[[_videoViewControllers objectAtIndex:category]];
-}
-*/
+
 -(void)changeCategory
 {
     [_currentViewCategoryController willMoveToParentViewController:nil];

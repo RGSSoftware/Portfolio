@@ -17,10 +17,20 @@
 #import "MenuBarButtons.h"
 #import "MFSideMenuContainerViewController.h"
 
+
+
 #import "SideMenuViewController.h"
 
 
 #import "ConfigManager.h"
+
+const float kCollectionCellBorderTop = 0;
+const float kCollectionCellBorderBottom = 0;
+const float kCollectionCellBorderLeft = 0;
+const float kCollectionCellBorderRight = 0;
+
+const float kCollectionCloumnWidth = 158.0;
+const float kCollectionCloumnCount = 2;
 
 @interface GalleryViewController ()
 @property (strong,nonatomic) SDSegmentedControl *categorySegment;
@@ -31,15 +41,6 @@
 @property (strong,nonatomic) NSMutableArray *photoObjects;
 
 @end
-
-#define kCollectionCellBorderTop 0
-#define kCollectionCellBorderBottom 0
-#define kCollectionCellBorderLeft 0
-#define kCollectionCellBorderRight 0
-
-#define kCollectioncCloumnWidth 158.0
-#define kCollectionNumCloumn 2
-
 
 
 @implementation GalleryViewController
@@ -69,9 +70,6 @@
     _categorySegment.interItemSpace = 10;
     [self.view addSubview:_categorySegment];
     
-    if (_galleryCategory == GalleryCategoryRaw) {
-        [self changeCategorySegmentButton:GalleryCategoryRaw];
-    }
 #ifdef MYDEBUG
     /* JUST SKIPPING DOWNLOADING OF IMAGES */
 #else
@@ -110,39 +108,9 @@
     }
 }
 
--(void)changeCategorySegmentButton:(GalleryCategory)galleryCategory
-{
-    if (galleryCategory == GalleryCategorySignature) {
-        _categorySegment.selectedSegmentIndex = 0;
-    } else {
-        _categorySegment.selectedSegmentIndex = 1;
-    }
-}
 
--(void)changeCategory
-{
-    NSLog(@"tounched %d", _categorySegment.selectedSegmentIndex);
-        /*
-_collectionView = nil;
-    [self initCollectionView];
-    [self.collectionView reloadData];
-    */
-    if (_categorySegment.selectedSegmentIndex == 0) {
-        GalleryViewController *sategory = [[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategorySignature];
-        [sategory changeCategorySegmentButton:GalleryCategorySignature];
-        self.navigationController.viewControllers = @[sategory];
-        
-        NSLog(@"signture");
-        
-    }
-    else if (_categorySegment.selectedSegmentIndex == 1) {
-        GalleryViewController *sategory = [[GalleryViewControllerManger sharedManager] galleryViewController:GalleryCategoryRaw];
-        [sategory changeCategorySegmentButton:GalleryCategoryRaw];
-        self.navigationController.viewControllers = @[sategory];
-        
-        NSLog(@"raw gategory");
-    }
-}
+
+
 
 -(void)initCollectionView
 {
@@ -243,12 +211,12 @@ _collectionView = nil;
 
 - (CGFloat)columnWidthForCollectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout
 {
-    return kCollectioncCloumnWidth;
+    return kCollectionCloumnWidth;
 }
 
 - (NSUInteger)maximumNumberOfColumnsForCollectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
 {
-    return kCollectionNumCloumn;
+    return kCollectionCloumnCount;
 }
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
@@ -257,7 +225,7 @@ _collectionView = nil;
    
     ImageSize *imagesize = (ImageSize *)[_photoSizes objectAtIndex:indexPath.row];
     CGSize rctSizeOriginal = CGSizeMake(imagesize.width, imagesize.height);
-    double scale = (kCollectioncCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
+    double scale = (kCollectionCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
     CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
     CGFloat height = rctSizeFinal.height;
     

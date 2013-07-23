@@ -13,4 +13,6 @@
 @property(nonatomic, strong)NSString *channelID;
 @property(nonatomic, strong)NSString *channelTitle;
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

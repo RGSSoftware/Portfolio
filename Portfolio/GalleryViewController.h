@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GalleryViewControllerManger.h"
+#import "RGSGalleryViewControllerManger.h"
 
 #import "PintCollectionViewLayout.h"
 
@@ -19,7 +19,7 @@
 
 @property (nonatomic, assign) GalleryCategory galleryCategory;
 
-@property (strong,nonatomic) NSMutableArray *photoSizes;
+@property (strong,nonatomic) NSArray *photoSizes;
 
 -(void)changeCategorySegmentButton:(GalleryCategory)galleryCategory;
 

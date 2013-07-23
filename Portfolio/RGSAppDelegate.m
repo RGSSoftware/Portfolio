@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 
 #import "ConfigManager.h"
-#import "GalleryViewControllerManger.h"
+
 
 #import "RGSVideoViewControllerManger.h"
 #import "ContactViewController.h"
@@ -35,6 +35,7 @@
 {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
@@ -72,7 +73,7 @@
 - (UINavigationController *)navigationController
 {
     RGSVideoViewControllerManger *viewController = [RGSVideoViewControllerManger new];
-    viewController.managedObjectContext = self.managedObjectContext;
+    //viewController.managedObjectContext = self.managedObjectContext;
     
     UINavigationController *navigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:viewController];
@@ -162,8 +163,9 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"coreData" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"portfolioCoreData" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
     return _managedObjectModel;
 }
 

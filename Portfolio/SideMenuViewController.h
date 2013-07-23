@@ -6,7 +6,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MFSideMenu.h"
-#import "GalleryViewControllerManger.h"
 #import "DEBUGHeader.h"
 
 @interface SideMenuViewController : UITableViewController<UISearchBarDelegate>

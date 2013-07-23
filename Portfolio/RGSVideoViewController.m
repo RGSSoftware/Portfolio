@@ -8,6 +8,8 @@
 
 #import "RGSVideoViewController.h"
 
+#import "RGSAppDelegate.h"
+
 #import <Parse/Parse.h>
 #import <RestKit/RestKit.h>
 
@@ -40,6 +42,10 @@ typedef enum{
 @interface RGSVideoViewController ()
 @property(nonatomic,strong)NSMutableArray *videos;
 
+@property(nonatomic,strong)NSDate *dateQuery;
+
+@property(nonatomic)CGFloat rowHeight;
+
 @end
 
 @implementation RGSVideoViewController
@@ -56,13 +62,14 @@ typedef enum{
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 
     //NSLog(DATE);
     _videos = [NSMutableArray new];
     for (int i = 0; i < 2; i++) {
         [_videos addObject:[NSMutableArray array]];
     }
+    RGSAppDelegate* ad = (RGSAppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = ad.managedObjectContext;
     
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
@@ -72,37 +79,130 @@ typedef enum{
     self.tableView.rowHeight = [[RGSVideoCell new] videoCellHeight] + rowHeightPadding;
     
     [[self tableView] registerClass:[RGSVideoCell class] forCellReuseIdentifier:videoCellIdentifier];
-	
-  
     
     RKObjectManager *youtubeAPImanager = [self youtubeAPIManager];
     RKObjectMapping *youtubeMapping = [self youtubeMapping];
     
-    
     RKResponseDescriptor *responseDescriptior = [RKResponseDescriptor responseDescriptorWithMapping:youtubeMapping
-                                                                                      pathPattern:nil
-                                                                                          keyPath:@"items"
-                                                                                      statusCodes:nil];
+                                                                                        pathPattern:nil
+                                                                                            keyPath:@"items"
+                                                                                        statusCodes:nil];
+    [youtubeAPImanager addResponseDescriptor:responseDescriptior];
+	
+    NSError *error;
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    NSEntityDescription *lastDateCheckEntity = [NSEntityDescription entityForName:@"LastDateCheck" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:lastDateCheckEntity];
+    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    
-#ifdef MYDEBUGNETWORK
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:localbaseURL]];
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptior]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
-        NSLog(@"video count: %d", [[result array] count]);
-        for (Video *video in [result array]) {
-            NSLog(@"%@ -----ID:%@", video.title, video.ID);
-        }
-        NSLog(@"local test data: %@", [result array]);
+    /* check to see if coreDate is holding last saved date */
+    if ([fetchedObjects count] == 0) {
         
-    } failure:nil];
-    [operation start];
+        /*there's no saved date in coredata*/
+        
+        NSDate *date = [NSDate date];
     
-#else
+        NSManagedObject *currentDate = [NSEntityDescription insertNewObjectForEntityForName:@"LastDateCheck" inManagedObjectContext:_managedObjectContext];
+        [currentDate setValue:date forKey:@"date"];
+        
+        if (![_managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        
+    NSDictionary *youtubeQuery = [self youtubeQuerywithDate:date setBefore:YES];
+
+    [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:youtubeQuery
+                                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                    if ([[mappingResult array] count] == 0) {
+                                
+                                    } else {
+                                        NSMutableArray *oldVideos = [NSMutableArray arrayWithArray:[mappingResult array]];
+                                        [[_videos objectAtIndex:videoTypeOld] setArray:oldVideos];
+                                
+                                        [self.tableView reloadData];
+                                    }
+                                }
+                                failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                    NSLog(@"Error: %@", [error localizedDescription]);
+                                }];
+    } else {
+        /*There's saved data.*/
+        
+        NSDate *lastCheckDate;
+        NSManagedObject *dateObject;
+        for (NSManagedObject *lastDate in fetchedObjects) {
+            lastCheckDate = [lastDate valueForKey:@"date"];
+            dateObject = lastDate;
+        }
+        
+        NSDictionary *youtubeQuery = [self youtubeQuerywithDate:lastCheckDate setBefore:NO];
+        [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:youtubeQuery
+                                    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        if ([[mappingResult array] count] == 0) {
+                                        
+                                        } else {
+                                            NSMutableArray *newVideos = [NSMutableArray arrayWithArray:[mappingResult array]];
+                                            [[_videos objectAtIndex:videoTypeNew] setArray:newVideos];
+                                        
+                                            [self.tableView reloadData];
+                                        }
+                                        
+                                    }
+                                    failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Error: %@", [error localizedDescription]);
+                                    }];
+        
+        youtubeQuery = [self youtubeQuerywithDate:lastCheckDate setBefore:YES];
+        [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:youtubeQuery
+                                    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        if ([[mappingResult array] count] == 0) {
+                                            
+                                        } else {
+                                            NSMutableArray *oldVideos = [NSMutableArray arrayWithArray:[mappingResult array]];
+                                            [[_videos objectAtIndex:videoTypeOld] setArray:oldVideos];
+                                            
+                                            [self.tableView reloadData];
+                                        }
+                                    }
+                                    failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Error: %@", [error localizedDescription]);
+                                    }];
+        
+        [dateObject setValue:[NSDate date] forKey:@"date"];
+        
+        if (![_managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+    }
+}
+
+-(NSDictionary *)youtubeQuerywithDate:(NSDate *)date setBefore:(BOOL)setBefore
+{
+    NSString *dateFormate = [self dateToYoutubeFormate:date];
     
-     NSDictionary *queryParams = [NSDictionary new];
+    NSDictionary *queryParams = [NSDictionary new];
+    if (setBefore) {
+        queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part",
+                                 _channelID, @"channelId",
+                                 dateFormate, @"publishedBefore",
+                                 kAPIKEY, @"key",
+                                 nil];
+        
+        return queryParams;
+    } else {
+        queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part",
+                       _channelID, @"channelId",
+                       dateFormate, @"publishedAfter",
+                       kAPIKEY, @"key",
+                       nil];
+    }
     
-    NSDate *date = [NSDate date];
+    return queryParams;
+}
+
+-(NSString *)dateToYoutubeFormate:(NSDate *)date
+{
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
@@ -114,49 +214,7 @@ typedef enum{
     
     NSString *youtubeDateFormate = [NSString stringWithFormat:@"%@T%@Z", dateString, timeString];
     
-    if (youtubeDateFormate) {
-        queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part", _channelID, @"channelId", youtubeDateFormate, @"publishedAfter", kAPIKEY, @"key", nil];
-        [youtubeAPImanager addResponseDescriptor:responseDescriptior];
-        
-        [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:queryParams
-                                                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                                if ([[mappingResult array] count] == 0) {
-                                                                    return;
-                                                                }
-                                                                NSMutableArray *newVideos = [NSMutableArray arrayWithArray:[mappingResult array]];
-                                                                [[_videos objectAtIndex:videoTypeNew] addObject:newVideos];
-                                        
-                                                                [self.tableView reloadData];
-                                        
-                                                            }
-                                                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                                NSLog(@"Error: %@", [error localizedDescription]);
-                                                            }];
-
-        
-    }
-    
-    
-    
- //   [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptior];
-    
-    queryParams = [NSDictionary dictionaryWithObjectsAndKeys:@"snippet", @"part",_channelID, @"channelId", kAPIKEY, @"key", nil];
-    
-    [youtubeAPImanager addResponseDescriptor:responseDescriptior];
-    /*[objectManager getObjectsPath] <------ this was the problem */
-    [youtubeAPImanager getObjectsAtPath:@"v3/search" parameters:queryParams
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                _videos = [NSMutableArray arrayWithArray:[mappingResult array]];
-                                
-                                [self.tableView reloadData];
-                                
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                NSLog(@"Error: %@", [error localizedDescription]);
-                            }];
-    
-#endif /* MYDEBUGNETWORK */
-    
+    return youtubeDateFormate;
 }
 
 -(RKObjectManager *)youtubeAPIManager
@@ -178,7 +236,7 @@ typedef enum{
     [videoMapping addAttributeMappingsFromDictionary:@{
         @"id.videoId" : @"ID",
         @"snippet.title": @"title",
-        @"snippet.descriptionl": @"description"
+        @"snippet.description": @"description"
      }];
    
     RKObjectMapping *thumbnailMapping = [RKObjectMapping requestMapping];
@@ -197,12 +255,12 @@ typedef enum{
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [_videos count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_videos count];
+    return [[_videos objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,7 +271,7 @@ typedef enum{
         cell = [[RGSVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
     }
     
-    Video *video = [_videos objectAtIndex:indexPath.row];
+    Video *video = [[_videos objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.tumbnailView.image = [UIImage imageNamed:videoCellTumbnailPlaceholder];
     
     [cell.videoTitle setText:video.title];
@@ -222,6 +280,8 @@ typedef enum{
                                 
     return cell;
 }
+
+
 
 -(void)dealloc
 {

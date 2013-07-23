@@ -47,7 +47,6 @@
 		2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */; };
 		2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8B31754160D001CE97B /* MenuBarButtons.m */; };
 		2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8C41754B8CD001CE97B /* AboutMe.png */; };
-		2231D8C8175592EE001CE97B /* GalleryViewControllerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8C7175592E9001CE97B /* GalleryViewControllerManger.m */; };
 		2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8CA1755B07B001CE97B /* GalleryViewController.m */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		2237B6591741F9A600BBB09F /* ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2237B6581741F9A600BBB09F /* ImageSize.m */; };
@@ -73,6 +72,7 @@
 		2292F850177D20C4009906B4 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2292F84E177D20C4009906B4 /* ContactViewController.xib */; };
 		2292F852177D22E5009906B4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2292F851177D22E5009906B4 /* Parse.framework */; };
 		22A7F058178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */; };
+		22A7F0D91793BD8F00FEF19B /* portfolioCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22A7F0D71793BD8E00FEF19B /* portfolioCoreData.xcdatamodeld */; };
 		22A90392175B54D800362022 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A90390175B54D600362022 /* InfoViewController.m */; };
 		22A90393175B54D800362022 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A90391175B54D700362022 /* InfoViewController.xib */; };
 		22A90398175B56EA00362022 /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A90397175B56EA00362022 /* red_background.png */; };
@@ -183,8 +183,6 @@
 		2231D8B21754160D001CE97B /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
 		2231D8B31754160D001CE97B /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		2231D8C41754B8CD001CE97B /* AboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutMe.png; sourceTree = "<group>"; };
-		2231D8C6175592E3001CE97B /* GalleryViewControllerManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewControllerManger.h; sourceTree = "<group>"; };
-		2231D8C7175592E9001CE97B /* GalleryViewControllerManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewControllerManger.m; sourceTree = "<group>"; };
 		2231D8C91755B075001CE97B /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		2231D8CA1755B07B001CE97B /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
@@ -218,6 +216,7 @@
 		2292F851177D22E5009906B4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Portfolio/Parse.framework; sourceTree = "<group>"; };
 		22A7F056178B0D6A00FEF19B /* RGSGalleryViewControllerManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSGalleryViewControllerManger.h; sourceTree = "<group>"; };
 		22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSGalleryViewControllerManger.m; sourceTree = "<group>"; };
+		22A7F0D81793BD8F00FEF19B /* portfolioCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = portfolioCoreData.xcdatamodel; sourceTree = "<group>"; };
 		22A9038F175B54D600362022 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		22A90390175B54D600362022 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		22A90391175B54D700362022 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
@@ -335,10 +334,8 @@
 				2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */,
 				2231D8C91755B075001CE97B /* GalleryViewController.h */,
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
-				2231D8C6175592E3001CE97B /* GalleryViewControllerManger.h */,
 				22A7F056178B0D6A00FEF19B /* RGSGalleryViewControllerManger.h */,
 				22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */,
-				2231D8C7175592E9001CE97B /* GalleryViewControllerManger.m */,
 				2292F84C177D20C4009906B4 /* ContactViewController.h */,
 				2292F84D177D20C4009906B4 /* ContactViewController.m */,
 				2292F84E177D20C4009906B4 /* ContactViewController.xib */,
@@ -361,6 +358,7 @@
 				2292F844177D1F8F009906B4 /* sidebarCell.h */,
 				2292F845177D1F8F009906B4 /* sidebarCell.m */,
 				22702DD8172A37B7009EDE31 /* sidebarCell.xib */,
+				22A7F0D71793BD8E00FEF19B /* portfolioCoreData.xcdatamodeld */,
 				2201572F16E034CF00918611 /* Supporting Files */,
 			);
 			path = Portfolio;
@@ -598,7 +596,6 @@
 				2237B6591741F9A600BBB09F /* ImageSize.m in Sources */,
 				2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */,
 				2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */,
-				2231D8C8175592EE001CE97B /* GalleryViewControllerManger.m in Sources */,
 				2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */,
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				2222AAD31762AC7D0008884B /* RGSVideoViewControllerManger.m in Sources */,
@@ -607,6 +604,7 @@
 				2292F84A177D2071009906B4 /* STViewController.m in Sources */,
 				2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */,
 				22A7F058178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m in Sources */,
+				22A7F0D91793BD8F00FEF19B /* portfolioCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +748,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22A7F0D71793BD8E00FEF19B /* portfolioCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22A7F0D81793BD8F00FEF19B /* portfolioCoreData.xcdatamodel */,
+			);
+			currentVersion = 22A7F0D81793BD8F00FEF19B /* portfolioCoreData.xcdatamodel */;
+			name = portfolioCoreData.xcdatamodeld;
+			path = ../portfolioCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2201571D16E034CF00918611 /* Project object */;
 }

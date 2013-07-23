@@ -11,9 +11,9 @@
 
 #import <Parse/Parse.h>
 #import "ConfigManager.h"
-#import "GalleryViewControllerManger.h"
 
-#import "GalleryViewController.h"
+
+#import "RGSGalleryViewControllerManger.h"
 #import "RGSVideoViewControllerManger.h"
 #import "ContactViewController.h"
 #import "aboutMeViewController.h"
@@ -45,12 +45,11 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    GalleryViewControllerManger *galleryManager = [GalleryViewControllerManger sharedManager];
     _viewControllers = [NSMutableArray array];
     
     
     [_viewControllers addObject:[RGSVideoViewControllerManger new]];
-    [_viewControllers addObject:[galleryManager galleryViewController:GalleryCategorySignature]];
+    [_viewControllers addObject:[RGSGalleryViewControllerManger new]];
     [_viewControllers addObject:[aboutMeViewController new]];
     [_viewControllers addObject:[ContactViewController new]];
     [_viewControllers addObject:[InfoViewController new]];
@@ -151,18 +150,6 @@
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
         
-        if ([viewcontroller isKindOfClass:[GalleryViewController class]]) {
-                        GalleryViewController *galleryController = (GalleryViewController *)viewcontroller;
-            NSLog(@"returned gallerycontroller sed: %@", galleryController.navigationController.topViewController);
-
-            if (galleryController.galleryCategory == GalleryCategorySignature) {
-                [galleryController changeCategorySegmentButton:GalleryCategorySignature];
-                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-                [self.menuContainerViewController setMenuState:MFSideMenuStateLeftMenuOpen];
-                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-     
-            }
-        }
         centerNavigationController.viewControllers = @[viewcontroller];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }
