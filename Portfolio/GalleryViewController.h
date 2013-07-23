@@ -13,7 +13,7 @@
 #import "PintCollectionViewLayout.h"
 
 //@class GalleryViewControllerManger;
-@interface GalleryViewController : UIViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
+@interface GalleryViewController : UICollectionViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
 
 
 

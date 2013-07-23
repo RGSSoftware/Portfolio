@@ -65,6 +65,7 @@
 		228B9C5216FA51CE002E2884 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5116FA51CE002E2884 /* AdSupport.framework */; };
 		228B9C5416FA5209002E2884 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5316FA5209002E2884 /* Social.framework */; };
 		228B9C5616FA522C002E2884 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5516FA522C002E2884 /* Accounts.framework */; };
+		22900175179E38C100DA8CF8 /* RGSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22900174179E38C100DA8CF8 /* RGSViewController.m */; };
 		2292F846177D1F8F009906B4 /* sidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2292F845177D1F8F009906B4 /* sidebarCell.m */; };
 		2292F84A177D2071009906B4 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2292F848177D2071009906B4 /* STViewController.m */; };
 		2292F84B177D2071009906B4 /* STViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2292F849177D2071009906B4 /* STViewController.xib */; };
@@ -205,6 +206,8 @@
 		228B9C5116FA51CE002E2884 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		228B9C5316FA5209002E2884 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		228B9C5516FA522C002E2884 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		22900173179E38C100DA8CF8 /* RGSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSViewController.h; sourceTree = "<group>"; };
+		22900174179E38C100DA8CF8 /* RGSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSViewController.m; sourceTree = "<group>"; };
 		2292F844177D1F8F009906B4 /* sidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sidebarCell.h; sourceTree = "<group>"; };
 		2292F845177D1F8F009906B4 /* sidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sidebarCell.m; sourceTree = "<group>"; };
 		2292F847177D2071009906B4 /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				2222AAD11762AC7C0008884B /* RGSVideoViewControllerManger.h */,
 				2222AAD21762AC7C0008884B /* RGSVideoViewControllerManger.m */,
 				2231D8C91755B075001CE97B /* GalleryViewController.h */,
+				22900173179E38C100DA8CF8 /* RGSViewController.h */,
+				22900174179E38C100DA8CF8 /* RGSViewController.m */,
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
 				22A7F056178B0D6A00FEF19B /* RGSGalleryViewControllerManger.h */,
 				22A7F057178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m */,
@@ -605,6 +610,7 @@
 				2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */,
 				22A7F058178B0D6A00FEF19B /* RGSGalleryViewControllerManger.m in Sources */,
 				22A7F0D91793BD8F00FEF19B /* portfolioCoreData.xcdatamodeld in Sources */,
+				22900175179E38C100DA8CF8 /* RGSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

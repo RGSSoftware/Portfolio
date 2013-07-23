@@ -42,7 +42,6 @@ const float kCollectionCloumnCount = 2;
 
 @end
 
-
 @implementation GalleryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,6 +49,8 @@ const float kCollectionCloumnCount = 2;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        
     }
     return self;
 }
@@ -58,18 +59,18 @@ const float kCollectionCloumnCount = 2;
 {
     [super viewDidLoad];
     
+    self.collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
+
+    PintCollectionViewLayout* customLayout = (PintCollectionViewLayout*)self.collectionView.collectionViewLayout;
+    customLayout.interitemSpacing = 4.0;
+    customLayout.lineSpacing = 4.0;
     
+    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
+    _menuBarButtons.setLeftBarButton = TRUE;
+    [_menuBarButtons setupMenuBarButtonItems];
     
-    [self initCollectionView];
-    
-    // Do any additional setup after loading the view from its nib.
-    _categorySegment = [[SDSegmentedControl alloc] initWithItems:@[@"Sigature", @"Raw"]];
-    _categorySegment.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35.f);
-    [_categorySegment addTarget:self action:@selector(changeCategory) forControlEvents:UIControlEventValueChanged];
-    _categorySegment.arrowHeightFactor = 0;
-    _categorySegment.interItemSpace = 10;
-    [self.view addSubview:_categorySegment];
-    
+    self.navigationItem.title = @"Galley";
 #ifdef MYDEBUG
     /* JUST SKIPPING DOWNLOADING OF IMAGES */
 #else
@@ -92,42 +93,6 @@ const float kCollectionCloumnCount = 2;
     }
 #endif /* MYDEBUG */
     
-    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
-    _menuBarButtons.setLeftBarButton = TRUE;
-    [_menuBarButtons setupMenuBarButtonItems];
-    
-    self.navigationItem.title = @"Galley";
-
-}
--(void)next
-{
-    if (_categorySegment.selectedSegmentIndex == 0) {
-        _categorySegment.selectedSegmentIndex = 1;
-    } else if (_categorySegment.selectedSegmentIndex == 1){
-        _categorySegment.selectedSegmentIndex = 0;
-    }
-}
-
-
-
-
-
--(void)initCollectionView
-{
-    _collectionView = [[UICollectionView  alloc] initWithFrame:CGRectMake(0, 35.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 80.f) collectionViewLayout:[PintCollectionViewLayout new]] ;
-    [self.view addSubview:_collectionView];
-    _collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-    
-    self.collectionView.collectionViewLayout = [PintCollectionViewLayout new];
-    // set up delegates
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    
-    // set inter-item spacing in the layout
-    PintCollectionViewLayout* customLayout = (PintCollectionViewLayout*)self.collectionView.collectionViewLayout;
-    customLayout.interitemSpacing = 4.0;
-    customLayout.lineSpacing = 4.0;
 }
 
 -(NSMutableArray *)downloadPhotos
@@ -169,11 +134,7 @@ const float kCollectionCloumnCount = 2;
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - UICollectionView Delegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -201,13 +162,10 @@ const float kCollectionCloumnCount = 2;
 }
 
 
-
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor whiteColor];
 }
-
-
 
 - (CGFloat)columnWidthForCollectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout
 {
@@ -312,5 +270,9 @@ const float kCollectionCloumnCount = 2;
     }];
 }
 
-
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 @end
