@@ -13,7 +13,8 @@
 
 #import "ImageSize.h"
 
-NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigManagerDidCompleteConfigDownloadNotification";
+NSString *const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigManagerDidCompleteConfigDownloadNotification";
+
 @implementation ConfigManager
 
 -(id)init
@@ -66,10 +67,7 @@ NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMa
 #else
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            
-            _shortFilmsConfig = [self getShortFilmsConfig];
-            _contactConfig = [self getContactConfig];
-            _aboutMeConfig = [self getAboutMeConfig];
-            
+            [self initConfigFiles];
             _sideMenuConfig = [NSMutableDictionary dictionaryWithObject:[self getSideMenuIcons] forKey:@"Icons"];
             
             _galleryConfig = [NSMutableDictionary new];
@@ -103,59 +101,6 @@ NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMa
     
 }
 
--(id)getShortFilmsConfig
-{
-    NSDictionary *shortFilmsConfig = [NSDictionary new];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Config"];
-    [query whereKey:@"controller" equalTo:@"youtube"];
-    
-    NSArray *objects = [query findObjects];
-    PFFile *file = [[objects objectAtIndex:0] objectForKey:@"file"];
-    NSData *data = [file getData];
-    
-    NSLog(@"Succesfully retrieved Youtube config.");
-    shortFilmsConfig = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
-    
-    return shortFilmsConfig;
-    
-};
-
--(id)getContactConfig
-{
-    NSDictionary *contactConfig = [NSDictionary new];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Config"];
-    [query whereKey:@"controller" equalTo:@"contact"];
-    
-    NSArray *objects = [query findObjects];
-    PFFile *file = [[objects objectAtIndex:0] objectForKey:@"file"];
-    NSData *data = [file getData];
-    
-    NSLog(@"Succesfully retrieved Contact config.");
-    contactConfig = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
-    
-    return contactConfig;
-
-};
-
--(id)getAboutMeConfig
-{
-    NSDictionary *aboutMeConfig = [NSDictionary new];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Config"];
-    [query whereKey:@"controller" equalTo:@"aboutMe"];
-    
-    NSArray *objects = [query findObjects];
-    PFFile *file = [[objects objectAtIndex:0] objectForKey:@"file"];
-    NSData *data = [file getData];
-    
-    NSLog(@"Succesfully retrieved AboutMe config.");
-    aboutMeConfig = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
-    
-    return aboutMeConfig;
-    
-};
 
 -(void)getphotosSizes
 {
@@ -230,6 +175,48 @@ NSString * const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMa
     
     return icons;
 }
-
+-(void)initConfigFiles
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Config"];
+    NSArray *objects = [query findObjects];
+    
+    for (PFObject *eachobject in objects) {
+        NSString *controllerName = [eachobject objectForKey:@"controller"];
+        PFFile *dataFile = [eachobject objectForKey:@"file"];
+        
+        if ([controllerName isEqualToString:@"aboutMe"]) {
+            
+            _aboutMeConfig = [self downloadConfigForFile:dataFile];
+            NSLog(@"Succesfully retrieved AboutMe config.");
+            
+            
+        }
+        else if ([controllerName isEqualToString:@"contact"]){
+            
+            _contactConfig = [self downloadConfigForFile:dataFile];
+            NSLog(@"Succesfully retrieved Contact config.");
+            
+            
+        }
+        else if ([controllerName isEqualToString:@"youtube"]){
+            
+          _shortFilmsConfig = [self downloadConfigForFile:dataFile];
+            NSLog(@"Succesfully retrieved Youtube config.");
+            
+        }
+        else {
+            NSLog(@"Error: %@%@", @"Unexpected Config data from parse:", @"query with class name{Config}");
+        }
+    }
+}
+-(NSDictionary *)downloadConfigForFile:(PFFile *)file
+{
+    NSData *data = [file getData];
+    
+    return [NSDictionary dictionaryWithDictionary:[NSPropertyListSerialization propertyListWithData:data
+                                                                                            options:NSPropertyListMutableContainersAndLeaves
+                                                                                             format:NULL
+                                                                                              error:NULL]];
+}
 
 @end

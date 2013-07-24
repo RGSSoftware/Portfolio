@@ -5,22 +5,20 @@
 //  Created by PC on 3/1/13.
 //  Copyright (c) 2013 PC. All rights reserved.
 //
+
+#import "GalleryViewController.h"
+#import "PhotoDetailViewController.h"
+
 #import "DEBUGHeader.h"
 
 #import "ImageSize.h"
 
-#import "GalleryViewController.h"
-#import "PhotoDetailViewController.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 #import "SDSegmentedControl.h"
 #import "MenuBarButtons.h"
-#import "MFSideMenuContainerViewController.h"
-
-
 
 #import "SideMenuViewController.h"
-
 
 #import "ConfigManager.h"
 
@@ -33,13 +31,10 @@ const float kCollectionCloumnWidth = 158.0;
 const float kCollectionCloumnCount = 2;
 
 @interface GalleryViewController ()
+@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
 @property (strong,nonatomic) SDSegmentedControl *categorySegment;
 
-@property (strong,nonatomic) UICollectionView *collectionView;
-@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
-
 @property (strong,nonatomic) NSMutableArray *photoObjects;
-
 @end
 
 @implementation GalleryViewController
@@ -154,8 +149,6 @@ const float kCollectionCloumnCount = 2;
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    
-   
     ImageSize *imagesize = (ImageSize *)[_photoSizes objectAtIndex:indexPath.row];
     CGSize rctSizeOriginal = CGSizeMake(imagesize.width, imagesize.height);
     double scale = (kCollectionCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
@@ -166,9 +159,6 @@ const float kCollectionCloumnCount = 2;
 }
 
 #pragma mark = UICollectionViewDataSource
-
-
-
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
 {
     

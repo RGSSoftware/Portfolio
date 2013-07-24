@@ -21,7 +21,4 @@
 
 @property (strong,nonatomic) NSArray *photoSizes;
 
-
-
-
 @end

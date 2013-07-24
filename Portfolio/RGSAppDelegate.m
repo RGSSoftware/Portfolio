@@ -73,7 +73,6 @@
 - (UINavigationController *)navigationController
 {
     VideoViewControllerContainer *viewController = [VideoViewControllerContainer new];
-    //viewController.managedObjectContext = self.managedObjectContext;
     
     UINavigationController *navigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:viewController];

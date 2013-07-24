@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 
-
-
 @interface ConfigManager : NSObject
 
 @property(nonatomic, strong)NSDictionary *shortFilmsConfig;

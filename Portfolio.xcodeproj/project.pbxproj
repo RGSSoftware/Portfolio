@@ -208,8 +208,8 @@
 		228B9C5116FA51CE002E2884 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		228B9C5316FA5209002E2884 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		228B9C5516FA522C002E2884 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubeVideoPlayerViewController.h; sourceTree = "<group>"; };
-		2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
+		22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoPlayerViewController.h; path = Images/MFSideMenu/XCDYouTubeVideoPlayerViewController.h; sourceTree = "<group>"; };
+		2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoPlayerViewController.m; path = Images/MFSideMenu/XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
 		2290017C179E628000DA8CF8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		2290017E179E628600DA8CF8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2292F844177D1F8F009906B4 /* SidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarCell.h; sourceTree = "<group>"; };
@@ -380,6 +380,8 @@
 			children = (
 				2231D867174F19E1001CE97B /* RestKit.xcodeproj */,
 				2231D8791750ADCF001CE97B /* MFSideMenu */,
+				22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */,
+				2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */,
 				22D676BD17260C7400E3858D /* SDSegmentedControl.h */,
 				22D676BE17260C7400E3858D /* SDSegmentedControl.m */,
 				22D676D11727C5A900E3858D /* AsyncImageView.h */,
@@ -445,8 +447,6 @@
 		2231D8791750ADCF001CE97B /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */,
-				2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */,
 				2231D87A1750ADCF001CE97B /* MFSideMenu.h */,
 				2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */,
 				2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */,
