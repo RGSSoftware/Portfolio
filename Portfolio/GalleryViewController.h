@@ -12,9 +12,7 @@
 
 #import "PintCollectionViewLayout.h"
 
-//@class GalleryViewControllerManger;
 @interface GalleryViewController : UICollectionViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
-
 
 
 @property (nonatomic, assign) GalleryCategory galleryCategory;

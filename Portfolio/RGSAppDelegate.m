@@ -12,16 +12,12 @@
 
 #import "ConfigManager.h"
 
-
 #import "VideoViewControllerContainer.h"
-#import "ContactViewController.h"
-#import "AboutMeViewController.h"
-
-#import "GalleryViewController.h"
 #import "SideMenuViewController.h"
 
 #import "MFSideMenu.h"
-  
+
+#import "LanchViewController.h"
 
 
 @implementation RGSAppDelegate
@@ -44,7 +40,10 @@
     
     UIViewController *splashSreenController = [self splashScreenController];
     [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
+    
     self.window.rootViewController = splashSreenController;
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_background"]
+                                       forBarMetrics:UIBarMetricsDefault];
     
     [self.window makeKeyAndVisible];
     
@@ -118,10 +117,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(NSInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
 
 - (void)saveContext
 {

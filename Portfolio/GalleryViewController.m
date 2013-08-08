@@ -11,10 +11,9 @@
 
 #import "DEBUGHeader.h"
 
-#import "ImageSize.h"
-
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "GGFullScreenImageViewController.h"
 #import "SDSegmentedControl.h"
 #import "MenuBarButtons.h"
 
@@ -52,6 +51,8 @@ const float kCollectionCloumnCount = 2;
 {
     [super viewDidLoad];
     
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
 
@@ -90,14 +91,15 @@ const float kCollectionCloumnCount = 2;
 
 -(NSMutableArray *)downloadPhotos
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"photos"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     
-    if (self.galleryCategory == GalleryCategorySignature) {
-        [query whereKey:@"raw" notEqualTo:[NSNumber numberWithBool:TRUE]];
-    } else {
-        [query whereKey:@"raw" equalTo:[NSNumber numberWithBool:TRUE]];
-        [query orderByAscending:@"tunmbnail"];
+    if (self.galleryCategory == GalleryCategoryRaw) {
+        [query whereKey:@"isRaw" equalTo:[NSNumber numberWithBool:TRUE]];
+    } else if (self.galleryCategory == GalleryCategorySignature){
+        [query whereKey:@"isRaw" equalTo:[NSNumber numberWithBool:FALSE]];
     }
+    [query addAscendingOrder:@"objectId"];
+    [query includeKey:@"thumbnail"];
     NSArray *objects = [query findObjects];
     
     NSLog(@"Successfully retrieved %d photos objects.", objects.count);
@@ -109,21 +111,27 @@ const float kCollectionCloumnCount = 2;
 #pragma mark - UICollectionView Delegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     PFObject *photo = _photoObjects[indexPath.row];
-    PFFile *photoThumbnail = [photo objectForKey:@"fullSize"];
-    
-    PFImageView *imageView = [PFImageView new];
-    imageView.file = photoThumbnail;
-    [imageView loadInBackground:^(UIImage *image, NSError *error) {
-        if (!error) {
-            PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
-            pdvc.selectedImage = image;
-            
-          [self presentViewController:pdvc animated:YES completion:Nil];
-        }
+    [[photo objectForKey:@"full"] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        PFFile *fullSizeFile = [object objectForKey:@"file"];
+        
+        PFImageView *imageView = [PFImageView new];
+        imageView.file = fullSizeFile;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [imageView loadInBackground:^(UIImage *image, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if (!error) {
+                GGFullscreenImageViewController *pdvc = [[GGFullscreenImageViewController alloc] init];
+                pdvc.liftedImageView = imageView;
+                
+                [self presentViewController:pdvc animated:YES completion:Nil];
+            }
+        }];
+        [imageView setNeedsDisplay];
     }];
-    [imageView setNeedsDisplay];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -149,11 +157,10 @@ const float kCollectionCloumnCount = 2;
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    ImageSize *imagesize = (ImageSize *)[_photoSizes objectAtIndex:indexPath.row];
-    CGSize rctSizeOriginal = CGSizeMake(imagesize.width, imagesize.height);
-    double scale = (kCollectionCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
-    CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
-    CGFloat height = rctSizeFinal.height;
+    CGSize sizeOriginal = [[_photoSizes objectAtIndex:indexPath.row] CGSizeValue];
+    double scale = (kCollectionCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / sizeOriginal.width;
+    CGSize sizeFinal = CGSizeMake(sizeOriginal.width * scale,sizeOriginal.height * scale);
+    CGFloat height = sizeFinal.height;
     
     return height;
 }
@@ -197,7 +204,9 @@ const float kCollectionCloumnCount = 2;
     } else {
         
         PFObject *photo = _photoObjects[indexPath.row];
-        PFFile *photoThumbnail = [photo objectForKey:@"tumbnail"];
+        PFObject *imageObject = [[photo objectForKey:@"thumbnail"] fetchIfNeeded];
+        PFFile *photoThumbnail = [imageObject objectForKey:@"file"];
+
         
         PFImageView *imageView = [PFImageView new];
         imageView.file = photoThumbnail;

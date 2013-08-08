@@ -22,7 +22,6 @@
 
 @property (nonatomic, weak) id <RGSVideoCellDelegate> delegate;
 
-
 @end
 
 @protocol RGSVideoCellDelegate <NSObject>

@@ -10,11 +10,11 @@
 #import "VideoViewController.h"
 
 #import "MenuBarButtons.h"
-#import "MFSideMenuContainerViewController.h"
 
 #import "SDSegmentedControl.h"
 
 #import <Parse/Parse.h>
+
 float const categoryControlX = 0;
 float const categoryControlY = 0;
 float const categoryControlHeight = 35.f;
@@ -56,10 +56,11 @@ float const categoryVideosViewY = categoryControlHeight;
         NSMutableDictionary *category = [NSMutableDictionary new];
         [categories addObject:category];
         
-        [category setObject:[object objectForKey:@"title"] forKey:@"title"];
+        NSString *title = [object objectForKey:@"title"];
+        [category setObject:title forKey:@"title"];
         [category setObject:[object objectForKey:@"ID"] forKey:@"ID"];
         
-        NSLog(@"Downloading catorgies!!!!!!!!");
+        NSLog(@"Downloaded category:%@", title);
         
     }
     
@@ -142,8 +143,6 @@ float const categoryVideosViewY = categoryControlHeight;
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (void)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -159,6 +158,5 @@ float const categoryVideosViewY = categoryControlHeight;
         [_menuBarButtons setupMenuBarButtonItems];
     }];
 }
-
 
 @end

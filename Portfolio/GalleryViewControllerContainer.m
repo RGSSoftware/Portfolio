@@ -53,7 +53,7 @@ float const categoryVideosViewy = categoryControlheight;
     self.navigationItem.title = @"Gallery";
     
     _photoSizes = [NSMutableArray array];
-    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"sigutrePhotosSizes"]];
+    [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"signaturePhotosSizes"]];
     [_photoSizes addObject:[[[ConfigManager sharedManager] galleryConfig] objectForKey:@"rawPhotosSizes"]];
     
     if (!_galleryViewControllers) {
