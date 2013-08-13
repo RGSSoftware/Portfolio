@@ -30,25 +30,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
    [ConfigManager sharedManager];
     
     UIViewController *splashSreenController = [self splashScreenController];
     [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
     
+    
     self.window.rootViewController = splashSreenController;
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_background"]
-                                       forBarMetrics:UIBarMetricsDefault];
     
     [self.window makeKeyAndVisible];
     
-     [[NSNotificationCenter defaultCenter] addObserverForName:@"ConfigManagerDidCompleteConfigDownloadNotification"
-                                                      object:nil
+     [[NSNotificationCenter defaultCenter] addObserverForName:ConfigManagerDidCompleteConfigDownloadNotification
+                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
                                                       [MBProgressHUD hideAllHUDsForView:splashSreenController.view animated:YES];
@@ -60,8 +58,9 @@
                                                                                                       rightMenuViewController:Nil];
                                                       
                                                       container.menuWidth = 80.0f;
-                                                       self.window.rootViewController = container;
-                                                      [self.window makeKeyAndVisible];
+                                                      
+                                                      [container setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                                                      [self.window.rootViewController presentViewController:container animated:YES completion:Nil];
                                                   }];
     
     

@@ -25,6 +25,8 @@
 
 #import "DEBUGHeader.h"
 
+int const buttonCellHeight = 80;
+
 @interface SideMenuViewController()
 @property NSMutableArray *viewControllers;
 @property NSMutableArray *iconButtons;
@@ -58,14 +60,13 @@
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1];
     
     self.tableView.backgroundView = texturedBackgroundView;
-    //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.scrollEnabled = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
     
 
 
     _iconButtons = [[[ConfigManager sharedManager] sideMenuConfig ] objectForKey:@"Icons"];
-
-
 
 }
 
@@ -115,6 +116,11 @@
     SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[SidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        UIView *selectionColor = [[UIView alloc] init];
+        selectionColor.backgroundColor = [UIColor colorWithRed:244/255.0 green:76/255.0 blue:76/255.0 alpha:1];
+        cell.selectedBackgroundView = selectionColor;
+        
     }
     if (!_iconButtons) {
         return cell;
@@ -146,10 +152,9 @@
     UINavigationController *centerNavigationController = self.menuContainerViewController.centerViewController;
 
     if ([centerNavigationController.topViewController isKindOfClass:[viewcontroller class]]) {
-        //[navigationController popToRootViewControllerAnimated:YES];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     } else {
-        
+
         centerNavigationController.viewControllers = @[viewcontroller];
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }
@@ -158,7 +163,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 80;
+    return buttonCellHeight;
 }
 
 -(void)changeCa:(UIViewController *)gallerycontroller
@@ -166,5 +171,7 @@
     UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
     navigationController.viewControllers = @[gallerycontroller];
 }
+
+
 
 @end

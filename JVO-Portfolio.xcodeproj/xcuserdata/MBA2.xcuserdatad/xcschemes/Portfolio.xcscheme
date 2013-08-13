@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2201572416E034CF00918611"
                BuildableName = "Portfolio.app"
-               BlueprintName = "Portfolio"
-               ReferencedContainer = "container:Portfolio.xcodeproj">
+               BlueprintName = "JVO-Portfolio"
+               ReferencedContainer = "container:JVO-Portfolio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2201572416E034CF00918611"
             BuildableName = "Portfolio.app"
-            BlueprintName = "Portfolio"
-            ReferencedContainer = "container:Portfolio.xcodeproj">
+            BlueprintName = "JVO-Portfolio"
+            ReferencedContainer = "container:JVO-Portfolio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2201572416E034CF00918611"
             BuildableName = "Portfolio.app"
-            BlueprintName = "Portfolio"
-            ReferencedContainer = "container:Portfolio.xcodeproj">
+            BlueprintName = "JVO-Portfolio"
+            ReferencedContainer = "container:JVO-Portfolio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,8 +76,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2201572416E034CF00918611"
             BuildableName = "Portfolio.app"
-            BlueprintName = "Portfolio"
-            ReferencedContainer = "container:Portfolio.xcodeproj">
+            BlueprintName = "JVO-Portfolio"
+            ReferencedContainer = "container:JVO-Portfolio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

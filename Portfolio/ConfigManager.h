@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const ConfigManagerDidCompleteConfigDownloadNotification;
+extern NSString *const NavigationBarBackground;
 
 @interface ConfigManager : NSObject
 

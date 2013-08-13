@@ -41,7 +41,11 @@
     _menuBarButtons.setLeftBarButton = TRUE;
     [_menuBarButtons setupMenuBarButtonItems];
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    UIScrollView *scrollView = (UIScrollView *)[self view];
+    scrollView.contentOffset = CGPointMake(scrollView.frame.origin.x, scrollView.frame.origin.y);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

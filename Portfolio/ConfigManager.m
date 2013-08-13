@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 
 NSString *const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigManagerDidCompleteConfigDownloadNotification";
+NSString *const NavigationBarBackground = @"navigationBar_background";
 
 typedef enum{
     PhotoTypeRaw,
@@ -115,7 +116,7 @@ typedef enum{
 }
 -(void)customizeAppearance{
     //Set the background image for *all* UINavigationBars across the app
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_background"]
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground]
                                        forBarMetrics:UIBarMetricsDefault];
     
 }

@@ -25,10 +25,10 @@ float const videoTumbnailWidth = videoContentWidth - 10;
 float const videoTumbnailHeight = videoContentHeight - 35;
 
 NSString *const playButtonImage = @"playButton.png";
-float const playButtonWidth = 100.f;
-float const playButtonHeight = 100.f;
+float const playButtonWidth = 128.f;
+float const playButtonHeight = 90.f;
 float const playButtonX = (videoContentWidth / 2) - (playButtonWidth / 2);
-float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2);
+float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2) + 10;
 
 
 @interface VideoCell ()
@@ -89,6 +89,7 @@ float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2);
 -(void)didTapPlayButtonAction:(UIButton *)sender
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(videoCell:didTapPlayButton:)]) {
+        NSLog(@"inside did tapPlayButton!!!!");
         [self.delegate videoCell:self didTapPlayButton:sender];
     }
 }

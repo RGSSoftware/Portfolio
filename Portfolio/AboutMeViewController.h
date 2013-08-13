@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface AboutMeViewController : UIViewController
+@interface AboutMeViewController : UIViewController <UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet PFImageView *bioImage;
 @property (strong, nonatomic) IBOutlet UITextView *bioText;
 

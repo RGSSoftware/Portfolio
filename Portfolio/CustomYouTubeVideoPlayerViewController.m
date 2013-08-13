@@ -8,6 +8,8 @@
 
 #import "CustomYouTubeVideoPlayerViewController.h"
 
+#import "ConfigManager.h"
+
 @interface CustomYouTubeVideoPlayerViewController ()
 
 @end
@@ -35,7 +37,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_background"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground] forBarMetrics:UIBarMetricsDefault];
     
 }
 - (void)didReceiveMemoryWarning

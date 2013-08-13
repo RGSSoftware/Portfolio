@@ -94,7 +94,7 @@
     MFMailComposeViewController *emailController = [MFMailComposeViewController new];
     emailController.mailComposeDelegate = self;
     [emailController setToRecipients:[NSArray arrayWithObject:[[_config objectForKey:@"contactInfo"] objectForKey:@"emailAddress"]]];
-    [emailController setSubject:@"Helpppppp!!!!"];
+    [emailController setSubject:@"Looking to hire you!!"];
         [self presentViewController:emailController animated:YES completion:Nil];
     } else {
         NSLog(@"Device is unable to send email in its current state.");

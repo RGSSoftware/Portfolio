@@ -123,6 +123,7 @@ const float kCollectionCloumnCount = 2;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [imageView loadInBackground:^(UIImage *image, NSError *error) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            
             if (!error) {
                 GGFullscreenImageViewController *pdvc = [[GGFullscreenImageViewController alloc] init];
                 pdvc.liftedImageView = imageView;
