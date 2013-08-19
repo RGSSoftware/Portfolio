@@ -10,7 +10,12 @@
 #import "ConfigManager.h"
 #import <Parse/Parse.h>
 
+#import "Reachability.h"
+
 NSString *const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigManagerDidCompleteConfigDownloadNotification";
+NSString *const ConfigManagerDidStartConfigDownloadNotification = @"ConfigManagerDidStartConfigDownloadNotification";
+NSString *const ConfigManagerDidFailConfigDownloadNotification = @"ConfigManagerDidFailConfigDownloadNotification";
+
 NSString *const NavigationBarBackground = @"navigationBar_background";
 
 typedef enum{
@@ -80,23 +85,31 @@ typedef enum{
         });
 
 #else
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidStartConfigDownloadNotification object:nil];
+        
+        NetworkStatus networkStatus =  [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+        if (networkStatus == NotReachable) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidFailConfigDownloadNotification object:nil];
+        } else {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            
-            [self initConfigFiles];
-            _sideMenuConfig = [NSMutableDictionary dictionaryWithObject:[self getSideMenuIcons] forKey:@"Icons"];
+                [self initConfigFiles];
+                _sideMenuConfig = [NSMutableDictionary dictionaryWithObject:[self getSideMenuIcons] forKey:@"Icons"];
            
-            _galleryConfig = [NSMutableDictionary new];
-            [_galleryConfig setObject:[self photoSizesFromType:PhotoTypeRaw] forKey:@"rawPhotosSizes"];
-            [_galleryConfig setObject:[self photoSizesFromType:PhotoTypeSignature] forKey:@"signaturePhotosSizes"];
+                _galleryConfig = [NSMutableDictionary new];
+                [_galleryConfig setObject:[self photoSizesFromType:PhotoTypeRaw] forKey:@"rawPhotosSizes"];
+                [_galleryConfig setObject:[self photoSizesFromType:PhotoTypeSignature] forKey:@"signaturePhotosSizes"];
             
-            int photoCount = ([[_galleryConfig objectForKey:@"RawPhotosSizes"] count] + [[_galleryConfig objectForKey:@"SignturePhotosSizes"] count]);
-            [_galleryConfig setObject:[NSNumber numberWithInteger:photoCount] forKey:@"photosCount"];
+                int photoCount = ([[_galleryConfig objectForKey:@"RawPhotosSizes"] count] + [[_galleryConfig objectForKey:@"SignturePhotosSizes"] count]);
+                [_galleryConfig setObject:[NSNumber numberWithInteger:photoCount] forKey:@"photosCount"];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self customizeAppearance];
-                [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidCompleteConfigDownloadNotification object:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self customizeAppearance];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidCompleteConfigDownloadNotification object:nil];
+                });
             });
-        });
+        }
+        
         
 #endif /* MYDEBUG */
        

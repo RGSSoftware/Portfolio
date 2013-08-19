@@ -47,6 +47,11 @@
 		2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8C41754B8CD001CE97B /* AboutMe.png */; };
 		2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8CA1755B07B001CE97B /* GalleryViewController.m */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
+		226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4B117BB7FCF00C512D9 /* LanchViewController.m */; };
+		226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */; };
+		226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4E817BCD7BD00C512D9 /* Reachability.m */; };
+		226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */; };
+		226BB4FC17BF6EAF00C512D9 /* splashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4FA17BF6EAF00C512D9 /* splashScreenViewController.xib */; };
 		22702DD9172A37B7009EDE31 /* SidebarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD8172A37B7009EDE31 /* SidebarCell.xib */; };
 		22704E621734E903009B5708 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22704E611734E903009B5708 /* MessageUI.framework */; };
 		22704E731738310F009B5708 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22704E721738310E009B5708 /* AboutMeViewController.m */; };
@@ -68,8 +73,6 @@
 		229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 229001B417AF809500DA8CF8 /* portfolioCoreData.xcdatamodeld */; };
 		229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229001ED17B352E100DA8CF8 /* CustomYouTubeVideoPlayerViewController.m */; };
 		229001F717B3718B00DA8CF8 /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229001F617B3718B00DA8CF8 /* GGFullScreenImageViewController.m */; };
-		229001FB17B3830100DA8CF8 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229001F917B382FE00DA8CF8 /* LanchViewController.m */; };
-		229001FC17B3830100DA8CF8 /* LanchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229001FA17B382FF00DA8CF8 /* LanchViewController.xib */; };
 		2290020617B38B0900DA8CF8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290020317B38B0300DA8CF8 /* Default-568h@2x.png */; };
 		2290020717B38B0900DA8CF8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290020417B38B0400DA8CF8 /* Default@2x.png */; };
 		2290020817B38B0900DA8CF8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290020517B38B0600DA8CF8 /* Default.png */; };
@@ -200,6 +203,14 @@
 		2231D8CA1755B07B001CE97B /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
+		226BB4B017BB7FCF00C512D9 /* LanchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanchViewController.h; sourceTree = "<group>"; };
+		226BB4B117BB7FCF00C512D9 /* LanchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanchViewController.m; sourceTree = "<group>"; };
+		226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanchViewController.xib; sourceTree = "<group>"; };
+		226BB4E717BCD7BD00C512D9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		226BB4E817BCD7BD00C512D9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		226BB4F817BF6EAF00C512D9 /* splashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splashScreenViewController.h; sourceTree = "<group>"; };
+		226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splashScreenViewController.m; sourceTree = "<group>"; };
+		226BB4FA17BF6EAF00C512D9 /* splashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = splashScreenViewController.xib; sourceTree = "<group>"; };
 		22702DD8172A37B7009EDE31 /* SidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidebarCell.xib; sourceTree = "<group>"; };
 		22704E611734E903009B5708 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22704E711738310E009B5708 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
@@ -225,9 +236,6 @@
 		229001ED17B352E100DA8CF8 /* CustomYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
 		229001F517B3718A00DA8CF8 /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullScreenImageViewController.h; sourceTree = "<group>"; };
 		229001F617B3718B00DA8CF8 /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullScreenImageViewController.m; sourceTree = "<group>"; };
-		229001F817B382FC00DA8CF8 /* LanchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanchViewController.h; path = ../LanchViewController.h; sourceTree = "<group>"; };
-		229001F917B382FE00DA8CF8 /* LanchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanchViewController.m; path = ../LanchViewController.m; sourceTree = "<group>"; };
-		229001FA17B382FF00DA8CF8 /* LanchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanchViewController.xib; path = ../LanchViewController.xib; sourceTree = "<group>"; };
 		2290020317B38B0300DA8CF8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		2290020417B38B0400DA8CF8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		2290020517B38B0600DA8CF8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -358,6 +366,9 @@
 				2201573816E034CF00918611 /* RGSAppDelegate.m */,
 				2222E5571730A4DC00347D06 /* ConfigManager.h */,
 				2222E5581730A4DC00347D06 /* ConfigManager.m */,
+				226BB4F817BF6EAF00C512D9 /* splashScreenViewController.h */,
+				226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */,
+				226BB4FA17BF6EAF00C512D9 /* splashScreenViewController.xib */,
 				222FCF1317042396006A93C7 /* Video.h */,
 				222FCF1417042398006A93C7 /* Vdeo.m */,
 				22D676C317260CEF00E3858D /* VideoCell.h */,
@@ -372,8 +383,8 @@
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
 				22A7F056178B0D6A00FEF19B /* GalleryViewControllerContainer.h */,
 				22A7F057178B0D6A00FEF19B /* GalleryViewControllerContainer.m */,
-				2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */,
 				2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */,
+				2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */,
 				222FCF0716FE4389006A93C7 /* PhotoDetailViewController.h */,
 				222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */,
 				222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */,
@@ -394,10 +405,10 @@
 				2292F844177D1F8F009906B4 /* SidebarCell.h */,
 				2292F845177D1F8F009906B4 /* SidebarCell.m */,
 				22702DD8172A37B7009EDE31 /* SidebarCell.xib */,
+				226BB4B017BB7FCF00C512D9 /* LanchViewController.h */,
+				226BB4B117BB7FCF00C512D9 /* LanchViewController.m */,
+				226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */,
 				229001B417AF809500DA8CF8 /* portfolioCoreData.xcdatamodeld */,
-				229001F817B382FC00DA8CF8 /* LanchViewController.h */,
-				229001F917B382FE00DA8CF8 /* LanchViewController.m */,
-				229001FA17B382FF00DA8CF8 /* LanchViewController.xib */,
 				2201572F16E034CF00918611 /* Supporting Files */,
 			);
 			path = Portfolio;
@@ -414,6 +425,8 @@
 				229001F617B3718B00DA8CF8 /* GGFullScreenImageViewController.m */,
 				22D676BD17260C7400E3858D /* SDSegmentedControl.h */,
 				22D676BE17260C7400E3858D /* SDSegmentedControl.m */,
+				226BB4E717BCD7BD00C512D9 /* Reachability.h */,
+				226BB4E817BCD7BD00C512D9 /* Reachability.m */,
 				22D676D11727C5A900E3858D /* AsyncImageView.h */,
 				22D676D21727C5A900E3858D /* AsyncImageView.m */,
 				2222E55A1730B08200347D06 /* MBProgressHUD.h */,
@@ -526,7 +539,7 @@
 			attributes = {
 				CLASSPREFIX = RGS;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = PC;
+				ORGANIZATIONNAME = RandelSmith;
 			};
 			buildConfigurationList = 2201572016E034CF00918611 /* Build configuration list for PBXProject "JVO-Portfolio" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -620,7 +633,6 @@
 				22A903A4175C5E4600362022 /* backArrow.png in Resources */,
 				2292F84B177D2071009906B4 /* STViewController.xib in Resources */,
 				2292F850177D20C4009906B4 /* ContactViewController.xib in Resources */,
-				229001FC17B3830100DA8CF8 /* LanchViewController.xib in Resources */,
 				2290020617B38B0900DA8CF8 /* Default-568h@2x.png in Resources */,
 				2290020717B38B0900DA8CF8 /* Default@2x.png in Resources */,
 				2290020817B38B0900DA8CF8 /* Default.png in Resources */,
@@ -634,6 +646,8 @@
 				2290022117B9CFA600DA8CF8 /* iTunesArtwork@2x.png in Resources */,
 				2290022217B9CFA600DA8CF8 /* iTunesArtwork.png in Resources */,
 				2290022417B9CFB800DA8CF8 /* Icon@2x.png in Resources */,
+				226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */,
+				226BB4FC17BF6EAF00C512D9 /* splashScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,7 +684,9 @@
 				229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */,
 				229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */,
 				229001F717B3718B00DA8CF8 /* GGFullScreenImageViewController.m in Sources */,
-				229001FB17B3830100DA8CF8 /* LanchViewController.m in Sources */,
+				226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */,
+				226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */,
+				226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,10 +780,10 @@
 				GCC_PREFIX_HEADER = "Portfolio/JVO-Portfolio-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Portfolio/JVO-Portfolio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -784,10 +800,10 @@
 				GCC_PREFIX_HEADER = "Portfolio/JVO-Portfolio-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Portfolio/JVO-Portfolio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

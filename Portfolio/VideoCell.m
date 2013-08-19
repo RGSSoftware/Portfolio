@@ -9,7 +9,7 @@
 #import "VideoCell.h"
 #import "AsyncImageView.h"
 
-float const videoContentX = 10.f;
+float videoContentX;
 float const videoContentY = 5.0f;
 float const videoContentWidth = 300.f;
 float const videoContentHeight = 240.f;
@@ -50,7 +50,9 @@ float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2) + 10
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.accessoryType = UITableViewCellAccessoryNone;
         self.clipsToBounds = NO;
-       
+        
+        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+        videoContentX = (screenBounds.size.width/2) - (videoContentWidth/2);
         UIView *videoContent = [[UIView alloc] initWithFrame:CGRectMake( videoContentX, videoContentY, videoContentWidth, videoContentHeight)];
         videoContent.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:videoContent];

@@ -12,6 +12,7 @@
 
 #import "ConfigManager.h"
 
+#import "splashScreenViewController.h"
 #import "VideoViewControllerContainer.h"
 #import "SideMenuViewController.h"
 
@@ -35,17 +36,47 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-   [ConfigManager sharedManager];
-    
-    UIViewController *splashSreenController = [self splashScreenController];
-    [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
-    
+    splashScreenViewController *splashSreenController = [splashScreenViewController new];
     
     self.window.rootViewController = splashSreenController;
     
     [self.window makeKeyAndVisible];
     
-     [[NSNotificationCenter defaultCenter] addObserverForName:ConfigManagerDidCompleteConfigDownloadNotification
+    [[NSNotificationCenter defaultCenter] addObserverForName:ConfigManagerDidStartConfigDownloadNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      [MBProgressHUD showHUDAddedTo:splashSreenController.view animated:YES];
+                                                  }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ConfigManagerDidFailConfigDownloadNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                               
+                                                        UIView *noInternetView = [[UIView alloc] initWithFrame:CGRectMake(0, -33, 320, 33)];
+                                                        noInternetView.backgroundColor = [UIColor colorWithRed:.177/.255 green:0 blue:0 alpha:1];
+                                                      
+                                                        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 33)];
+                                                        [label setBackgroundColor:[UIColor clearColor]];
+                                                        [label setTextAlignment:NSTextAlignmentCenter];
+                                                        [label setFont:[UIFont systemFontOfSize:19]];
+                                                        [label setTextColor:[UIColor whiteColor]];
+                                                        [label setText:@"No Internet Connective"];
+                                                      
+                                                        [noInternetView addSubview:label];
+                                                      
+                                                        [splashSreenController.view addSubview:noInternetView];
+                                                      
+                                                        [UIView animateWithDuration:1.5
+                                                                         animations:^{
+                                                                             noInternetView.frame = CGRectMake(0, 0, 320, 33);
+                                                                         } completion:^(BOOL finished) {
+                                                                             [MBProgressHUD hideAllHUDsForView: splashSreenController.view animated:YES];
+                                                                         }];          
+                                                    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:ConfigManagerDidCompleteConfigDownloadNotification
                                                        object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
@@ -64,7 +95,8 @@
                                                   }];
     
     
-    
+    [ConfigManager sharedManager];
+
     return YES;
 }
 
@@ -76,17 +108,6 @@
                                                     initWithRootViewController:viewController];
     
     return navigationController;
-}
-
--(UIViewController *)splashScreenController
-{
-     UIViewController *splashScreen = [UIViewController new];
-    splashScreen.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wide_rectangles.png"]];
-    UIImageView *mainLogo = [[UIImageView alloc] initWithFrame:CGRectMake(15.f, 50.f, self.window.bounds.size.width-20, 120.f)];
-    mainLogo.image = [UIImage imageNamed:@"JVO-logo.png"];
-    [splashScreen.view addSubview:mainLogo];
-    
-    return splashScreen;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

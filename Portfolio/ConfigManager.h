@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const ConfigManagerDidCompleteConfigDownloadNotification;
+extern NSString *const ConfigManagerDidStartConfigDownloadNotification;
+extern NSString *const ConfigManagerDidFailConfigDownloadNotification;
+
 extern NSString *const NavigationBarBackground;
 
 @interface ConfigManager : NSObject
