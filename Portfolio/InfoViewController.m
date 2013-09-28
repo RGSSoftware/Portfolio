@@ -9,7 +9,7 @@
 #import "InfoViewController.h"
 #import "STViewController.h"
 
-#import "MFSideMenu.h"
+#import "MFSideMenu/MFSideMenu.h"
 #import "MenuBarButtons.h"
 
 @interface InfoViewController ()

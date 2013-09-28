@@ -8,7 +8,7 @@
 
 #import "PhotoDetailViewController.h"
 
-#import "MFSideMenuContainerViewController.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 @implementation PhotoDetailViewController
 @synthesize photoImageView, selectedImage, imageName;

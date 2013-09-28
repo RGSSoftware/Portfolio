@@ -16,7 +16,7 @@ NSString *const ConfigManagerDidCompleteConfigDownloadNotification = @"ConfigMan
 NSString *const ConfigManagerDidStartConfigDownloadNotification = @"ConfigManagerDidStartConfigDownloadNotification";
 NSString *const ConfigManagerDidFailConfigDownloadNotification = @"ConfigManagerDidFailConfigDownloadNotification";
 
-NSString *const NavigationBarBackground = @"navigationBar_background";
+NSString *const NavigationBarBackground = @"bgR";
 
 typedef enum{
     PhotoTypeRaw,
@@ -104,7 +104,7 @@ typedef enum{
                 [_galleryConfig setObject:[NSNumber numberWithInteger:photoCount] forKey:@"photosCount"];
             
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self customizeAppearance];
+                   // [self customizeAppearance];
                     [[NSNotificationCenter defaultCenter] postNotificationName:ConfigManagerDidCompleteConfigDownloadNotification object:nil];
                 });
             });
@@ -130,7 +130,9 @@ typedef enum{
 -(void)customizeAppearance{
     //Set the background image for *all* UINavigationBars across the app
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground]
-                                       forBarMetrics:UIBarMetricsDefault];
+                                      forBarPosition:UIBarPositionTopAttached
+                                          barMetrics:UIBarMetricsDefault];
+    
     
 }
 
@@ -160,7 +162,7 @@ typedef enum{
         CGSize imageSize = CGSizeMake(width, height);
         [photoSizes addObject:[NSValue valueWithCGSize:imageSize]];
         
-        NSLog(@"height:%f width %f", imageSize.height, imageSize.width);
+       // NSLog(@"height:%f width %f", imageSize.height, imageSize.width);
     }
     
     return photoSizes;

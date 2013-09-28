@@ -735,10 +735,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 }
 
 
--(BOOL)shouldAutorotate
-{
-    return NO;
-}
 
 
 @end

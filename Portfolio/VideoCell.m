@@ -91,7 +91,7 @@ float const playButtonY = (videoContentHeight / 2) - (playButtonHeight / 2) + 10
 -(void)didTapPlayButtonAction:(UIButton *)sender
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(videoCell:didTapPlayButton:)]) {
-        NSLog(@"inside did tapPlayButton!!!!");
+        //NSLog(@"inside did tapPlayButton!!!!");
         [self.delegate videoCell:self didTapPlayButton:sender];
     }
 }

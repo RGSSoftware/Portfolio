@@ -12,7 +12,7 @@
 #import "ConfigManager.h"
 
 #import "MenuBarButtons.h"
-#import "MFSideMenuContainerViewController.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 #import "SDSegmentedControl.h"
 

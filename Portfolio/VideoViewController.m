@@ -23,7 +23,7 @@
 #import "VideoCell.h"
 
 #import "MenuBarButtons.h"
-#import "MFSideMenuContainerViewController.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 NSString *const kAPIKEY = @"AIzaSyD1zIG_HErAICBi355-nPLzaxdAY71egIQ";
 NSString *const APIManagerBaseURL = @"https://www.googleapis.com/youtube";

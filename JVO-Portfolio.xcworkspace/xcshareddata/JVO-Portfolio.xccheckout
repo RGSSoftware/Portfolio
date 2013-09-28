@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>468DAF92-A34E-4B8C-9987-A20F5ECD2D5E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>JVO-Portfolio</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0922BB1F-D49D-42B7-8C42-5DD4F0EFBEBA</key>
+		<string>https://github.com/RGSmithSoftware/Portfolio.git</string>
+		<key>C06144C3-61D6-4964-99B5-CEE94C4200AC</key>
+		<string>git://github.com/RestKit/RestKit.git</string>
+		<key>FB112265-5D40-4B54-9904-79227E839111</key>
+		<string>https://github.com/AFNetworking/AFNetworking.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>JVO-Portfolio.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0922BB1F-D49D-42B7-8C42-5DD4F0EFBEBA</key>
+		<string>..</string>
+		<key>C06144C3-61D6-4964-99B5-CEE94C4200AC</key>
+		<string>../RestKit</string>
+		<key>FB112265-5D40-4B54-9904-79227E839111</key>
+		<string>../RestKit/Vendor/AFNetworking</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/RGSmithSoftware/Portfolio.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0922BB1F-D49D-42B7-8C42-5DD4F0EFBEBA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FB112265-5D40-4B54-9904-79227E839111</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0922BB1F-D49D-42B7-8C42-5DD4F0EFBEBA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Portfolio</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C06144C3-61D6-4964-99B5-CEE94C4200AC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RestKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

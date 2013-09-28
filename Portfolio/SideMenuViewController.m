@@ -19,9 +19,9 @@
 #import "AboutMeViewController.h"
 #import "InfoViewController.h"
 
-#import "MFSideMenu.h"
+
 #import "MenuBarButtons.h"
-#import "MFSideMenuContainerViewController.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 #import "DEBUGHeader.h"
 

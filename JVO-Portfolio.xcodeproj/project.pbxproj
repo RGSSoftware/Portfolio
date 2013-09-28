@@ -18,7 +18,6 @@
 		2201575F16E036C200918611 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201575D16E036C200918611 /* SideMenuViewController.m */; };
 		2222AAD31762AC7D0008884B /* VideoViewControllerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222AAD21762AC7C0008884B /* VideoViewControllerContainer.m */; };
 		2222E535172A746A00347D06 /* square_bg@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E533172A746A00347D06 /* square_bg@2X.png */; };
-		2222E536172A746A00347D06 /* square_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E534172A746A00347D06 /* square_bg.png */; };
 		2222E539172A759D00347D06 /* billie_holiday@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E537172A759C00347D06 /* billie_holiday@2X.png */; };
 		2222E53A172A759D00347D06 /* billie_holiday.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E538172A759D00347D06 /* billie_holiday.png */; };
 		2222E53D172A761B00347D06 /* wide_rectangles@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E53B172A761A00347D06 /* wide_rectangles@2X.png */; };
@@ -42,16 +41,19 @@
 		2230FC3B17595EFA00C0F938 /* navigationBar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2230FC3A17595EFA00C0F938 /* navigationBar_background.png */; };
 		2230FC3D1759609800C0F938 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2230FC3C1759609800C0F938 /* button.png */; };
 		2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2231D86F174F19E2001CE97B /* libRestKit.a */; };
-		2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */; };
-		2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8B31754160D001CE97B /* MenuBarButtons.m */; };
 		2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8C41754B8CD001CE97B /* AboutMe.png */; };
 		2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8CA1755B07B001CE97B /* GalleryViewController.m */; };
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
+		224631F717F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F617F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m */; };
+		224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F917F6D55600F594FF /* MenuBarButtons.m */; };
+		224631FC17F6E0D400F594FF /* bgR.png in Resources */ = {isa = PBXBuildFile; fileRef = 224631FB17F6E0D400F594FF /* bgR.png */; };
 		226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4B117BB7FCF00C512D9 /* LanchViewController.m */; };
 		226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */; };
 		226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4E817BCD7BD00C512D9 /* Reachability.m */; };
 		226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */; };
 		226BB4FC17BF6EAF00C512D9 /* splashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4FA17BF6EAF00C512D9 /* splashScreenViewController.xib */; };
+		226BB51117E7B03100C512D9 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 226BB50F17E7B02E00C512D9 /* Icon-120.png */; };
+		226BB51217E7B03100C512D9 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 226BB51017E7B02F00C512D9 /* Icon-152.png */; };
 		22702DD9172A37B7009EDE31 /* SidebarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22702DD8172A37B7009EDE31 /* SidebarCell.xib */; };
 		22704E621734E903009B5708 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22704E611734E903009B5708 /* MessageUI.framework */; };
 		22704E731738310F009B5708 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22704E721738310E009B5708 /* AboutMeViewController.m */; };
@@ -67,7 +69,6 @@
 		228B9C5216FA51CE002E2884 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5116FA51CE002E2884 /* AdSupport.framework */; };
 		228B9C5416FA5209002E2884 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5316FA5209002E2884 /* Social.framework */; };
 		228B9C5616FA522C002E2884 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5516FA522C002E2884 /* Accounts.framework */; };
-		2290017B179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */; };
 		2290017D179E628000DA8CF8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2290017C179E628000DA8CF8 /* MediaPlayer.framework */; };
 		2290017F179E628600DA8CF8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2290017E179E628600DA8CF8 /* AVFoundation.framework */; };
 		229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 229001B417AF809500DA8CF8 /* portfolioCoreData.xcdatamodeld */; };
@@ -106,6 +107,7 @@
 		22FA6D0817683087002895F9 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FA6D0717683087002895F9 /* VideoViewController.m */; };
 		22FD041516E72E5800DC4014 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041416E72E5700DC4014 /* Security.framework */; };
 		22FD041716E72E6000DC4014 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD041616E72E6000DC4014 /* SystemConfiguration.framework */; };
+		D38D17302A3B4F7C81F5F099 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BE96D658F845E5B315B180 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +166,6 @@
 		2222AAD11762AC7C0008884B /* VideoViewControllerContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewControllerContainer.h; sourceTree = "<group>"; };
 		2222AAD21762AC7C0008884B /* VideoViewControllerContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewControllerContainer.m; sourceTree = "<group>"; };
 		2222E533172A746A00347D06 /* square_bg@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square_bg@2X.png"; sourceTree = "<group>"; };
-		2222E534172A746A00347D06 /* square_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_bg.png; sourceTree = "<group>"; };
 		2222E537172A759C00347D06 /* billie_holiday@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billie_holiday@2X.png"; sourceTree = "<group>"; };
 		2222E538172A759D00347D06 /* billie_holiday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = billie_holiday.png; sourceTree = "<group>"; };
 		2222E53B172A761A00347D06 /* wide_rectangles@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wide_rectangles@2X.png"; sourceTree = "<group>"; };
@@ -192,17 +193,17 @@
 		2230FC3A17595EFA00C0F938 /* navigationBar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBar_background.png; sourceTree = "<group>"; };
 		2230FC3C1759609800C0F938 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		2231D867174F19E1001CE97B /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		2231D87A1750ADCF001CE97B /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
-		2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
-		2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
 		2231D8AE17513D70001CE97B /* DEBUGHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUGHeader.h; sourceTree = "<group>"; };
-		2231D8B21754160D001CE97B /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
-		2231D8B31754160D001CE97B /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		2231D8C41754B8CD001CE97B /* AboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutMe.png; sourceTree = "<group>"; };
 		2231D8C91755B075001CE97B /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		2231D8CA1755B07B001CE97B /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
 		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
+		224631F517F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDYouTubeVideoPlayerViewController.h; sourceTree = "<group>"; };
+		224631F617F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
+		224631F817F6D55600F594FF /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
+		224631F917F6D55600F594FF /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
+		224631FB17F6E0D400F594FF /* bgR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgR.png; sourceTree = "<group>"; };
 		226BB4B017BB7FCF00C512D9 /* LanchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanchViewController.h; sourceTree = "<group>"; };
 		226BB4B117BB7FCF00C512D9 /* LanchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanchViewController.m; sourceTree = "<group>"; };
 		226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanchViewController.xib; sourceTree = "<group>"; };
@@ -211,6 +212,8 @@
 		226BB4F817BF6EAF00C512D9 /* splashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splashScreenViewController.h; sourceTree = "<group>"; };
 		226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splashScreenViewController.m; sourceTree = "<group>"; };
 		226BB4FA17BF6EAF00C512D9 /* splashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = splashScreenViewController.xib; sourceTree = "<group>"; };
+		226BB50F17E7B02E00C512D9 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		226BB51017E7B02F00C512D9 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		22702DD8172A37B7009EDE31 /* SidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidebarCell.xib; sourceTree = "<group>"; };
 		22704E611734E903009B5708 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22704E711738310E009B5708 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
@@ -227,8 +230,6 @@
 		228B9C5116FA51CE002E2884 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		228B9C5316FA5209002E2884 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		228B9C5516FA522C002E2884 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoPlayerViewController.h; path = Images/MFSideMenu/XCDYouTubeVideoPlayerViewController.h; sourceTree = "<group>"; };
-		2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoPlayerViewController.m; path = Images/MFSideMenu/XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
 		2290017C179E628000DA8CF8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		2290017E179E628600DA8CF8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		229001B517AF809600DA8CF8 /* portfolioCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = portfolioCoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -278,6 +279,8 @@
 		22FA6D0717683087002895F9 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		22FD041416E72E5700DC4014 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22FD041616E72E6000DC4014 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B105B16F97B044C6A02EBC9F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B8BE96D658F845E5B315B180 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,7 @@
 				2201572916E034CF00918611 /* UIKit.framework in Frameworks */,
 				2201572B16E034CF00918611 /* Foundation.framework in Frameworks */,
 				2292F852177D22E5009906B4 /* Parse.framework in Frameworks */,
+				D38D17302A3B4F7C81F5F099 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +323,7 @@
 				2201572E16E034CF00918611 /* Portfolio */,
 				2201572716E034CF00918611 /* Frameworks */,
 				2201572616E034CF00918611 /* Products */,
+				B105B16F97B044C6A02EBC9F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -354,6 +359,7 @@
 				2201572816E034CF00918611 /* UIKit.framework */,
 				2201572A16E034CF00918611 /* Foundation.framework */,
 				2201572C16E034CF00918611 /* CoreGraphics.framework */,
+				B8BE96D658F845E5B315B180 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -418,9 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				2231D867174F19E1001CE97B /* RestKit.xcodeproj */,
-				2231D8791750ADCF001CE97B /* MFSideMenu */,
-				22900179179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.h */,
-				2290017A179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m */,
 				229001F517B3718A00DA8CF8 /* GGFullScreenImageViewController.h */,
 				229001F617B3718B00DA8CF8 /* GGFullScreenImageViewController.m */,
 				22D676BD17260C7400E3858D /* SDSegmentedControl.h */,
@@ -431,6 +434,10 @@
 				22D676D21727C5A900E3858D /* AsyncImageView.m */,
 				2222E55A1730B08200347D06 /* MBProgressHUD.h */,
 				2222E55B1730B08200347D06 /* MBProgressHUD.m */,
+				224631F517F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.h */,
+				224631F617F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m */,
+				224631F817F6D55600F594FF /* MenuBarButtons.h */,
+				224631F917F6D55600F594FF /* MenuBarButtons.m */,
 				2201573016E034CF00918611 /* JVO-Portfolio-Info.plist */,
 				2201573116E034CF00918611 /* InfoPlist.strings */,
 				2201573416E034CF00918611 /* main.m */,
@@ -454,6 +461,8 @@
 				2290022317B9CFB800DA8CF8 /* Icon@2x.png */,
 				2290021617B9CFA600DA8CF8 /* Icon-Small@2x.png */,
 				2290021717B9CFA600DA8CF8 /* Icon-Small.png */,
+				226BB50F17E7B02E00C512D9 /* Icon-120.png */,
+				226BB51017E7B02F00C512D9 /* Icon-152.png */,
 				2290021817B9CFA600DA8CF8 /* iTunesArtwork@2x.png */,
 				2290021917B9CFA600DA8CF8 /* iTunesArtwork.png */,
 				22A90397175B56EA00362022 /* red_background.png */,
@@ -470,7 +479,6 @@
 				2222E537172A759C00347D06 /* billie_holiday@2X.png */,
 				2222E538172A759D00347D06 /* billie_holiday.png */,
 				2222E533172A746A00347D06 /* square_bg@2X.png */,
-				2222E534172A746A00347D06 /* square_bg.png */,
 				2222E53B172A761A00347D06 /* wide_rectangles@2X.png */,
 				2222E53C172A761B00347D06 /* wide_rectangles.png */,
 				2222E543172A76A900347D06 /* diagonal-noise@2X.png */,
@@ -482,6 +490,7 @@
 				22D676C917262F3200E3858D /* photo3.jpg */,
 				22D676CA17262F3200E3858D /* playButton.png */,
 				2230FC3A17595EFA00C0F938 /* navigationBar_background.png */,
+				224631FB17F6E0D400F594FF /* bgR.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -497,19 +506,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2231D8791750ADCF001CE97B /* MFSideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				2231D87A1750ADCF001CE97B /* MFSideMenu.h */,
-				2231D87B1750ADCF001CE97B /* MFSideMenuContainerViewController.h */,
-				2231D87C1750ADCF001CE97B /* MFSideMenuContainerViewController.m */,
-				2231D8B21754160D001CE97B /* MenuBarButtons.h */,
-				2231D8B31754160D001CE97B /* MenuBarButtons.m */,
-			);
-			name = MFSideMenu;
-			path = Images/MFSideMenu;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -517,9 +513,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2201574816E034CF00918611 /* Build configuration list for PBXNativeTarget "JVO-Portfolio" */;
 			buildPhases = (
+				D503B826F8E24936A7A08C28 /* Check Pods Manifest.lock */,
 				2201572116E034CF00918611 /* Sources */,
 				2201572216E034CF00918611 /* Frameworks */,
 				2201572316E034CF00918611 /* Resources */,
+				6031952356B44B9997EEFB25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -609,7 +607,6 @@
 				22D676CC17262F3200E3858D /* playButton.png in Resources */,
 				22702DD9172A37B7009EDE31 /* SidebarCell.xib in Resources */,
 				2222E535172A746A00347D06 /* square_bg@2X.png in Resources */,
-				2222E536172A746A00347D06 /* square_bg.png in Resources */,
 				2222E539172A759D00347D06 /* billie_holiday@2X.png in Resources */,
 				2222E53A172A759D00347D06 /* billie_holiday.png in Resources */,
 				2222E53D172A761B00347D06 /* wide_rectangles@2X.png in Resources */,
@@ -622,6 +619,7 @@
 				22704E7517383EEF009B5708 /* Business Cards Front.jpg in Resources */,
 				2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */,
 				2230FBEF1758AD0900C0F938 /* email_001.jpg in Resources */,
+				224631FC17F6E0D400F594FF /* bgR.png in Resources */,
 				2230FBF01758AD0900C0F938 /* facebook_001.jpg in Resources */,
 				2230FBF11758AD0900C0F938 /* Twitter_001.jpg in Resources */,
 				2230FBF21758AD0900C0F938 /* YouTube_001.jpg in Resources */,
@@ -648,10 +646,43 @@
 				2290022417B9CFB800DA8CF8 /* Icon@2x.png in Resources */,
 				226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */,
 				226BB4FC17BF6EAF00C512D9 /* splashScreenViewController.xib in Resources */,
+				226BB51117E7B03100C512D9 /* Icon-120.png in Resources */,
+				226BB51217E7B03100C512D9 /* Icon-152.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6031952356B44B9997EEFB25 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		D503B826F8E24936A7A08C28 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2201572116E034CF00918611 /* Sources */ = {
@@ -662,6 +693,7 @@
 				2201573916E034CF00918611 /* RGSAppDelegate.m in Sources */,
 				2201575F16E036C200918611 /* SideMenuViewController.m in Sources */,
 				222FCF0A16FE438A006A93C7 /* PhotoDetailViewController.m in Sources */,
+				224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */,
 				222FCF151704239A006A93C7 /* Vdeo.m in Sources */,
 				22D676BF17260C7400E3858D /* SDSegmentedControl.m in Sources */,
 				22D676C517260CEF00E3858D /* VideoCell.m in Sources */,
@@ -670,8 +702,6 @@
 				2222E55C1730B08200347D06 /* MBProgressHUD.m in Sources */,
 				22704E731738310F009B5708 /* AboutMeViewController.m in Sources */,
 				2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */,
-				2231D87D1750ADCF001CE97B /* MFSideMenuContainerViewController.m in Sources */,
-				2231D8B41754160D001CE97B /* MenuBarButtons.m in Sources */,
 				2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */,
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				2222AAD31762AC7D0008884B /* VideoViewControllerContainer.m in Sources */,
@@ -680,10 +710,10 @@
 				2292F84A177D2071009906B4 /* STViewController.m in Sources */,
 				2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */,
 				22A7F058178B0D6A00FEF19B /* GalleryViewControllerContainer.m in Sources */,
-				2290017B179E615900DA8CF8 /* XCDYouTubeVideoPlayerViewController.m in Sources */,
 				229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */,
 				229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */,
 				229001F717B3718B00DA8CF8 /* GGFullScreenImageViewController.m in Sources */,
+				224631F717F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m in Sources */,
 				226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */,
 				226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */,
 				226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */,
@@ -770,7 +800,10 @@
 		};
 		2201574916E034CF00918611 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B105B16F97B044C6A02EBC9F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Randel Smith (Z8J2U9W858)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Randel Smith (Z8J2U9W858)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -783,14 +816,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		2201574A16E034CF00918611 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B105B16F97B044C6A02EBC9F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Randel Smith (32V3SFMGKM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Randel Smith (32V3SFMGKM)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -803,7 +841,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

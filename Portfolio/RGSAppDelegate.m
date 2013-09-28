@@ -16,7 +16,7 @@
 #import "VideoViewControllerContainer.h"
 #import "SideMenuViewController.h"
 
-#import "MFSideMenu.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 #import "LanchViewController.h"
 
@@ -91,6 +91,8 @@
                                                       container.menuWidth = 80.0f;
                                                       
                                                       [container setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                                                      
+                                                      NSLog(@"window frame:%@", NSStringFromCGRect(self.window.frame));
                                                       [self.window.rootViewController presentViewController:container animated:YES completion:Nil];
                                                   }];
     
