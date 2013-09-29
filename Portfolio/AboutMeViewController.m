@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 
 #import "MenuBarButtons.h"
+#import "MFSideMenu/MFSideMenu.h"
 
 @interface AboutMeViewController ()
 
@@ -73,13 +74,13 @@
 }
 
 - (void)leftSideMenuButtonPressed:(id)sender {
-    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
         [_menuBarButtons setupMenuBarButtonItems];
     }];
 }
 
 - (void)rightSideMenuButtonPressed:(id)sender {
-    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
+    [self.menuContainerViewController toggleRightSideMenuCompletion:^{
         [_menuBarButtons setupMenuBarButtonItems];
     }];
 }

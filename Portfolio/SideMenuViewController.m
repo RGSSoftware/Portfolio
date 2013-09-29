@@ -21,7 +21,7 @@
 
 
 #import "MenuBarButtons.h"
-#import "MFSideMenu/MFSideMenu.h"
+#import <MFSideMenu/MFSideMenu.h>
 
 #import "DEBUGHeader.h"
 
@@ -49,7 +49,6 @@ int const buttonCellHeight = 80;
     
     _viewControllers = [NSMutableArray array];
     
-    
     [_viewControllers addObject:[VideoViewControllerContainer new]];
     [_viewControllers addObject:[GalleryViewControllerContainer new]];
     [_viewControllers addObject:[AboutMeViewController new]];
@@ -63,40 +62,15 @@ int const buttonCellHeight = 80;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.scrollEnabled = NO;
     self.clearsSelectionOnViewWillAppear = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-
-
+    
+    
     _iconButtons = [[[ConfigManager sharedManager] sideMenuConfig ] objectForKey:@"Icons"];
 
 }
 
--(NSArray *)downloadIcons
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"SideBarButtons"];
-    [query orderByAscending:@"order_number"];
-    NSArray *objects = [query findObjects];
-    
-    NSLog(@"Successfully retrieved %d icon objects.", objects.count);
-    
-    NSMutableArray *icons = [NSMutableArray new];
-    for (PFObject *eachobject in objects) {
-        NSMutableDictionary *buttons = [NSMutableDictionary new];
-        [icons addObject:buttons];
-        
-        PFFile *iconFile = [eachobject objectForKey:@"icon"];
-        NSData *iconData = [iconFile getData];
-        [buttons setObject:iconData forKey:@"iconData"];
-        
-        NSString *description = [eachobject objectForKey:@"description"];
-        [buttons setObject:description forKey:@"description"];
-        
-    }
-    
-    return icons;
-}
-- (MFSideMenuContainerViewController *)menuContainerViewController {
-    return (MFSideMenuContainerViewController *)self.parentViewController;
-}
+
 
 #pragma mark - UITableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -114,6 +88,7 @@ int const buttonCellHeight = 80;
     static NSString *CellIdentifier = @"Cell";
     
     SidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         cell = [[SidebarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
@@ -121,26 +96,25 @@ int const buttonCellHeight = 80;
         selectionColor.backgroundColor = [UIColor colorWithRed:244/255.0 green:76/255.0 blue:76/255.0 alpha:1];
         cell.selectedBackgroundView = selectionColor;
         
+        cell.backgroundColor = [UIColor clearColor];
     }
-    if (!_iconButtons) {
-        return cell;
-    } else {
-
+    
+    if (_iconButtons) {
+        
 #ifdef MYDEBUG
         
         cell.icon.image = [_iconButtons[indexPath.row] objectForKey:@"iconImage"];
         cell.description.text = [_iconButtons[indexPath.row] objectForKey:@"description"];
         
-        return cell;
-        
 #else
         cell.icon.image = [UIImage imageWithData:[_iconButtons[indexPath.row] objectForKey:@"iconData"]];
         cell.description.text = [_iconButtons[indexPath.row] objectForKey:@"description"];
-    
-        return cell;
         
 #endif /* MYDEBUG */
+        
     }
+
+    return cell;
 }
 
 

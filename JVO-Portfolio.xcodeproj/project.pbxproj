@@ -47,6 +47,7 @@
 		224631F717F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F617F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m */; };
 		224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F917F6D55600F594FF /* MenuBarButtons.m */; };
 		224631FC17F6E0D400F594FF /* bgR.png in Resources */ = {isa = PBXBuildFile; fileRef = 224631FB17F6E0D400F594FF /* bgR.png */; };
+		2246320217F8A48300F594FF /* RGSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2246320117F8A48300F594FF /* RGSViewController.m */; };
 		226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4B117BB7FCF00C512D9 /* LanchViewController.m */; };
 		226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */; };
 		226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4E817BCD7BD00C512D9 /* Reachability.m */; };
@@ -65,7 +66,6 @@
 		228B9C4B16FA4BB6002E2884 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4616FA4BB5002E2884 /* libz.1.1.3.dylib */; };
 		228B9C4C16FA4BB6002E2884 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4716FA4BB6002E2884 /* MobileCoreServices.framework */; };
 		228B9C4D16FA4BB6002E2884 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4816FA4BB6002E2884 /* QuartzCore.framework */; };
-		228B9C4E16FA4BB6002E2884 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C4916FA4BB6002E2884 /* StoreKit.framework */; };
 		228B9C5216FA51CE002E2884 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5116FA51CE002E2884 /* AdSupport.framework */; };
 		228B9C5416FA5209002E2884 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5316FA5209002E2884 /* Social.framework */; };
 		228B9C5616FA522C002E2884 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B9C5516FA522C002E2884 /* Accounts.framework */; };
@@ -204,6 +204,8 @@
 		224631F817F6D55600F594FF /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
 		224631F917F6D55600F594FF /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		224631FB17F6E0D400F594FF /* bgR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgR.png; sourceTree = "<group>"; };
+		2246320017F8A48300F594FF /* RGSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSViewController.h; sourceTree = "<group>"; };
+		2246320117F8A48300F594FF /* RGSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSViewController.m; sourceTree = "<group>"; };
 		226BB4B017BB7FCF00C512D9 /* LanchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanchViewController.h; sourceTree = "<group>"; };
 		226BB4B117BB7FCF00C512D9 /* LanchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanchViewController.m; sourceTree = "<group>"; };
 		226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanchViewController.xib; sourceTree = "<group>"; };
@@ -226,7 +228,6 @@
 		228B9C4616FA4BB5002E2884 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		228B9C4716FA4BB6002E2884 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		228B9C4816FA4BB6002E2884 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		228B9C4916FA4BB6002E2884 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		228B9C5116FA51CE002E2884 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		228B9C5316FA5209002E2884 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		228B9C5516FA522C002E2884 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -304,7 +305,6 @@
 				228B9C4A16FA4BB6002E2884 /* CoreLocation.framework in Frameworks */,
 				228B9C4B16FA4BB6002E2884 /* libz.1.1.3.dylib in Frameworks */,
 				228B9C4D16FA4BB6002E2884 /* QuartzCore.framework in Frameworks */,
-				228B9C4E16FA4BB6002E2884 /* StoreKit.framework in Frameworks */,
 				2201572D16E034CF00918611 /* CoreGraphics.framework in Frameworks */,
 				228B9C4216FA4B4F002E2884 /* AudioToolbox.framework in Frameworks */,
 				2201572916E034CF00918611 /* UIKit.framework in Frameworks */,
@@ -351,7 +351,6 @@
 				228B9C4616FA4BB5002E2884 /* libz.1.1.3.dylib */,
 				228B9C4716FA4BB6002E2884 /* MobileCoreServices.framework */,
 				228B9C4816FA4BB6002E2884 /* QuartzCore.framework */,
-				228B9C4916FA4BB6002E2884 /* StoreKit.framework */,
 				228B9C4316FA4B6B002E2884 /* CFNetwork.framework */,
 				228B9C4116FA4B4F002E2884 /* AudioToolbox.framework */,
 				22FD041416E72E5700DC4014 /* Security.framework */,
@@ -415,6 +414,8 @@
 				226BB4B117BB7FCF00C512D9 /* LanchViewController.m */,
 				226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */,
 				229001B417AF809500DA8CF8 /* portfolioCoreData.xcdatamodeld */,
+				2246320017F8A48300F594FF /* RGSViewController.h */,
+				2246320117F8A48300F594FF /* RGSViewController.m */,
 				2201572F16E034CF00918611 /* Supporting Files */,
 			);
 			path = Portfolio;
@@ -538,6 +539,16 @@
 				CLASSPREFIX = RGS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = RandelSmith;
+				TargetAttributes = {
+					2201572416E034CF00918611 = {
+						DevelopmentTeam = 32V3SFMGKM;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 2201572016E034CF00918611 /* Build configuration list for PBXProject "JVO-Portfolio" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -713,6 +724,7 @@
 				229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */,
 				229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */,
 				229001F717B3718B00DA8CF8 /* GGFullScreenImageViewController.m in Sources */,
+				2246320217F8A48300F594FF /* RGSViewController.m in Sources */,
 				224631F717F6D53800F594FF /* XCDYouTubeVideoPlayerViewController.m in Sources */,
 				226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */,
 				226BB4E917BCD7BD00C512D9 /* Reachability.m in Sources */,
@@ -767,9 +779,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\"/**";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "\"${PODS_ROOT}/BuildHeaders\"/**";
 			};
 			name = Debug;
 		};
@@ -791,9 +805,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\"/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -813,7 +828,7 @@
 				GCC_PREFIX_HEADER = "Portfolio/JVO-Portfolio-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Portfolio/JVO-Portfolio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
 				PROVISIONING_PROFILE = "";
@@ -838,7 +853,7 @@
 				GCC_PREFIX_HEADER = "Portfolio/JVO-Portfolio-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Portfolio/JVO-Portfolio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "JVO-Portfolio";
 				PROVISIONING_PROFILE = "";

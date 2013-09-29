@@ -2,7 +2,7 @@ PODS:
   - MFSideMenu (0.5.4)
 
 DEPENDENCIES:
-  - MFSideMenu (= 0.5.4)
+  - MFSideMenu
 
 SPEC CHECKSUMS:
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30

@@ -16,7 +16,7 @@
 #import "VideoViewControllerContainer.h"
 #import "SideMenuViewController.h"
 
-#import "MFSideMenu/MFSideMenu.h"
+#import <MFSideMenu/MFSideMenu.h>
 
 #import "LanchViewController.h"
 
