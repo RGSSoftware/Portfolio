@@ -56,7 +56,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36">
-                    <rect key="frame" x="49" y="339" width="204" height="47"/>
+                    <rect key="frame" x="58" y="294" width="204" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="145"/>
@@ -83,10 +83,10 @@
                 <constraint firstItem="17" firstAttribute="centerX" secondItem="13" secondAttribute="centerX" id="103"/>
                 <constraint firstItem="17" firstAttribute="centerX" secondItem="20" secondAttribute="centerX" id="104"/>
                 <constraint firstItem="17" firstAttribute="top" secondItem="1" secondAttribute="top" constant="129" id="109"/>
-                <constraint firstItem="36" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="99" id="CKW-UT-FaV"/>
-                <constraint firstItem="36" firstAttribute="leading" secondItem="17" secondAttribute="leading" id="abc-61-9en"/>
-                <constraint firstItem="36" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="49" id="cNo-B5-Ifs"/>
-                <constraint firstAttribute="trailing" secondItem="36" secondAttribute="trailing" constant="67" id="nOJ-Yu-Lei"/>
+                <constraint firstItem="36" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="54" id="CKW-UT-FaV"/>
+                <constraint firstItem="36" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="9" id="abc-61-9en"/>
+                <constraint firstItem="36" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="58" id="cNo-B5-Ifs"/>
+                <constraint firstAttribute="trailing" secondItem="36" secondAttribute="trailing" constant="58" id="nOJ-Yu-Lei"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>

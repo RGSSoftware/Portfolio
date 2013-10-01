@@ -31,13 +31,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground] forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground] forBarMetrics:UIBarMetricsDefault];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
 }
 - (void)didReceiveMemoryWarning

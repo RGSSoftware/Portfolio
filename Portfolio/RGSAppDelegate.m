@@ -90,9 +90,9 @@
                                                       
                                                       container.menuWidth = 80.0f;
                                                       
+                                                      container.edgesForExtendedLayout = UIRectEdgeNone;
                                                       [container setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-                                                      
-                                                      NSLog(@"window frame:%@", NSStringFromCGRect(self.window.frame));
+                                                    
                                                       [self.window.rootViewController presentViewController:container animated:YES completion:Nil];
                                                   }];
     

@@ -136,7 +136,9 @@ typedef enum{
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,
                                                                                                     [UIFont systemFontOfSize:21], NSFontAttributeName,
                                                                                                     nil]];
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
