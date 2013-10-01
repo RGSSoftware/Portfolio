@@ -44,8 +44,13 @@
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
+    
+    
     UIScrollView *scrollView = (UIScrollView *)[self view];
-    scrollView.contentOffset = CGPointMake(scrollView.frame.origin.x, scrollView.frame.origin.y);
+    NSLog(@"about me scrollView points:%@", NSStringFromCGPoint(scrollView.frame.origin));
+    scrollView.contentOffset = CGPointMake(scrollView.frame.origin.x, 0);
+    
+    self.view = scrollView;
 }
 - (void)didReceiveMemoryWarning
 {
@@ -74,13 +79,13 @@
 }
 
 - (void)leftSideMenuButtonPressed:(id)sender {
-    [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
+    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
         [_menuBarButtons setupMenuBarButtonItems];
     }];
 }
 
 - (void)rightSideMenuButtonPressed:(id)sender {
-    [self.menuContainerViewController toggleRightSideMenuCompletion:^{
+    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
         [_menuBarButtons setupMenuBarButtonItems];
     }];
 }

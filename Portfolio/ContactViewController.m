@@ -97,7 +97,7 @@
     [emailController setSubject:@"Looking to hire you!!"];
         [self presentViewController:emailController animated:YES completion:Nil];
     } else {
-        NSLog(@"Device is unable to send email in its current state.");
+        NSLog(@"Device is unable to send email in current state.");
     }
 }
 

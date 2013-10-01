@@ -70,6 +70,8 @@ typedef enum{
     for (int i = 0; i < 2; i++) {
         [_videos addObject:[NSMutableArray array]];
     }
+    
+    
     RGSAppDelegate* ad = (RGSAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = ad.managedObjectContext;
     

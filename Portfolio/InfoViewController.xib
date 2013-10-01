@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -55,11 +55,11 @@
                         <constraint firstAttribute="height" constant="82" id="106"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36">
-                    <rect key="frame" x="58" y="297" width="204" height="47"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36">
+                    <rect key="frame" x="49" y="339" width="204" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="490" id="145"/>
+                        <constraint firstAttribute="height" constant="47" id="145"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Special Thanks" backgroundImage="red_background.png">
@@ -77,16 +77,16 @@
             <color key="backgroundColor" white="0.92000000000000004" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="47" id="5"/>
-                <constraint firstItem="36" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="49"/>
                 <constraint firstItem="13" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="8" symbolic="YES" id="66"/>
                 <constraint firstItem="20" firstAttribute="top" secondItem="17" secondAttribute="bottom" constant="8" symbolic="YES" id="74"/>
                 <constraint firstItem="13" firstAttribute="centerX" secondItem="4" secondAttribute="centerX" id="88"/>
                 <constraint firstItem="17" firstAttribute="centerX" secondItem="13" secondAttribute="centerX" id="103"/>
                 <constraint firstItem="17" firstAttribute="centerX" secondItem="20" secondAttribute="centerX" id="104"/>
-                <constraint firstItem="36" firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="105"/>
                 <constraint firstItem="17" firstAttribute="top" secondItem="1" secondAttribute="top" constant="129" id="109"/>
-                <constraint firstItem="36" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="113"/>
-                <constraint firstItem="36" firstAttribute="top" secondItem="1" secondAttribute="top" constant="349" id="144"/>
+                <constraint firstItem="36" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="99" id="CKW-UT-FaV"/>
+                <constraint firstItem="36" firstAttribute="leading" secondItem="17" secondAttribute="leading" id="abc-61-9en"/>
+                <constraint firstItem="36" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="49" id="cNo-B5-Ifs"/>
+                <constraint firstAttribute="trailing" secondItem="36" secondAttribute="trailing" constant="67" id="nOJ-Yu-Lei"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>

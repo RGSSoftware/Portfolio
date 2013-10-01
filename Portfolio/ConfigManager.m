@@ -129,10 +129,13 @@ typedef enum{
 }
 -(void)customizeAppearance{
     //Set the background image for *all* UINavigationBars across the app
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground]
-                                          forBarPosition:UIBarPositionTopAttached
-                                              barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:NavigationBarBackground]
+                                      forBarPosition:UIBarPositionTopAttached
+                                          barMetrics:UIBarMetricsDefault];
     
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,
+                                                                                                    [UIFont systemFontOfSize:21], NSFontAttributeName,
+                                                                                                    nil]];
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];

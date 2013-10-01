@@ -21,7 +21,7 @@
 
 
 #import "MenuBarButtons.h"
-#import <MFSideMenu/MFSideMenu.h>
+//#import <MFSideMenu/MFSideMenu.h>
 
 #import "DEBUGHeader.h"
 
@@ -32,17 +32,12 @@ int const buttonCellHeight = 80;
 @property NSMutableArray *iconButtons;
 @property NSArray *desciptions;
 
+@property UITableViewController *tableController;
+
+@property (strong,nonatomic) MenuBarButtons *menuBarButtons;
+
 @end
 @implementation SideMenuViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -58,13 +53,16 @@ int const buttonCellHeight = 80;
     UIView *texturedBackgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     texturedBackgroundView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1];
     
-    self.tableView.backgroundView = texturedBackgroundView;
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.scrollEnabled = NO;
-    self.clearsSelectionOnViewWillAppear = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableController = [UITableViewController new];
+    self.tableController.tableView.backgroundView = texturedBackgroundView;
+    self.tableController.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableController.tableView.scrollEnabled = NO;
+    self.tableController.clearsSelectionOnViewWillAppear = NO;
+    self.tableController.tableView.delegate = self;
+    self.tableController.tableView.dataSource = self;
     
     
+    [self.view addSubview:self.tableController.tableView];
     
     _iconButtons = [[[ConfigManager sharedManager] sideMenuConfig ] objectForKey:@"Icons"];
 
@@ -124,6 +122,7 @@ int const buttonCellHeight = 80;
     UIViewController *viewcontroller = [_viewControllers objectAtIndex:indexPath.row];
 
     UINavigationController *centerNavigationController = self.menuContainerViewController.centerViewController;
+    
 
     if ([centerNavigationController.topViewController isKindOfClass:[viewcontroller class]]) {
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
@@ -146,6 +145,8 @@ int const buttonCellHeight = 80;
     navigationController.viewControllers = @[gallerycontroller];
 }
 
-
+- (MFSideMenuContainerViewController *)menuContainerViewController {
+    return (MFSideMenuContainerViewController *)self.parentViewController;
+}
 
 @end

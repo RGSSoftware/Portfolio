@@ -6,13 +6,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DEBUGHeader.h"
+#import <MFSideMenu/MFSideMenu.h>
 
-@interface SideMenuViewController : UITableViewController<UISearchBarDelegate>
-{
+@interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-}
-
-//- (MFSideMenuContainerViewController *)menuContainerViewController;
--(void)changeCa:(UIViewController *)gallerycontroller;
 
 @end
