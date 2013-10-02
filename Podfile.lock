@@ -1,10 +1,25 @@
 PODS:
+  - GGFullscreenImageViewController (1.0.0)
+  - MBProgressHUD (0.8)
   - MFSideMenu (0.5.4)
+  - Reachability (3.1.1)
+  - SDSegmentedControl (1.0.2)
+  - XCDYouTubeVideoPlayerViewController (1.1.0)
 
 DEPENDENCIES:
+  - GGFullscreenImageViewController
+  - MBProgressHUD
   - MFSideMenu
+  - Reachability
+  - SDSegmentedControl
+  - XCDYouTubeVideoPlayerViewController
 
 SPEC CHECKSUMS:
+  GGFullscreenImageViewController: 81ff02e95ea08d28326e937090fbf3e2b2778193
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
+  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
+  XCDYouTubeVideoPlayerViewController: 34eb3c5a9a192ace01b1ecfe3ffccef1890561b7
 
-COCOAPODS: 0.20.2
+COCOAPODS: 0.25.0
