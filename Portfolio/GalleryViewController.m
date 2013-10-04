@@ -195,6 +195,7 @@ const float kCollectionCloumnCount = 2;
     imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,rctSizeFinal.width,rctSizeFinal.height);
     
     
+    
     [cell.contentView addSubview:imageView];
     
     return cell;
@@ -217,6 +218,9 @@ const float kCollectionCloumnCount = 2;
             double scale = (cell.bounds.size.width  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
             CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
             imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,rctSizeFinal.width,rctSizeFinal.height);
+            
+            NSLog(@"scale:%f", scale);
+            NSLog(@"rctSizeFinal:%@", NSStringFromCGSize(rctSizeOriginal));
 
             
             [cell.contentView addSubview:imageView];

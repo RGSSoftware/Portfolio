@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-DRImagePlaceholderHelper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-GGFullscreenImageViewController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>Pods-RSCategories.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Pods-Reachability.xcscheme</key>
 		<dict>
@@ -47,6 +57,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>03D06922325F4357BEE85029</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1AB15A3ED81D44CCAD166002</key>
 		<dict>
 			<key>primary</key>
@@ -62,7 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4570812DAB7842688A5F6170</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57BC4B63A16A4C43AFB59139</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>58C60B67531E425AB2E5C74D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7737AAF3351B4872A84D1E4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C63AD034A014F10918B4254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,6 +127,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C292132A67124FA79253711D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CE5DF3580B3A4C2C9A47B510</key>
 		<dict>
 			<key>primary</key>
@@ -102,7 +142,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>F3F78F32C75C4CE489E450FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F5058B83F21B4474B4000B33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5AD008EEA91414A885C9089</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7DCBD4D83224F6290C87A4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -6,6 +6,12 @@
 // project.
 
 
+// DRImagePlaceholderHelper
+#define COCOAPODS_POD_AVAILABLE_DRImagePlaceholderHelper
+#define COCOAPODS_VERSION_MAJOR_DRImagePlaceholderHelper 1
+#define COCOAPODS_VERSION_MINOR_DRImagePlaceholderHelper 0
+#define COCOAPODS_VERSION_PATCH_DRImagePlaceholderHelper 1
+
 // GGFullscreenImageViewController
 #define COCOAPODS_POD_AVAILABLE_GGFullscreenImageViewController
 #define COCOAPODS_VERSION_MAJOR_GGFullscreenImageViewController 1
@@ -23,6 +29,12 @@
 #define COCOAPODS_VERSION_MAJOR_MFSideMenu 0
 #define COCOAPODS_VERSION_MINOR_MFSideMenu 5
 #define COCOAPODS_VERSION_PATCH_MFSideMenu 4
+
+// RSCategories
+#define COCOAPODS_POD_AVAILABLE_RSCategories
+#define COCOAPODS_VERSION_MAJOR_RSCategories 0
+#define COCOAPODS_VERSION_MINOR_RSCategories 1
+#define COCOAPODS_VERSION_PATCH_RSCategories 0
 
 // Reachability
 #define COCOAPODS_POD_AVAILABLE_Reachability

@@ -1,0 +1,1 @@
+PODS_RSCATEGORIES_OTHER_LDFLAGS = -framework ImageIO

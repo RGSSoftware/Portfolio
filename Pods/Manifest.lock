@@ -1,24 +1,30 @@
 PODS:
+  - DRImagePlaceholderHelper (1.0.1)
   - GGFullscreenImageViewController (1.0.0)
   - MBProgressHUD (0.8)
   - MFSideMenu (0.5.4)
   - Reachability (3.1.1)
+  - RSCategories (0.1)
   - SDSegmentedControl (1.0.2)
   - XCDYouTubeVideoPlayerViewController (1.1.0)
 
 DEPENDENCIES:
+  - DRImagePlaceholderHelper
   - GGFullscreenImageViewController
   - MBProgressHUD
   - MFSideMenu
   - Reachability
+  - RSCategories
   - SDSegmentedControl
   - XCDYouTubeVideoPlayerViewController
 
 SPEC CHECKSUMS:
+  DRImagePlaceholderHelper: 09c3316c74926f35a30a600782dd950bdb008b72
   GGFullscreenImageViewController: 81ff02e95ea08d28326e937090fbf3e2b2778193
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MFSideMenu: f59e25c080097a701e108459c207fb22e1f62c30
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  RSCategories: 69826242601f1e95c07c5e562bd41f7dac7e39b8
   SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
   XCDYouTubeVideoPlayerViewController: 34eb3c5a9a192ace01b1ecfe3ffccef1890561b7
 

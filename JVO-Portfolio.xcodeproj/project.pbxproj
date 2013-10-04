@@ -45,7 +45,6 @@
 		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F917F6D55600F594FF /* MenuBarButtons.m */; };
 		224631FC17F6E0D400F594FF /* bgR.png in Resources */ = {isa = PBXBuildFile; fileRef = 224631FB17F6E0D400F594FF /* bgR.png */; };
-		2246320217F8A48300F594FF /* RGSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2246320117F8A48300F594FF /* RGSViewController.m */; };
 		226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4B117BB7FCF00C512D9 /* LanchViewController.m */; };
 		226BB4B417BB7FCF00C512D9 /* LanchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */; };
 		226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4F917BF6EAF00C512D9 /* splashScreenViewController.m */; };
@@ -195,8 +194,6 @@
 		224631F817F6D55600F594FF /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
 		224631F917F6D55600F594FF /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		224631FB17F6E0D400F594FF /* bgR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgR.png; sourceTree = "<group>"; };
-		2246320017F8A48300F594FF /* RGSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSViewController.h; sourceTree = "<group>"; };
-		2246320117F8A48300F594FF /* RGSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSViewController.m; sourceTree = "<group>"; };
 		226BB4B017BB7FCF00C512D9 /* LanchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanchViewController.h; sourceTree = "<group>"; };
 		226BB4B117BB7FCF00C512D9 /* LanchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanchViewController.m; sourceTree = "<group>"; };
 		226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanchViewController.xib; sourceTree = "<group>"; };
@@ -399,8 +396,6 @@
 				226BB4B117BB7FCF00C512D9 /* LanchViewController.m */,
 				226BB4B217BB7FCF00C512D9 /* LanchViewController.xib */,
 				229001B417AF809500DA8CF8 /* portfolioCoreData.xcdatamodeld */,
-				2246320017F8A48300F594FF /* RGSViewController.h */,
-				2246320117F8A48300F594FF /* RGSViewController.m */,
 				2201572F16E034CF00918611 /* Supporting Files */,
 			);
 			path = Portfolio;
@@ -696,7 +691,6 @@
 				22A7F058178B0D6A00FEF19B /* GalleryViewControllerContainer.m in Sources */,
 				229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */,
 				229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */,
-				2246320217F8A48300F594FF /* RGSViewController.m in Sources */,
 				226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */,
 				226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */,
 			);
