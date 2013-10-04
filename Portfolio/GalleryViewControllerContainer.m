@@ -87,7 +87,7 @@ float const categoryVideosViewy = categoryControlheight;
 
 - (GalleryViewController *)galleryViewControllerWithCategory:(GalleryCategory)galleycategory andPthsizes:(NSArray *)photosizes
 {
-    GalleryViewController *galleryController = [[GalleryViewController alloc] initWithCollectionViewLayout:[PintCollectionViewLayout new]];
+    GalleryViewController *galleryController = [[GalleryViewController alloc] initWithCollectionViewLayout:[FRGWaterfallCollectionViewLayout new]];
     galleryController.galleryCategory = galleycategory;
     galleryController.photoSizes = photosizes;
     

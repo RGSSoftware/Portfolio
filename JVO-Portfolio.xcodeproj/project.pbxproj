@@ -16,6 +16,10 @@
 		2201575816E0354900918611 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575316E0354900918611 /* back-arrow.png */; };
 		2201575916E0354900918611 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2201575416E0354900918611 /* back-arrow@2x.png */; };
 		2201575F16E036C200918611 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201575D16E036C200918611 /* SideMenuViewController.m */; };
+		221B095F17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B095C17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.m */; };
+		221B096017FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B095E17FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.m */; };
+		221B096817FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B096517FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.m */; };
+		221B096917FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B096717FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.m */; };
 		2222AAD31762AC7D0008884B /* VideoViewControllerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222AAD21762AC7C0008884B /* VideoViewControllerContainer.m */; };
 		2222E535172A746A00347D06 /* square_bg@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E533172A746A00347D06 /* square_bg@2X.png */; };
 		2222E539172A759D00347D06 /* billie_holiday@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2222E537172A759C00347D06 /* billie_holiday@2X.png */; };
@@ -42,7 +46,6 @@
 		2231D878174F19F4001CE97B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2231D86F174F19E2001CE97B /* libRestKit.a */; };
 		2231D8C51754B8CE001CE97B /* AboutMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231D8C41754B8CD001CE97B /* AboutMe.png */; };
 		2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2231D8CA1755B07B001CE97B /* GalleryViewController.m */; };
-		2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */; };
 		224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 224631F917F6D55600F594FF /* MenuBarButtons.m */; };
 		224631FC17F6E0D400F594FF /* bgR.png in Resources */ = {isa = PBXBuildFile; fileRef = 224631FB17F6E0D400F594FF /* bgR.png */; };
 		226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BB4B117BB7FCF00C512D9 /* LanchViewController.m */; };
@@ -157,6 +160,14 @@
 		2201575416E0354900918611 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		2201575D16E036C200918611 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		2201575E16E036C200918611 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		221B095B17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGWaterfallCollectionViewLayout.h; sourceTree = "<group>"; };
+		221B095C17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGWaterfallCollectionViewLayout.m; sourceTree = "<group>"; };
+		221B095D17FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGWaterfallCollectionViewCell.h; sourceTree = "<group>"; };
+		221B095E17FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGWaterfallCollectionViewCell.m; sourceTree = "<group>"; };
+		221B096417FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGWaterfallHeaderReusableView.h; sourceTree = "<group>"; };
+		221B096517FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGWaterfallHeaderReusableView.m; sourceTree = "<group>"; };
+		221B096617FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGWaterfallDecorationReusableView.h; sourceTree = "<group>"; };
+		221B096717FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGWaterfallDecorationReusableView.m; sourceTree = "<group>"; };
 		2222AAD11762AC7C0008884B /* VideoViewControllerContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewControllerContainer.h; sourceTree = "<group>"; };
 		2222AAD21762AC7C0008884B /* VideoViewControllerContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewControllerContainer.m; sourceTree = "<group>"; };
 		2222E533172A746A00347D06 /* square_bg@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square_bg@2X.png"; sourceTree = "<group>"; };
@@ -188,9 +199,7 @@
 		2231D8AE17513D70001CE97B /* DEBUGHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUGHeader.h; sourceTree = "<group>"; };
 		2231D8C41754B8CD001CE97B /* AboutMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutMe.png; sourceTree = "<group>"; };
 		2231D8C91755B075001CE97B /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		2231D8CA1755B07B001CE97B /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PintCollectionViewLayout.m; sourceTree = "<group>"; };
-		2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintCollectionViewLayout.h; sourceTree = "<group>"; };
+		2231D8CA1755B07B001CE97B /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GalleryViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		224631F817F6D55600F594FF /* MenuBarButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBarButtons.h; sourceTree = "<group>"; };
 		224631F917F6D55600F594FF /* MenuBarButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuBarButtons.m; sourceTree = "<group>"; };
 		224631FB17F6E0D400F594FF /* bgR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgR.png; sourceTree = "<group>"; };
@@ -370,8 +379,6 @@
 				2231D8CA1755B07B001CE97B /* GalleryViewController.m */,
 				22A7F056178B0D6A00FEF19B /* GalleryViewControllerContainer.h */,
 				22A7F057178B0D6A00FEF19B /* GalleryViewControllerContainer.m */,
-				2235CA95173F89E3008C7282 /* PintCollectionViewLayout.h */,
-				2235CA94173F89E3008C7282 /* PintCollectionViewLayout.m */,
 				222FCF0716FE4389006A93C7 /* PhotoDetailViewController.h */,
 				222FCF0816FE4389006A93C7 /* PhotoDetailViewController.m */,
 				222FCF0916FE4389006A93C7 /* PhotoDetailViewController.xib */,
@@ -407,6 +414,14 @@
 				2231D867174F19E1001CE97B /* RestKit.xcodeproj */,
 				22D676D11727C5A900E3858D /* AsyncImageView.h */,
 				22D676D21727C5A900E3858D /* AsyncImageView.m */,
+				221B095B17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.h */,
+				221B095C17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.m */,
+				221B095D17FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.h */,
+				221B095E17FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.m */,
+				221B096417FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.h */,
+				221B096517FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.m */,
+				221B096617FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.h */,
+				221B096717FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.m */,
 				224631F817F6D55600F594FF /* MenuBarButtons.h */,
 				224631F917F6D55600F594FF /* MenuBarButtons.m */,
 				2201573016E034CF00918611 /* JVO-Portfolio-Info.plist */,
@@ -672,6 +687,7 @@
 			files = (
 				2201573516E034CF00918611 /* main.m in Sources */,
 				2201573916E034CF00918611 /* RGSAppDelegate.m in Sources */,
+				221B096917FECBAF00962EE9 /* FRGWaterfallDecorationReusableView.m in Sources */,
 				2201575F16E036C200918611 /* SideMenuViewController.m in Sources */,
 				222FCF0A16FE438A006A93C7 /* PhotoDetailViewController.m in Sources */,
 				224631FA17F6D55600F594FF /* MenuBarButtons.m in Sources */,
@@ -680,7 +696,6 @@
 				22D676D31727C5A900E3858D /* AsyncImageView.m in Sources */,
 				2222E5591730A4DC00347D06 /* ConfigManager.m in Sources */,
 				22704E731738310F009B5708 /* AboutMeViewController.m in Sources */,
-				2235CA9D173F89E3008C7282 /* PintCollectionViewLayout.m in Sources */,
 				2231D8CB1755B081001CE97B /* GalleryViewController.m in Sources */,
 				22A90392175B54D800362022 /* InfoViewController.m in Sources */,
 				2222AAD31762AC7D0008884B /* VideoViewControllerContainer.m in Sources */,
@@ -689,10 +704,13 @@
 				2292F84A177D2071009906B4 /* STViewController.m in Sources */,
 				2292F84F177D20C4009906B4 /* ContactViewController.m in Sources */,
 				22A7F058178B0D6A00FEF19B /* GalleryViewControllerContainer.m in Sources */,
+				221B096017FEC87A00962EE9 /* FRGWaterfallCollectionViewCell.m in Sources */,
+				221B096817FECBAF00962EE9 /* FRGWaterfallHeaderReusableView.m in Sources */,
 				229001B617AF809600DA8CF8 /* portfolioCoreData.xcdatamodeld in Sources */,
 				229001EE17B352E200DA8CF8 /* CustomYouTubeVideoPlayerViewController.m in Sources */,
 				226BB4B317BB7FCF00C512D9 /* LanchViewController.m in Sources */,
 				226BB4FB17BF6EAF00C512D9 /* splashScreenViewController.m in Sources */,
+				221B095F17FEC87A00962EE9 /* FRGWaterfallCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,15 +21,20 @@
 
 #import "ConfigManager.h"
 
+#import "FRGWaterfallCollectionViewLayout.h"
+#import "FRGWaterfallCollectionViewCell.h"
+
 const float kCollectionCellBorderTop = 0;
 const float kCollectionCellBorderBottom = 0;
 const float kCollectionCellBorderLeft = 0;
 const float kCollectionCellBorderRight = 0;
 
-const float kCollectionCloumnWidth = 158.0;
+const float kCollectionCloumnWidth = 156.0;
 const float kCollectionCloumnCount = 2;
 
-@interface GalleryViewController ()
+static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
+
+@interface GalleryViewController () <FRGWaterfallCollectionViewDelegate>
 @property (strong,nonatomic) MenuBarButtons *menuBarButtons;
 @property (strong,nonatomic) SDSegmentedControl *categorySegment;
 
@@ -51,23 +56,30 @@ const float kCollectionCloumnCount = 2;
 {
     [super viewDidLoad];
     
+    
+    self.collectionView.delegate = self;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:235.0f/255.0f alpha:1];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"MY_CELL"];
-
-    PintCollectionViewLayout* customLayout = (PintCollectionViewLayout*)self.collectionView.collectionViewLayout;
-    customLayout.interitemSpacing = 4.0;
-    customLayout.lineSpacing = 4.0;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:WaterfallCellIdentifier];
     
+    
+    FRGWaterfallCollectionViewLayout *collectionViewLayout = [[FRGWaterfallCollectionViewLayout alloc] init];
+    collectionViewLayout.delegate = self;
+    collectionViewLayout.itemWidth = 156.0f;
+    //collectionViewLayout.headerHeight = 26.0f;
+    //collectionViewLayout.topInset = 10.0f;
+    //collectionViewLayout.bottomInset = 10.0f;
+    //collectionViewLayout.stickyHeader = YES;
+    
+    [self.collectionView setCollectionViewLayout:collectionViewLayout];
+
     _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
     _menuBarButtons.setLeftBarButton = TRUE;
     [_menuBarButtons setupMenuBarButtonItems];
     
     self.navigationItem.title = @"Galley";
-#ifdef MYDEBUG
-    /* JUST SKIPPING DOWNLOADING OF IMAGES */
-#else
+
     if (!_photoObjects) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -85,7 +97,7 @@ const float kCollectionCloumnCount = 2;
             });
         });
     }
-#endif /* MYDEBUG */
+
     
 }
 
@@ -135,25 +147,11 @@ const float kCollectionCloumnCount = 2;
     }];
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell.backgroundColor = [UIColor whiteColor];
-}
-
-- (CGFloat)columnWidthForCollectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout
-{
-    return kCollectionCloumnWidth;
-}
-
-- (NSUInteger)maximumNumberOfColumnsForCollectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
-{
-    return kCollectionCloumnCount;
+    cell.backgroundColor = [UIColor clearColor];
 }
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
@@ -169,7 +167,6 @@ const float kCollectionCloumnCount = 2;
 #pragma mark = UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
     return [_photoSizes count];
 }
 
@@ -181,26 +178,13 @@ const float kCollectionCloumnCount = 2;
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MY_CELL" forIndexPath:indexPath];
+    FRGWaterfallCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WaterfallCellIdentifier
+                                                                                              forIndexPath:indexPath];
      
     // remove subviews from previous usage of this cell
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-#ifdef MYDEBUG
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo3.jpg"]];
-    CGSize rctSizeOriginal = imageView.image.size;
-    double scale = (cell.bounds.size.width  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
-    CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
-    imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,rctSizeFinal.width,rctSizeFinal.height);
-    
-    
-    
-    [cell.contentView addSubview:imageView];
-    
-    return cell;
-    
-#else
+
      if (!_photoObjects) {
         return cell;
     } else {
@@ -228,7 +212,7 @@ const float kCollectionCloumnCount = 2;
     }
     
     return cell;
-#endif /* MYDEUG */
+
     
 }
 #pragma mark - MenuBarButtonProcol Callbacks

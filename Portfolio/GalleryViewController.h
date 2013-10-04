@@ -10,9 +10,11 @@
 
 #import "GalleryViewControllerContainer.h"
 
-#import "PintCollectionViewLayout.h"
+#import "FRGWaterfallCollectionViewLayout.h"
 
-@interface GalleryViewController : UICollectionViewController <UICollectionViewDelegateJSPintLayout,UICollectionViewDataSource>
+
+
+@interface GalleryViewController : UICollectionViewController <UICollectionViewDataSource>
 
 
 @property (nonatomic, assign) GalleryCategory galleryCategory;
