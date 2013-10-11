@@ -13,12 +13,9 @@
 #import "FRGWaterfallCollectionViewLayout.h"
 
 
-
 @interface GalleryViewController : UICollectionViewController <UICollectionViewDataSource>
 
-
 @property (nonatomic, assign) GalleryCategory galleryCategory;
-
 @property (strong,nonatomic) NSArray *photoSizes;
 
 @end

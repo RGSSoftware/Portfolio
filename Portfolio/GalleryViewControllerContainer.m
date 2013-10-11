@@ -109,6 +109,8 @@ float const categoryVideosViewy = categoryControlheight;
     
 }
 
+#pragma mark - MenuBarButtonProcol Callbacks
+
 - (void)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

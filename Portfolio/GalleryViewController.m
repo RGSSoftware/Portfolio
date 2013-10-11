@@ -9,19 +9,15 @@
 #import "GalleryViewController.h"
 #import "PhotoDetailViewController.h"
 
-#import "DEBUGHeader.h"
-
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 #import "GGFullScreenImageViewController.h"
 #import "SDSegmentedControl.h"
 #import "MenuBarButtons.h"
 
-#import "SideMenuViewController.h"
 
 #import "ConfigManager.h"
 
-#import "FRGWaterfallCollectionViewLayout.h"
 #import "FRGWaterfallCollectionViewCell.h"
 
 const float kCollectionCellBorderTop = 0;
@@ -73,30 +69,25 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
     //collectionViewLayout.stickyHeader = YES;
     
     [self.collectionView setCollectionViewLayout:collectionViewLayout];
-
-    _menuBarButtons = [[MenuBarButtons alloc] initWithParentController:self];
-    _menuBarButtons.setLeftBarButton = TRUE;
-    [_menuBarButtons setupMenuBarButtonItems];
     
     self.navigationItem.title = @"Galley";
 
-    if (!_photoObjects) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
-            NSMutableArray *downloadPhotos = [self downloadPhotos];
+        NSMutableArray *downloadPhotos = [self downloadPhotos];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+        
+            _photoObjects = [NSMutableArray arrayWithArray:downloadPhotos];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
                 
-                _photoObjects = [NSMutableArray arrayWithArray:downloadPhotos];
-                
-                [self.collectionView reloadData];
-                
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            });
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         });
-    }
+    });
+
 
     
 }
@@ -112,11 +103,16 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
     }
     [query addAscendingOrder:@"objectId"];
     [query includeKey:@"thumbnail"];
-    NSArray *objects = [query findObjects];
     
-    NSLog(@"Successfully retrieved %d photos objects.", objects.count);
+    NSError *error = nil;
+    NSMutableArray *objects = [NSMutableArray arrayWithArray:[query findObjects:&error]];
     
-    return [NSMutableArray arrayWithArray:objects];
+    if (!error) {
+        NSLog(@"Successfully retrieved %d photos objects.", objects.count);
+    } else {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
+    return objects;
    
 }
 
@@ -125,8 +121,8 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    PFObject *photo = _photoObjects[indexPath.row];
-    [[photo objectForKey:@"full"] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    PFObject *photoObject = _photoObjects[indexPath.row];
+    [[photoObject objectForKey:@"full"] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         
         PFFile *fullSizeFile = [object objectForKey:@"file"];
         
@@ -141,6 +137,8 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
                 pdvc.liftedImageView = imageView;
                 
                 [self presentViewController:pdvc animated:YES completion:Nil];
+            } else {
+                NSLog(@"Error: %@", [error localizedDescription]);
             }
         }];
         [imageView setNeedsDisplay];
@@ -156,12 +154,8 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
 
 - (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    CGSize sizeOriginal = [[_photoSizes objectAtIndex:indexPath.row] CGSizeValue];
-    double scale = (kCollectionCloumnWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / sizeOriginal.width;
-    CGSize sizeFinal = CGSizeMake(sizeOriginal.width * scale,sizeOriginal.height * scale);
-    CGFloat height = sizeFinal.height;
-    
-    return height;
+    CGSize sizeFinal = [self scaleImageSize:[[_photoSizes objectAtIndex:indexPath.row] CGSizeValue] toWidth:kCollectionCloumnWidth];
+    return sizeFinal.height;
 }
 
 #pragma mark = UICollectionViewDataSource
@@ -179,33 +173,23 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
 {
     
     FRGWaterfallCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WaterfallCellIdentifier
-                                                                                              forIndexPath:indexPath];
+                                                                                     forIndexPath:indexPath];
      
     // remove subviews from previous usage of this cell
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
 
-     if (!_photoObjects) {
-        return cell;
-    } else {
-        
-        PFObject *photo = _photoObjects[indexPath.row];
-        PFObject *imageObject = [[photo objectForKey:@"thumbnail"] fetchIfNeeded];
+     if (_photoObjects) {
+         PFObject *photoObject = _photoObjects[indexPath.row];
+        PFObject *imageObject = [[photoObject objectForKey:@"thumbnail"] fetchIfNeeded];
         PFFile *photoThumbnail = [imageObject objectForKey:@"file"];
 
-        
         PFImageView *imageView = [PFImageView new];
         imageView.file = photoThumbnail;
         [imageView loadInBackground:^(UIImage *image, NSError *error) {
             
-            CGSize rctSizeOriginal = image.size;
-            double scale = (cell.bounds.size.width  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / rctSizeOriginal.width;
-            CGSize rctSizeFinal = CGSizeMake(rctSizeOriginal.width * scale,rctSizeOriginal.height * scale);
-            imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,rctSizeFinal.width,rctSizeFinal.height);
-            
-            NSLog(@"scale:%f", scale);
-            NSLog(@"rctSizeFinal:%@", NSStringFromCGSize(rctSizeOriginal));
-
+            CGSize imageScaleSize = [self scaleImageSize:image.size toWidth:kCollectionCloumnWidth];
+            imageView.frame = CGRectMake(kCollectionCellBorderLeft,kCollectionCellBorderTop,imageScaleSize.width,imageScaleSize.height);
             
             [cell.contentView addSubview:imageView];
         }];
@@ -215,22 +199,14 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
 
     
 }
-#pragma mark - MenuBarButtonProcol Callbacks
 
-- (void)backButtonPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)leftSideMenuButtonPressed:(id)sender {
-    [_menuBarButtons.menuContainerViewController toggleLeftSideMenuCompletion:^{
-        [_menuBarButtons setupMenuBarButtonItems];
-    }];
-}
-
-- (void)rightSideMenuButtonPressed:(id)sender {
-    [_menuBarButtons.menuContainerViewController toggleRightSideMenuCompletion:^{
-        [_menuBarButtons setupMenuBarButtonItems];
-    }];
+-(CGSize)scaleImageSize:(CGSize)imgSize toWidth:(NSInteger)toWidth{
+    CGSize sizeOriginal = imgSize;
+    double scale = (toWidth  - (kCollectionCellBorderLeft + kCollectionCellBorderRight)) / sizeOriginal.width;
+    CGSize sizeFinal = CGSizeMake(sizeOriginal.width * scale,sizeOriginal.height * scale);
+    
+    return sizeFinal;
+    
 }
 
 - (void)didReceiveMemoryWarning

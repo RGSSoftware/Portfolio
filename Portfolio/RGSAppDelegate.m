@@ -31,6 +31,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    //Register for push notifications
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |
+                                                    UIRemoteNotificationTypeAlert |
+                                                    UIRemoteNotificationTypeSound];
+
+    
     [Parse setApplicationId:@"bUzh4WAVsJVI2tlaoAbgukS5WjnJe4vbiTd0Z95x"
                   clientKey:@"aqZdOO1BE4XplvkcznHtIf8mMKADxbePH3lwhGKx"];
     
@@ -54,17 +60,7 @@
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
                                                                
-                                                        UIView *noInternetView = [[UIView alloc] initWithFrame:CGRectMake(0, -33, 320, 33)];
-                                                        noInternetView.backgroundColor = [UIColor colorWithRed:.177/.255 green:0 blue:0 alpha:1];
-                                                      
-                                                        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 33)];
-                                                        [label setBackgroundColor:[UIColor clearColor]];
-                                                        [label setTextAlignment:NSTextAlignmentCenter];
-                                                        [label setFont:[UIFont systemFontOfSize:19]];
-                                                        [label setTextColor:[UIColor whiteColor]];
-                                                        [label setText:@"No Internet Connective"];
-                                                      
-                                                        [noInternetView addSubview:label];
+                                                        UIView *noInternetView = [self noInternetView];
                                                       
                                                         [splashSreenController.view addSubview:noInternetView];
                                                       
@@ -102,6 +98,40 @@
     return YES;
 }
 
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Error in registration. Error: %@", [error localizedDescription]);
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    //Store the deviceToken in the current installion and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
+    
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [PFPush handlePush:userInfo];
+    
+    int notificationNumber = [[[userInfo objectForKey:@"aps"] objectForKey:@"badge"] intValue];
+    
+    application.applicationIconBadgeNumber = notificationNumber - 1;
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application
+{
+    //updates Parse to clear icon badge
+    PFInstallation *currentInstallion = [PFInstallation currentInstallation];
+    if (currentInstallion != 0) {
+        currentInstallion.badge = 0;
+        [currentInstallion saveEventually];
+    }
+}
+
 - (UINavigationController *)navigationController
 {
     VideoViewControllerContainer *viewController = [VideoViewControllerContainer new];
@@ -112,32 +142,24 @@
     return navigationController;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+-(UIView *)noInternetView
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    UIView *noInternetView = [[UIView alloc] initWithFrame:CGRectMake(0, -33, 320, 33)];
+    noInternetView.backgroundColor = [UIColor colorWithRed:.177/.255 green:0 blue:0 alpha:1];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 33)];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setFont:[UIFont systemFontOfSize:19]];
+    [label setTextColor:[UIColor whiteColor]];
+    [label setText:@"No Internet Connective"];
+    
+    [noInternetView addSubview:label];
+    
+    return noInternetView;
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
 
 - (void)saveContext

@@ -50,7 +50,7 @@ NSString* const FRGWaterfallLayouDecorationKind = @"Decoration";
     [self invalidateLayout];
 }
 
-- (void) setItemWidth:(CGFloat)itemWidth {
+- (void)setItemWidth:(CGFloat)itemWidth {
     if(_itemWidth == itemWidth) return;
     _itemWidth = itemWidth;
     [self invalidateLayout];
