@@ -81,7 +81,7 @@ float const categoryVideosViewy = categoryControlheight;
     _segmentedControl.frame = CGRectMake(categoryControlx, categoryControly, self.view.frame.size.width, categoryControlheight);
     [self.view addSubview:_segmentedControl];
     [self.view bringSubviewToFront:_segmentedControl];
-
+    
 
 }
 
@@ -107,6 +107,7 @@ float const categoryVideosViewy = categoryControlheight;
     [self.view sendSubviewToBack:_currentViewCategoryController.view];
     [_currentViewCategoryController didMoveToParentViewController:self];
     
+
 }
 
 #pragma mark - MenuBarButtonProcol Callbacks

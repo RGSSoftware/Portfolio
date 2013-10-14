@@ -62,11 +62,7 @@ static NSString* const WaterfallCellIdentifier = @"WaterfallCell";
     
     FRGWaterfallCollectionViewLayout *collectionViewLayout = [[FRGWaterfallCollectionViewLayout alloc] init];
     collectionViewLayout.delegate = self;
-    collectionViewLayout.itemWidth = 156.0f;
-    //collectionViewLayout.headerHeight = 26.0f;
-    //collectionViewLayout.topInset = 10.0f;
-    //collectionViewLayout.bottomInset = 10.0f;
-    //collectionViewLayout.stickyHeader = YES;
+    collectionViewLayout.itemWidth = kCollectionCloumnWidth;
     
     [self.collectionView setCollectionViewLayout:collectionViewLayout];
     

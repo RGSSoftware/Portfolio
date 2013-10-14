@@ -76,8 +76,6 @@ float const categoryVideosViewY = categoryControlHeight;
     self.navigationItem.title = @"Videos";
     
     self.view.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
-    //self.tableView.backgroundView.backgroundColor = [UIColor brownColor];
-    
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         _videoCategories = [self downloadCategories];
@@ -98,6 +96,7 @@ float const categoryVideosViewY = categoryControlHeight;
             [self.view sendSubviewToBack:_currentViewCategoryController.view];
             [_currentViewCategoryController didMoveToParentViewController:self];
             
+            
         });
     });
     
@@ -112,6 +111,7 @@ float const categoryVideosViewY = categoryControlHeight;
     _segmentedControl.frame = CGRectMake(categoryControlX, categoryControlY, self.view.frame.size.width, categoryControlHeight);
     [self.view addSubview:_segmentedControl];
     [self.view bringSubviewToFront:_segmentedControl];
+    
 
 }
 
@@ -136,6 +136,7 @@ float const categoryVideosViewY = categoryControlHeight;
     [self.view sendSubviewToBack:_currentViewCategoryController.view];
     [_currentViewCategoryController didMoveToParentViewController:self];
     
+        
 }
 - (void)didReceiveMemoryWarning
 {

@@ -181,7 +181,6 @@ typedef enum{
                                         
                                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                     });
-
                                     
                                 }
      
@@ -327,6 +326,8 @@ typedef enum{
         cell = [[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:videoCellIdentifier];
         
     }
+    
+    cell.backgroundColor = [UIColor clearColor];
     
     Video *video = [[_videos objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.tumbnailView.image = [UIImage imageNamed:videoCellTumbnailPlaceholder];
